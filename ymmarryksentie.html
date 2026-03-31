@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="fi">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>Ymmärryksen tie™ - Roboline Group</title>
+  <meta name="description" content="Ymmärryksen tie™ on sosiaalinen innovaatio ja digitaalinen peli, joka ennaltaehkäisee koulukiusaamista. Kehitetty yhteistyössä Laurean ja nuorten kanssa." />
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <link rel="apple-touch-icon" href="favicon.png" />
+  
+  <!-- Open Graph / Social Media -->
+  <meta property="og:title" content="Ymmärryksen tie™ - Roboline Group" />
+  <meta property="og:description" content="Digitaalinen peli koulukiusaamisen ennaltaehkäisyyn. Tutustu Roboline Groupin uuteen innovaatioon." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="logo_og.png" />
+  
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Ymmärryksen tie™ - Roboline Group" />
+  <meta name="twitter:description" content="Ymmärryksen tie™ on sosiaalinen innovaatio ja digitaalinen peli, joka ennaltaehkäisee koulukiusaamista." />
+  <meta name="twitter:image" content="logo_og.png" />
+
+  <!-- Vercel Analytics & Speed Insights -->
+  <script defer src="/_vercel/insights/script.js"></script>
+  <script defer src="/_vercel/speed-insights/script.js"></script>
+
+  <!-- Tailwind CSS v3 CDN -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <!-- Google Fonts: Inter & Montserrat -->
+  <link href="https://fonts.googleapis.com" rel="preconnect" />
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@700;800;900&display=swap"
+    rel="stylesheet" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              primary: '#0077b8',
+              dark: '#1a202c',
+              light: '#f8fafc',
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Montserrat', 'sans-serif'],
+          },
+          borderRadius: {
+            'custom': '8px',
+          }
+        }
+      }
+    }
+  </script>
+  <style data-purpose="custom-utilities">
+    html, body {
+      font-family: 'Inter', sans-serif;
+      scroll-behavior: smooth;
+      overflow-x: hidden;
+      max-width: 100vw;
+    }
+
+
+    .glass-effect {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+    }
+
+    /* Premium Shimmer & Floating Glass Effects */
+    .hero-glass-container {
+      position: absolute;
+      inset: 0;
+      background: #0f0a29; /* Deep Indigo / Midnight Violet - Game World Theme */
+      overflow: hidden;
+      z-index: 0;
+    }
+
+    /* Floating Animation for Header Cards */
+    .animate-float-pro {
+      animation: float-pro 14s infinite ease-in-out;
+    }
+
+
+    @keyframes float-pro {
+      0%, 100% { transform: translateY(0) translateX(0) rotate(-2.5deg); }
+      50% { transform: translateY(-10px) translateX(6px) rotate(3.5deg); }
+    }
+
+
+
+    /* Sharp Edge Glint for Card */
+    .sharp-card-edge {
+      border: 1px solid rgba(255, 255, 255, 0.45);
+      box-shadow: 
+        0 0 0 1px rgba(255, 255, 255, 0.15),
+        0 25px 60px -12px rgba(0, 0, 0, 0.35);
+    }
+
+    .hero-glass-surface {
+      position: absolute;
+      inset: 0;
+      backdrop-filter: blur(2px);
+      background: rgba(255, 255, 255, 0.02);
+      z-index: 5;
+      pointer-events: none;
+    }
+
+    .hero-shimmer {
+      position: absolute;
+      width: 160%;
+      height: 100%;
+      background: linear-gradient(90deg, 
+        transparent 0%, 
+        rgba(255, 255, 255, 0) 40%, 
+        rgba(255, 255, 255, 0.07) 50%, 
+        rgba(255, 255, 255, 0) 60%, 
+        transparent 100%
+      );
+      transform: skewX(-20deg);
+      z-index: 2;
+      animation: shimmer-sweep 25s infinite cubic-bezier(0.445, 0.05, 0.55, 0.95);
+      pointer-events: none;
+    }
+
+    .shimmer-2 { animation-duration: 60s; animation-delay: -10s; opacity: 0.25; }
+
+    @keyframes shimmer-sweep {
+      0% { transform: translateX(-120%) skewX(-20deg); }
+      100% { transform: translateX(120%) skewX(-20deg); }
+    }
+
+    .hero-ribs {
+      position: absolute;
+      inset: -5% 0; /* Expanded to cover skew overflow */
+      background: repeating-linear-gradient(0deg,
+          transparent,
+          transparent 48px,
+          rgba(255, 255, 255, 0.05) 48px,
+          rgba(255, 255, 255, 0.12) 50px,
+          transparent 50px);
+      opacity: 0.55;
+      z-index: 1;
+      animation: rib-oscillation 18s infinite alternate ease-in-out;
+      pointer-events: none;
+      will-change: transform;
+    }
+
+    @keyframes rib-oscillation {
+      0% { transform: translateY(0) skewY(-0.5deg) scale(1.02); }
+      100% { transform: translateY(5px) skewY(0.5deg) scale(1); }
+    }
+
+
+
+    /* Surface Glints / Sparkle */
+    .hero-surface-glints {
+      position: absolute;
+      inset: 0;
+      background-image: 
+        radial-gradient(2px 2px at 15% 25%, rgba(255,255,255,0.8), transparent),
+        radial-gradient(1.5px 1.5px at 35% 45%, rgba(255,255,255,0.7), transparent),
+        radial-gradient(2px 2px at 55% 65%, rgba(255,255,255,0.8), transparent),
+        radial-gradient(1.5px 1.5px at 75% 15%, rgba(255,255,255,0.7), transparent),
+        radial-gradient(2px 2px at 95% 85%, rgba(255,255,255,0.8), transparent),
+        radial-gradient(2px 2px at 25% 75%, rgba(255,255,255,0.7), transparent);
+      background-size: 150% 150%;
+      opacity: 0;
+      z-index: 2;
+      animation: surface-glint 10s infinite ease-in-out;
+      pointer-events: none;
+      will-change: transform, opacity;
+    }
+
+    @keyframes surface-glint {
+      0%, 100% { transform: translate(0,0); opacity: 0; }
+      25%, 75% { opacity: 0.35; }
+      50% { transform: translate(-20px, 10px); opacity: 0.15; }
+    }
+
+
+    .text-glow-premium {
+      text-shadow: 0 0 30px rgba(255, 255, 255, 0.3), 0 0 70px rgba(255, 255, 255, 0.1);
+    }
+
+
+    /* Wave Blobs for Depth */
+    .hero-wave-blobs {
+      position: absolute;
+      inset: -50%;
+      background: 
+        radial-gradient(circle at 30% 30%, rgba(139, 92, 246, 0.4) 0%, transparent 45%),
+        radial-gradient(circle at 75% 65%, rgba(6, 182, 212, 0.35) 0%, transparent 50%),
+        radial-gradient(circle at 50% 85%, rgba(99, 102, 241, 0.3) 0%, transparent 40%);
+      filter: blur(80px);
+      z-index: 0;
+      animation: wave-blobs-move 20s infinite alternate ease-in-out;
+      pointer-events: none;
+      opacity: 0.7;
+      will-change: transform;
+    }
+
+    @keyframes wave-blobs-move {
+      0% { transform: translate(3%, 3%) rotate(0deg) scale(1.1); }
+      100% { transform: translate(-3%, -3%) rotate(3deg) scale(1); }
+    }
+
+    /* Accessibility: Reduced motion support (Crucial for 100/100 scores) */
+    @media (prefers-reduced-motion: reduce) {
+      .animate-float-pro, .hero-wave-blobs, .hero-ribs, .hero-surface-glints, .logo-glint-auto {
+        animation: none !important;
+        transition: none !important;
+        transform: none !important;
+      }
+    }
+
+
+      /* Automatic Glint for Logo Card */
+
+      .logo-glint-auto {
+        animation: logo-glint 8s infinite ease-in-out;
+      }
+
+      @keyframes logo-glint {
+        0% { transform: translateX(-110%) skewX(-20deg); }
+        15% { transform: translateX(110%) skewX(-20deg); }
+        100% { transform: translateX(110%) skewX(-20deg); }
+      }
+
+      /* The spotlight element renders BEHIND the text/logo but OVER the dark background */
+      [data-glow] {
+        --size: 600; /* Slightly larger spotlight for Hero */
+        --spotlight-size: calc(var(--size) * 1px);
+      }
+      
+      [data-glow]::before {
+        pointer-events: none;
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: 1; /* Below the z-10 content */
+        background-image: radial-gradient(
+          var(--spotlight-size) var(--spotlight-size) at calc(var(--x, 0) * 1px) calc(var(--y, 0) * 1px),
+          rgba(34, 211, 238, 0.35), transparent 60%
+        );
+        background-attachment: fixed;
+      }
+
+      /* 360D Logo Spin Effect */
+      .logo-flip {
+        transition: transform 1.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+        transform-style: preserve-3d;
+      }
+    </style>
+</head>
+
+<body class="bg-gray-50 text-gray-900 antialiased">
+  <!-- BEGIN: MainHeader -->
+  <header class="sticky top-0 z-50 bg-white border-b border-gray-100 shadow-sm" data-purpose="navigation-header">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-20">
+        <!-- Logo -->
+        <div class="flex-shrink-0 flex items-center pr-2">
+          <img alt="Roboline Group Logo" class="h-10 sm:h-14 w-auto rounded-custom mr-2 sm:mr-3"
+            src="logo.png" />
+          <span class="font-black text-lg sm:text-2xl tracking-tighter text-brand-primary font-display uppercase whitespace-nowrap">ROBOLINE
+            GROUP</span>
+        </div>
+
+        <!-- Desktop Navigation Menu -->
+        <nav class="hidden md:flex space-x-8 items-center">
+          <a class="text-sm font-semibold text-gray-700 hover:text-brand-primary transition-colors uppercase tracking-wider"
+            href="index.html">Etusivu</a>
+          <a class="text-sm font-semibold text-brand-primary transition-colors uppercase tracking-wider"
+            href="ymmarryksentie.html">Ymmärryksen tie™</a>
+          <a class="text-sm font-semibold text-gray-700 hover:text-brand-primary transition-colors uppercase tracking-wider"
+            href="index.html#innovaatiot">Innovaatiot</a>
+          <a class="text-sm font-semibold text-gray-700 hover:text-brand-primary transition-colors uppercase tracking-wider"
+            href="index.html#palvelut">Palvelut</a>
+          <div class="relative group">
+            <button
+              class="text-sm font-semibold text-gray-700 hover:text-brand-primary transition-colors uppercase tracking-wider flex items-center">
+              Lisää
+              <svg class="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+                <path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+              </svg>
+            </button>
+          </div>
+          <a class="bg-brand-primary text-white px-5 py-2.5 rounded-custom text-sm font-bold hover:bg-brand-dark transition-all"
+            href="index.html#ota-yhteytta">OTA YHTEYTTÄ</a>
+        </nav>
+        <!-- Mobile Menu Button (Visible on small screens) -->
+        <div class="md:hidden flex items-center">
+          <button id="mobile-menu-button" aria-label="Avaa valikko"
+            class="p-2 rounded-custom text-gray-500 hover:text-brand-primary hover:bg-gray-100 focus:outline-none"
+            type="button">
+            <svg class="h-6 w-6" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+              <path d="M4 6h16M4 12h16m-7 6h7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Navigation Menu (Hidden by default) -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white/95 backdrop-blur-lg border-b border-gray-100 shadow-xl overflow-hidden transition-all duration-300">
+      <div class="px-4 pt-2 pb-6 space-y-1">
+        <a class="block px-3 py-4 text-base font-bold text-gray-700 hover:text-brand-primary hover:bg-gray-50 rounded-xl transition-all" href="index.html">Etusivu</a>
+        <a class="block px-3 py-4 text-base font-bold text-brand-primary hover:bg-gray-50 rounded-xl transition-all" href="ymmarryksentie.html">Ymmärryksen tie™</a>
+        <a class="block px-3 py-4 text-base font-bold text-gray-700 hover:text-brand-primary hover:bg-gray-50 rounded-xl transition-all" href="index.html#innovaatiot">Innovaatiot</a>
+        <a class="block px-3 py-4 text-base font-bold text-gray-700 hover:text-brand-primary hover:bg-gray-50 rounded-xl transition-all" href="index.html#palvelut">Palvelut</a>
+        <div class="pt-4 px-3">
+          <a class="block w-full text-center bg-brand-primary text-white px-6 py-4 rounded-full text-lg font-bold hover:bg-brand-dark transition-all shadow-lg" href="index.html#ota-yhteytta">OTA YHTEYTTÄ</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- END: MainHeader -->
+
+  <main>
+    <!-- Hero Section -->
+    <section id="glow-hero" data-glow class="relative min-h-[52vh] flex items-center justify-center py-12 lg:py-16 px-4 text-center overflow-hidden" data-purpose="hero-banner">
+      <!-- Animated Glass Background -->
+      <div class="hero-glass-container">
+        <div class="hero-wave-blobs"></div>
+        <div class="hero-surface-glints"></div>
+        <div class="hero-glass-surface"></div>
+        <div class="hero-ribs"></div>
+        <div class="hero-shimmer"></div>
+        <div class="hero-shimmer shimmer-2"></div>
+      </div>
+
+
+
+      <div class="relative z-10 max-w-6xl mx-auto px-4">
+        <!-- Logo in Hero (Restored white badge with float effect and sharp edges) -->
+        <div id="hero-logo-wrapper" style="perspective: 1000px;" class="mb-6 md:mb-8 z-20 inline-block animate-float-pro">
+          <div id="hero-logo-card"
+            class="inline-flex items-center justify-center bg-white p-2.5 md:p-3 rounded-xl md:rounded-2xl shadow-2xl sharp-card-edge overflow-hidden group relative logo-flip cursor-pointer">
+            <img src="logo.png" alt="Roboline Logo"
+              class="h-14 md:h-24 w-auto object-contain pl-1 transition-transform duration-500">
+            <div
+              class="absolute inset-0 bg-gradient-to-tr from-transparent via-white/35 to-transparent transform -translate-x-full logo-glint-auto transition-transform duration-1000 group-hover:translate-x-full">
+            </div>
+          </div>
+        </div>
+
+
+        <h1 class="text-4xl md:text-6xl lg:text-7xl font-black text-white leading-[1.05] mb-8 uppercase font-display tracking-tight text-glow-premium">
+          <span class="text-white drop-shadow-xl">Ymmärryksen tie™ –</span> <br class="hidden md:block" /> <span class="text-cyan-400 opacity-100 decoration-cyan-400 drop-shadow-[0_0_20px_rgba(34,211,238,0.5)]">Polku toisen ihmisen maailmaan</span>
+        </h1>
+
+
+        <p class="text-white text-xl md:text-2xl mb-12 max-w-3xl mx-auto font-medium">
+          Sosiaalinen innovaatio ja digitaalinen kokemus, joka on luotu nuorten ehdoilla. Ennaltaehkäisemme koulukiusaamista ja rakennamme siltoja ymmärrykselle – yksi peliaskel kerrallaan.
+        </p>
+      </div>
+      </div>
+    </section>
+
+    <script>
+      // Glow pointer tracking for Hero Spotlight
+      const heroGlow = document.getElementById('glow-hero');
+      if (heroGlow) {
+        document.addEventListener('pointermove', (e) => {
+          const { clientX, clientY } = e;
+          // Set CSS properties on the Hero container following pointer
+          heroGlow.style.setProperty('--x', clientX.toFixed(2));
+          heroGlow.style.setProperty('--xp', (clientX / window.innerWidth).toFixed(2));
+          heroGlow.style.setProperty('--y', clientY.toFixed(2));
+          heroGlow.style.setProperty('--yp', (clientY / window.innerHeight).toFixed(2));
+        });
+      }
+
+      // Fun Logo Spin Interaction (Reacts to every single swipe/click instantly)
+      const logoCard = document.getElementById('hero-logo-card');
+      const logoWrapper = document.getElementById('hero-logo-wrapper');
+      if (logoCard && logoWrapper) {
+        let currentRotation = 0;
+        let scaleTimeout;
+        
+        const triggerSpin = () => {
+          currentRotation += 360;
+          logoCard.style.transform = `rotateY(${currentRotation}deg) scale(1.05)`;
+          
+          if(scaleTimeout) clearTimeout(scaleTimeout);
+          scaleTimeout = setTimeout(() => {
+            logoCard.style.transform = `rotateY(${currentRotation}deg) scale(1)`;
+          }, 1200); 
+        };
+        
+        // Trigger on every mouse enter or click
+        logoWrapper.addEventListener('mouseenter', triggerSpin);
+        logoWrapper.addEventListener('click', triggerSpin);
+      }
+    </script>    <!-- Content Section -->
+    <section class="py-24 px-4 bg-white" data-purpose="content-section">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col lg:flex-row gap-16 items-center">
+          
+          <!-- Image Part -->
+          <div class="w-full lg:w-1/2">
+            <div class="relative rounded-[2.5rem] overflow-hidden shadow-2xl border border-gray-100 group">
+              <img src="assets/nuoret_yhdessa.png" alt="Nuoret kehittämässä Ymmärryksen tie -peliä" 
+                class="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105">
+              <div class="absolute inset-0 bg-[#0f0a29]/20 mix-blend-multiply opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+            </div>
+          </div>
+
+          <!-- Text Part -->
+          <div class="w-full lg:w-1/2 space-y-8">
+            <div class="inline-flex items-center px-4 py-2 rounded-full bg-[#0f0a29]/10 text-[#0f0a29] text-sm font-bold uppercase tracking-widest mb-4">
+              Meidän visionamme parempi kouluarki
+            </div>
+            <h2 class="text-4xl md:text-5xl font-black text-brand-dark leading-tight font-display tracking-tight">
+              Miksi Ymmärryksen tie™?
+            </h2>
+            
+            <div class="space-y-6 text-gray-600 text-xl leading-relaxed">
+              <p>
+                Koulukiusaaminen ja yksinäisyys jättävät jälkiä, jotka voivat kestää läpi elämän. Ymmärryksen tie™ on kehitetty vastaamaan tähän haasteeseen tarjoamalla nuorille turvallisen tilan kohdata vaikeita tilanteita pelillistämisen avulla. 
+              </p>
+              <p>
+                Se on enemmän kuin viihdettä: se on tapa oppia empatiaa ja sosiaalisia taitoja hauskalla tavalla. Peli auttaa nuoria näkemään tilanteita eri näkökulmista ja ymmärtämään toisen ihmisen maailmaa.
+              </p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 pt-6">
+              <div>
+                <h3 class="font-bold text-gray-900 border-l-4 border-cyan-400 pl-4 mb-2">Nuoret keskiössä</h3>
+                <p class="text-gray-600 text-base">Hiottu yhdessä Laurentius-koulun oppilaiden ja nuorten pelikehittäjien kanssa.</p>
+              </div>
+              <div>
+                <h3 class="font-bold text-gray-900 border-l-4 border-[#0f0a29] pl-4 mb-2">Tutkittu voima</h3>
+                <p class="text-gray-600 text-base">Kehitysympäristönä Laurea-ammattikorkeakoulu.</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Call to Action Section -->
+    <section class="py-20 px-4 bg-gray-50 border-y border-gray-100" id="sijoittajille">
+      <div class="max-w-4xl mx-auto text-center mb-16">
+        <h2 class="text-3xl font-black text-brand-dark mb-6 uppercase font-display tracking-tighter">
+          Tavoitteemme: Turvallisempi arki kaikille
+        </h2>
+        <p class="text-xl text-gray-600 leading-relaxed">
+          Haluamme, että Ymmärryksen tie™ tavoittaa jokaisen nuoren. Tavoitteenamme on tarjota peli ilmaiseksi kaikille pelaajille. Etsimme parhaillaan visioomme uskovia kumppaneita ja ankkurisijoittajia tekemään tästä totta.
+        </p>
+      </div>
+
+      <!-- Sijoittajille Box -->
+      <div class="max-w-4xl mx-auto bg-white rounded-[2rem] shadow-2xl border border-gray-100 overflow-hidden text-left relative">
+        <div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-[#0f0a29] to-cyan-500"></div>
+        <div class="p-8 md:p-12 lg:p-16">
+          <div class="inline-flex items-center px-4 py-1.5 rounded-full bg-cyan-500/10 text-cyan-600 text-xs font-bold uppercase tracking-widest mb-6">Osakeanti 1.4.–30.4.2026</div>
+          <h3 class="text-3xl md:text-4xl font-black text-brand-dark mb-6 leading-tight font-display tracking-tight">Tule mukaan rakentamaan turvallisempaa arkea.</h3>
+          
+          <p class="text-gray-600 text-lg md:text-xl leading-relaxed mb-10">
+            Yhtiömme on päättänyt julkistaa lyhyen 1 kuukauden mittaisen osakeannin tukemaan kasvu- ja kansainvälistymisponnisteluita sekä kärkihankkeemme YMMÄRRYKSEN TIE™ -digisovelluksen jatkokehitystä.
+          </p>
+
+          <div class="grid md:grid-cols-2 gap-8 bg-gray-50 p-6 md:p-8 rounded-2xl border border-gray-100 mb-10">
+            <div>
+              <h4 class="font-bold text-gray-900 mb-4 border-b border-gray-200 pb-2 uppercase text-sm tracking-wider">Tarjottavat osakkeet</h4>
+              <ul class="space-y-3 text-brand-dark font-medium">
+                <li class="flex justify-between items-center">
+                  <span>Uusia A-osakkeita</span>
+                  <span class="bg-white px-3 py-1 rounded shadow-sm">5 500 kpl</span>
+                </li>
+                <li class="flex justify-between items-center">
+                  <span>Uusia B-osakkeita</span>
+                  <span class="bg-white px-3 py-1 rounded shadow-sm">5 000 000 kpl</span>
+                </li>
+              </ul>
+              <p class="text-sm text-gray-500 italic mt-4">* B-osakkeilla on etuoikeus osinkoon, mutta ei äänivaltaa.</p>
+            </div>
+            <div class="flex flex-col justify-center">
+              <h4 class="font-bold text-gray-900 mb-4 border-b border-gray-200 pb-2 uppercase text-sm tracking-wider">Merkintä</h4>
+              <p class="text-gray-600 text-sm leading-relaxed">
+                Osakeanti alkaa 1.4.2026 ja jatkuu yhden kuukauden. Tarjolla on aiemman Kaupparekisteriin ilmoitetun päätöksen mukaisesti yllä mainitut osakkeet. <strong>Osakkeet on maksettava yhtiön tilille niiden merkitsemisen yhteydessä.</strong>
+              </p>
+            </div>
+          </div>
+
+          <div class="flex flex-col md:flex-row items-center justify-between gap-6 pt-6 border-t border-gray-100">
+            <div>
+              <p class="text-sm text-gray-400 uppercase tracking-widest font-bold mb-2">Kysy lisätietoja ja merkintäohjeet</p>
+              <p class="text-xl font-black text-brand-dark">Mikael Järvenkylä</p>
+              <p class="text-[#0f0a29] font-bold">+358 50 3000 111</p>
+              <p class="text-sm text-gray-500 mt-1">Professional Inventor & Product Developer TEAT, YJEAT<br/>ROBOLINE GROUP Oy - Founder shareholder, Chairman of the Board</p>
+            </div>
+            <a href="index.html#ota-yhteytta" class="w-full md:w-auto text-center inline-flex items-center justify-center bg-[#0f0a29] text-white font-black px-10 py-5 rounded-full hover:bg-cyan-500 hover:text-[#0f0a29] transition-all transform hover:scale-105 shadow-xl text-lg uppercase tracking-widest whitespace-nowrap">
+              OTA YHTEYTTÄ
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- BEGIN: Footer -->
+  <footer class="bg-gray-900 text-gray-400 py-20 px-4" data-purpose="site-footer">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
+        <!-- Brand Info -->
+        <div class="col-span-1 lg:col-span-1">
+          <div class="flex items-center mb-8">
+            <div class="bg-white p-2 rounded-custom shadow-md mr-4">
+              <img alt="Roboline Group Logo" class="h-12 w-auto object-contain pl-1" src="logo.png" />
+            </div>
+            <span class="font-bold text-xl tracking-tight text-white">ROBOLINE GROUP</span>
+          </div>
+          <p class="text-sm leading-relaxed">
+            Innovatiivisia ratkaisuja arjen haasteisiin. Luomme uutta osaamisella ja intohimolla.
+          </p>
+        </div>
+        <!-- Address -->
+        <div>
+          <h3 class="text-white font-bold text-sm mb-6 uppercase tracking-widest">Toimistot</h3>
+          <div class="space-y-4 text-sm">
+            <div>
+              <p class="font-bold text-white">Kalkkipetteri (Toimistohotelli)</p>
+              <p>Kievarintie 23</p>
+              <p>Lohja - FINLAND</p>
+            </div>
+            <div>
+              <p class="font-bold text-white">Kotipaikka</p>
+              <p>Linnoitustie 3</p>
+              <p>02600 ESPOO</p>
+            </div>
+          </div>
+        </div>
+        <!-- Contact Mikael -->
+        <div>
+          <h3 class="text-white font-bold text-sm mb-6 uppercase tracking-widest">Johdon yhteystiedot</h3>
+          <div class="space-y-2 text-sm">
+            <p class="font-bold text-white text-base">Mikael Järvenkylä</p>
+            <p class="text-gray-500">CEO, Perustajaosakas</p>
+            <p class="text-white">+358 50 3000 111</p>
+            <a class="text-brand-primary hover:text-white transition-colors"
+              href="mailto:mikael@robolinegroup.fi">mikael@robolinegroup.fi</a>
+          </div>
+        </div>
+        <!-- Contact Juhani -->
+        <div>
+          <h3 class="text-white font-bold text-sm mb-6 uppercase tracking-widest">Tekninen tuki</h3>
+          <div class="space-y-2 text-sm">
+            <p class="font-bold text-white text-base">Juhani Järvenkylä</p>
+            <p class="text-gray-500">Tekninen asiantuntija</p>
+            <p class="text-white">+358 41 507 5529</p>
+            <a class="text-brand-primary hover:text-white transition-colors"
+              href="mailto:juhani.jarvenkyla@gmail.com">juhani.jarvenkyla@gmail.com</a>
+          </div>
+        </div>
+      </div>
+      <div
+        class="mt-20 pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center text-xs text-gray-500 gap-4">
+        <p>© 2026 Roboline Group Oy. Kaikki oikeudet pidätetään.</p>
+        <div class="flex space-x-6">
+          <a class="hover:text-white" href="#">Tietosuoja</a>
+          <a class="hover:text-white" href="#">Käyttöehdot</a>
+        </div>
+        <p class="italic text-gray-600">Palvelumme laadun varmistamiseksi nauhoitamme puhelut!</p>
+      </div>
+    </div>
+  </footer>
+  <!-- JS for Mobile Menu Toggle -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const menuButton = document.getElementById('mobile-menu-button');
+      const mobileMenu = document.getElementById('mobile-menu');
+
+      if (menuButton && mobileMenu) {
+        menuButton.addEventListener('click', function() {
+          mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close menu when a link is clicked
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+          link.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+          });
+        });
+      }
+    });
+  </script>
+</body>
+
+</html>
+
