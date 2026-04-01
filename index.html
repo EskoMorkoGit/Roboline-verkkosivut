@@ -304,12 +304,12 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex justify-between items-center h-20">
         <!-- Logo -->
-        <div class="flex-shrink-0 flex items-center pr-2">
-          <img alt="Roboline Group Logo" class="h-10 sm:h-14 w-auto rounded-custom mr-2 sm:mr-3" src="logo.png" />
+        <a href="index.html" class="flex-shrink-0 flex items-center pr-2 group">
+          <img alt="Roboline Group Logo" class="h-10 sm:h-14 w-auto rounded-custom mr-2 sm:mr-3 transition-transform group-hover:scale-105" src="logo.png" />
           <span
-            class="font-black text-lg sm:text-2xl tracking-tighter text-brand-primary font-display uppercase whitespace-nowrap">ROBOLINE
+            class="font-black text-lg sm:text-2xl tracking-tighter text-brand-primary font-display uppercase whitespace-nowrap group-hover:text-brand-dark transition-colors">ROBOLINE
             GROUP</span>
-        </div>
+        </a>
 
         <!-- Desktop Navigation Menu -->
         <nav class="hidden md:flex space-x-8 items-center">
@@ -470,7 +470,27 @@
 
     </section>
     
+
     <script>
+      function openProductModal(src, title) {
+        const modal = document.getElementById('product-modal');
+        const modalImg = document.getElementById('product-modal-img');
+        const modalTitle = document.getElementById('product-modal-title');
+        
+        modalImg.src = src;
+        modalTitle.textContent = title;
+        
+        document.body.style.overflow = 'hidden';
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+      }
+
+      function closeProductModal() {
+        const modal = document.getElementById('product-modal');
+        document.body.style.overflow = '';
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+      }
       // GlowCard pointer tracking for Hero Spotlight
       const heroGlow = document.getElementById('glow-hero');
       if (heroGlow) {
@@ -512,27 +532,28 @@
     <!-- BEGIN: StorySection -->
     <section class="py-24 px-4 bg-white" data-purpose="story-section">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex flex-col lg:flex-row gap-16 items-start">
-          <!-- Left side: Image Card -->
-          <div class="w-full lg:w-2/5 max-w-md">
-            <div class="relative rounded-[2rem] overflow-hidden shadow-2xl border border-gray-100 flex flex-col group">
-              <div class="aspect-[4/5] overflow-hidden">
+        <div class="flex flex-col lg:flex-row gap-12 lg:gap-24 items-start mb-12">
+          <!-- Left side: Image Card (Mikael) -->
+          <div class="w-full lg:w-[45%] max-w-md mx-auto lg:mx-0">
+            <div class="relative rounded-[2.5rem] overflow-hidden shadow-2xl border border-gray-100 flex flex-col group transition-all duration-500">
+              <div class="aspect-[4/5] overflow-hidden bg-gray-50">
                 <img alt="Mikael Järvenkylä"
                   class="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
                   src="mikael_story.webp" />
               </div>
-              <div class="bg-brand-primary p-8 text-white">
-                <h4 class="text-2xl font-bold mb-1">Mikael Järvenkylä</h4>
-                <p class="text-brand-light/80 font-bold text-sm tracking-widest uppercase">PERUSTAJA & KEKSIJÄ</p>
+              <div class="bg-brand-primary p-4 sm:p-5 text-white relative">
+                <div class="absolute top-0 right-0 w-24 h-24 bg-white/5 rounded-full -mr-12 -mt-12"></div>
+                <h4 class="text-xl font-bold mb-0.5 relative z-10">Mikael Järvenkylä</h4>
+                <p class="text-brand-light/70 font-black text-[10px] tracking-widest uppercase relative z-10">PERUSTAJA & KEKSIJÄ</p>
               </div>
             </div>
           </div>
-          <!-- Right side: Content -->
-          <div class="w-full lg:w-3/5">
-            <h2 class="text-5xl font-black text-brand-dark mb-10 leading-tight font-display tracking-tight">Meidän
-              tarinamme</h2>
 
-            <div class="space-y-8 text-gray-600 text-xl leading-relaxed max-w-2xl">
+          <!-- Right side: Content -->
+          <div class="w-full lg:w-[55%] pt-0">
+            <h2 class="text-4xl lg:text-5xl font-black text-brand-dark mb-10 leading-[1.05] font-display tracking-[-0.04em]">Meidän tarinamme</h2>
+            
+            <div class="space-y-8 text-slate-600 text-lg sm:text-xl leading-[1.85]">
               <p>
                 Roboline Group syntyi halusta ratkaista aitoja arjen haasteita. Uskomme, että teknologia ja innovaatiot
                 ovat välineitä paremman ja sujuvamman elämän luomiseen.
@@ -547,45 +568,61 @@
                 yhteiskunnalle. Kutsumme sinut mukaan matkallemme kehittämään tulevaisuuden keksintöjä.
               </p>
             </div>
+          </div>
+        </div>
+
+        <!-- Centered History Accordion Section -->
+        <div class="flex justify-center w-full">
+
 
             <!-- History Accordion -->
-            <details class="mt-16 group max-w-2xl bg-gray-50 rounded-[1.5rem] border border-gray-100 shadow-sm overflow-hidden open:bg-white open:shadow-md transition-all">
-              <summary class="flex justify-between items-center cursor-pointer p-8 font-bold text-gray-700 hover:text-brand-primary transition-colors hover:bg-white select-none list-none [&::-webkit-details-marker]:hidden">
-                <div class="flex items-center gap-4 text-brand-primary">
-                  <svg class="w-8 h-8 opacity-80" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                  <span class="text-xl font-black uppercase tracking-tight font-display">Juuret suomalaisessa keksijyydessä</span>
+            <details class="group w-full max-w-4xl bg-gray-50 rounded-[2rem] border border-gray-100 shadow-sm open:bg-white open:shadow-md transition-all duration-300">
+              <summary class="flex justify-between items-center cursor-pointer p-4 sm:p-6 font-bold text-gray-700 hover:text-brand-primary transition-colors hover:bg-white select-none list-none [&::-webkit-details-marker]:hidden">
+                <div class="flex items-center gap-4 text-brand-primary flex-1 min-w-0">
+                  <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-brand-primary/10 flex items-center justify-center flex-shrink-0">
+                    <svg class="w-6 h-6 sm:w-7 sm:h-7 opacity-80" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                      <!-- Basic Lightbulb -->
+                      <path d="M12 2a5 5 0 0 1 5 5c0 1.25-.45 2.15-1 3l-1 2c-.35.7-.5 1.5-.5 2v1h-5v-1c0-.5-.15-1.3-.5-2l-1-2c-.55-.85-1-1.75-1-3a5 5 0 0 1 5-5z"></path>
+                      <path d="M9 18h6"></path>
+                    </svg>
+                  </div>
+                  <span class="text-xl sm:text-2xl font-black uppercase tracking-tight font-display text-brand-primary">Mistä kaikki alkoi</span>
                 </div>
-                <!-- Arrow icon -->
-                <span class="text-gray-400 transform transition-transform duration-300 group-open:-rotate-180">
+                <span class="text-gray-400 transform transition-transform duration-500 group-open:-rotate-180 flex-shrink-0 ml-4">
                   <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                 </span>
               </summary>
-              <div class="p-8 pt-0 text-gray-600 text-[1.1rem] leading-relaxed space-y-6">
-                <!-- Divider -->
-                <div class="h-px bg-gray-100 w-full mb-6 relative -top-3"></div>
+              <div class="p-8 sm:p-12 pt-0 text-gray-600 text-lg sm:text-xl leading-relaxed space-y-12">
+                <div class="h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent w-full mb-10"></div>
                 
-                <p>
-                  Robolinen tarina ponnistaa syvältä suomalaisesta insinööriosaamisesta ja perheyrityksemme pitkästä linjasta. Kaikki alkoi isäni uraauurtavasta keksinnöstä: <strong>karjalanpiirakan rypytyksen automatisoinnista</strong>. Siitä alkanut matka on vienyt meidät kehittämään ja toimittamaan tuotantojärjestelmiä eri teollisuudenaloille vuosikymmenten ajan.
-                </p>
-                
-                <div class="flex flex-col sm:flex-row gap-6 items-center bg-gray-50 p-5 rounded-2xl border border-gray-100">
-                  <!-- Rypytyskone Placeholder -->
-                  <div class="w-24 h-24 flex-shrink-0 bg-white rounded-xl flex items-center justify-center border-2 border-dashed border-gray-300 text-gray-400 text-xs text-center p-2 font-medium">
-                    + Kuva: Rypytys&shy;kone
-                  </div>
-                  <p class="text-[0.95rem] m-0">
-                    Vuonna 1997 rekisteröin ROBOLINE-tavaramerkin, ja siitä käynnistyi suunnitelmallinen brändin kehitys nykyiseksi innovaatiotaloksi. Meillä on pitkä historia ideoiden muuttamisesta toimiviksi koneiksi ja automaatiojärjestelmiksi.
-                  </p>
+                <div class="max-w-3xl mx-auto text-center italic text-gray-500 font-medium">
+                  "Robolinen tarina on kunnianosoitus isäni elämäntyölle ja suomalaiselle insinööriosaamiselle. Kaikki alkoi isäni uraauurtavasta keksinnöstä: <strong>karjalanpiirakan rypytyksen automatisoinnista</strong>."
                 </div>
 
-                <div class="pt-4">
-                  <p class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3">Katso historiavideo</p>
-                  <div class="flex flex-col gap-3">
-                    <a class="inline-flex items-center text-brand-primary font-bold hover:text-brand-dark transition-colors" href="#">
-                      <svg class="w-5 h-5 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                      Robolinen koneet ja tuotantojärjestelmät
-                    </a>
+                <div id="history-archival-card" class="group relative max-w-5xl mx-auto cursor-pointer">
+                  <div class="flex flex-col md:flex-row gap-8 lg:gap-16 items-center">
+                    <div class="w-full md:w-3/5 lg:w-2/3 aspect-video rounded-2xl overflow-hidden bg-gray-100 border border-gray-200 shadow-sm relative">
+                      <img src="historia_rypytys.webp" alt="Alkuperäinen karjalanpiirakan rypytyskone" class="w-full h-full object-contain bg-white transition-transform duration-1000 group-hover:scale-105" />
+                      <div class="absolute inset-0 ring-1 ring-inset ring-black/5 rounded-2xl"></div>
+                    </div>
+                    <div class="w-full md:w-2/5 lg:w-1/3 space-y-6">
+                      <h3 class="text-2xl sm:text-3xl font-black text-brand-dark uppercase tracking-tight font-display">Ideasta todellisuudeksi</h3>
+                      <p class="text-base sm:text-lg text-gray-600 leading-relaxed">
+                        Vuonna 1997 rekisteröity ROBOLINE-tavaramerkki käynnisti matkan kohti nykyistä monialaista innovaatiotaloa. Meillä on vuosikymmenten kokemus ideoiden muuttamisesta todellisuudeksi.
+                      </p>
+                      <div class="inline-flex items-center gap-3 text-brand-primary text-xs font-black uppercase tracking-widest group-hover:gap-5 transition-all">
+                        Klikkaa ja lue lisää
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                      </div>
+                    </div>
                   </div>
+                </div>
+
+                <div class="pt-0 border-t border-gray-100 mt-8 pt-8">
+                  <a class="inline-flex items-center text-brand-primary font-bold hover:text-brand-dark transition-colors text-lg" href="https://www.youtube.com/@mikaeljarvenkyla8494" target="_blank">
+                    <svg class="w-6 h-6 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    Robolinen koneet ja tuotantojärjestelmät
+                  </a>
                 </div>
               </div>
             </details>
@@ -601,20 +638,20 @@
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex items-center mb-10">
           <span
-            class="bg-brand-primary text-white text-sm font-bold px-3 py-1 rounded-custom uppercase mr-4">UUTTA</span>
-          <h2 class="text-3xl font-black text-gray-900 font-display uppercase tracking-tight">Ajankohtaista</h2>
+            class="bg-brand-primary text-white text-[10px] sm:text-sm font-bold px-2 sm:px-3 py-1 rounded-custom uppercase mr-3 sm:mr-4">UUTTA</span>
+          <h2 class="text-2xl sm:text-3xl font-black text-gray-900 font-display uppercase tracking-tight">Ajankohtaista</h2>
         </div>
         
         <div class="space-y-6">
           <!-- Osakeanti-nosto -->
-          <div class="bg-gradient-to-r from-brand-primary to-[#005a8f] p-8 md:p-10 rounded-custom shadow-lg flex flex-col md:flex-row gap-8 items-center text-white transition-transform hover:-translate-y-1">
+          <div class="bg-gradient-to-r from-brand-primary to-[#005a8f] p-6 sm:p-10 rounded-custom shadow-lg flex flex-col md:flex-row gap-8 items-center text-white transition-transform hover:-translate-y-1">
             <div class="flex-1">
-              <div class="inline-flex items-center px-4 py-1.5 rounded-full bg-white/20 text-white text-xs font-bold uppercase tracking-widest mb-4">Sijoittajille</div>
-              <h3 class="font-bold text-3xl mb-4 font-display">Osakeanti käynnissä 1.4.–30.4.2026</h3>
-              <p class="text-white/90 text-lg mb-6 leading-relaxed">
+              <div class="inline-flex items-center px-4 py-1.5 rounded-full bg-white/20 text-white text-[10px] sm:text-xs font-bold uppercase tracking-widest mb-4">Sijoittajille</div>
+              <h3 class="font-bold text-2xl sm:text-3xl mb-4 font-display">Osakeanti käynnissä 1.4.–30.4.2026</h3>
+              <p class="text-white/90 text-base sm:text-lg mb-6 leading-relaxed">
                 Kiihdytämme kasvua ja kansainvälistymistä. Avaamme rajoitetun ajan mahdollisuuden hypätä mukaan tarinaamme ja tukea Ymmärryksen tie™ -hanketta.
               </p>
-              <a href="ymmarryksentie.html#sijoittajille" class="inline-flex items-center bg-white text-brand-primary font-bold px-8 py-3.5 rounded-full hover:bg-gray-50 transition-all uppercase tracking-wide transform hover:scale-105">
+              <a href="ymmarryksentie.html#sijoittajille" class="inline-flex items-center bg-white text-brand-primary font-bold px-6 sm:px-8 py-3 sm:py-3.5 rounded-full hover:bg-gray-50 transition-all uppercase tracking-wide transform hover:scale-105 text-sm sm:text-base">
                 Lue lisää annista →
               </a>
             </div>
@@ -626,22 +663,21 @@
             <h3 class="font-bold text-2xl mb-4 text-brand-dark">Tiedote: YMMÄRRYKSEN TIE™</h3>
             <p class="text-gray-600 text-lg mb-6 leading-relaxed">
               Löydät uutuusinnovaatiomme digipelin <a href="ymmarryksentie.html"
-                class="text-brand-primary font-bold hover:underline">omalta sivulta täältä</a>. Uusin esittelyvideo
-              löytyy
-              YouTube-kanavalta: <span class="font-semibold text-brand-primary">ROBOLINE Järvenkylä Mikael</span>.
+                class="text-brand-primary font-bold hover:underline">omalta sivulta täältä</a>. Seuraa kehitystä ja tuoreimpia päivityksiä Instagram-kanavaltamme.
             </p>
             <div class="flex flex-wrap gap-6">
-              <a class="text-brand-primary font-bold text-lg hover:underline flex items-center" href="#">
+              <a class="text-brand-primary font-bold text-lg hover:underline flex items-center" href="http://instagram.com/ymmarryksentie/" target="_blank">
                 Instagram-kanava →
-              </a>
-              <a class="text-brand-primary font-bold text-lg hover:underline flex items-center" href="#">
-                YouTube-kanava →
               </a>
             </div>
           </div>
           <div class="w-full md:w-1/3 bg-brand-primary/5 p-6 rounded-custom border border-brand-primary/10">
             <p class="text-sm italic text-gray-500 mb-2">Pelin kehitystyötä tehty yhdessä mm.:</p>
             <div class="space-y-4">
+              <div>
+                <p class="font-semibold text-brand-dark">Metropolia Ammattikorkeakoulu</p>
+                <p class="text-brand-primary font-medium text-sm">Helsinki, Finland</p>
+              </div>
               <div>
                 <p class="font-semibold text-brand-dark">Laurea-ammattikorkeakoulu</p>
                 <p class="text-brand-primary font-medium text-sm">Uusimaa, Finland</p>
@@ -715,7 +751,7 @@
           </article>
           <!-- DROP NOT -->
           <article
-            class="bg-white rounded-custom shadow-xl p-8 md:p-12 border border-gray-100 flex flex-col justify-between transition-transform hover:-translate-y-2">
+            class="bg-white rounded-custom shadow-xl p-8 md:p-12 border border-gray-100 flex flex-col justify-between transition-all hover:shadow-2xl duration-300">
             <div>
               <div class="flex justify-between items-start mb-6">
                 <h2 class="text-3xl font-black text-gray-900 uppercase tracking-wide">DROP NOT</h2>
@@ -727,18 +763,45 @@
                 herättänyt laajaa huomiota kotimaisessa mediassa innovatiivisuudellaan.
               </p>
               <a class="inline-flex items-center text-lg font-bold text-brand-primary hover:text-brand-dark transition-colors mb-10"
-                href="https://www.ykkoslohja.fi/ohjalaiskeksija-kehitti-napparan-lisalaitteen-kyynarsauvoihin/">
-                Lue koko tarina keksinnöstä
+                href="https://keksinnot.fi/acme_product/drop-not/">
+                Lue koko tarina
                 <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewbox="0 0 24 24">
                   <path d="M14 5l7 7m0 0l-7 7m7-7H3" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
                   </path>
                 </svg>
               </a>
             </div>
-            <div
-              class="w-full h-64 bg-gray-100 rounded-custom flex items-center justify-center border-2 border-dashed border-gray-200 group overflow-hidden">
-              <span class="text-gray-400 text-sm font-medium italic group-hover:scale-110 transition-transform">DROP NOT
-                TUOTEKUVA</span>
+            <!-- Drop Not Gallery Grid -->
+            <div class="mt-8 space-y-4">
+              <div class="grid grid-cols-1 md:grid-cols-12 gap-4 h-auto md:h-[500px]">
+                <!-- Main Image - Full Product -->
+                <div class="md:col-span-7 group/img overflow-hidden rounded-3xl border border-gray-100 shadow-lg relative cursor-pointer" onclick="openProductModal('dropnot_full.webp', 'Drop Not - Ergonominen tyyli')">
+                  <img src="dropnot_full.webp" alt="Drop Not - Koko tuote" class="w-full h-full object-cover transition-transform duration-700 group-hover/img:scale-110" />
+                  <div class="absolute inset-0 bg-black/40 opacity-0 group-hover/img:opacity-100 transition-opacity flex items-center justify-center">
+                    <span class="text-white font-bold uppercase tracking-widest text-sm border-2 border-white px-6 py-2 rounded-full">Klikkaa ja lue lisää</span>
+                  </div>
+                </div>
+                
+                <div class="md:col-span-5 grid grid-cols-1 gap-4">
+                  <!-- Detail Image - Clips -->
+                  <div class="group/img overflow-hidden rounded-3xl border border-gray-100 shadow-md relative cursor-pointer" onclick="openProductModal('dropnot_clips.webp', 'Korkealaatuiset yksityiskohdat')">
+                    <img src="dropnot_clips.webp" alt="Drop Not - Klipsit ja yksityiskohdat" class="w-full h-full object-cover transition-transform duration-700 group-hover/img:scale-110" />
+                    <div class="absolute inset-0 bg-black/40 opacity-0 group-hover/img:opacity-100 transition-opacity flex items-center justify-center">
+                      <span class="text-white font-bold uppercase tracking-widest text-xs border border-white px-4 py-2 rounded-full">Näytä tiedot</span>
+                    </div>
+                  </div>
+                  <!-- Design Image - Sketch -->
+                  <div class="group/img overflow-hidden rounded-3xl border border-gray-100 shadow-md relative bg-white cursor-pointer" onclick="openProductModal('dropnot_sketch.webp', 'Konseptisovellus ja suunnittelu')">
+                    <img src="dropnot_sketch.webp" alt="Drop Not - Alkuperäinen piirustus" class="w-full h-full object-contain p-4 transition-transform duration-700 group-hover/img:scale-105" />
+                    <div class="absolute inset-0 bg-black/40 opacity-0 group-hover/img:opacity-100 transition-opacity flex items-center justify-center">
+                      <span class="text-white font-bold uppercase tracking-widest text-xs border border-white px-4 py-2 rounded-full">Avaa luonnos</span>
+                    </div>
+                    <div class="absolute bottom-4 right-4 bg-white/80 backdrop-blur px-3 py-1 rounded-full text-[10px] font-bold text-gray-500 uppercase tracking-widest border border-gray-100">
+                      Konseptipiirustus
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </article>
         </div>
@@ -752,7 +815,7 @@
           osaamisemme</h2>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           <div
-            class="group bg-white/10 backdrop-blur-sm p-8 rounded-custom border border-white/20 hover:bg-white/20 hover:-translate-y-3 hover:border-white/60 hover:shadow-[0_0_40px_rgba(255,255,255,0.2)] transition-all duration-300 text-white h-full flex flex-col items-center text-center">
+            class="group bg-white/10 backdrop-blur-sm p-8 rounded-custom border border-white/20 hover:bg-white/20 hover:border-white/60 hover:shadow-[0_0_40px_rgba(255,255,255,0.2)] transition-all duration-300 text-white h-full flex flex-col items-center text-center">
             <div
               class="w-16 h-16 bg-white rounded-full flex items-center justify-center mb-6 text-brand-primary text-2xl font-black group-hover:scale-110 group-hover:shadow-[0_0_20px_rgba(255,255,255,0.4)] transition-all duration-300">
               01</div>
@@ -760,7 +823,7 @@
             <p class="text-white/80 text-sm group-hover:text-white/100 transition-colors">Ideasta valmiiksi tuotteeksi asti.</p>
           </div>
           <div
-            class="group bg-white/10 backdrop-blur-sm p-8 rounded-custom border border-white/20 hover:bg-white/20 hover:-translate-y-3 hover:border-white/60 hover:shadow-[0_0_40px_rgba(255,255,255,0.2)] transition-all duration-300 text-white h-full flex flex-col items-center text-center">
+            class="group bg-white/10 backdrop-blur-sm p-8 rounded-custom border border-white/20 hover:bg-white/20 hover:border-white/60 hover:shadow-[0_0_40px_rgba(255,255,255,0.2)] transition-all duration-300 text-white h-full flex flex-col items-center text-center">
             <div
               class="w-16 h-16 bg-white rounded-full flex items-center justify-center mb-6 text-brand-primary text-2xl font-black group-hover:scale-110 group-hover:shadow-[0_0_20px_rgba(255,255,255,0.4)] transition-all duration-300">
               02</div>
@@ -768,7 +831,7 @@
             <p class="text-white/80 text-sm group-hover:text-white/100 transition-colors">Ammattimainen Solid Works osaaminen.</p>
           </div>
           <div
-            class="group bg-white/10 backdrop-blur-sm p-8 rounded-custom border border-white/20 hover:bg-white/20 hover:-translate-y-3 hover:border-white/60 hover:shadow-[0_0_40px_rgba(255,255,255,0.2)] transition-all duration-300 text-white h-full flex flex-col items-center text-center">
+            class="group bg-white/10 backdrop-blur-sm p-8 rounded-custom border border-white/20 hover:bg-white/20 hover:border-white/60 hover:shadow-[0_0_40px_rgba(255,255,255,0.2)] transition-all duration-300 text-white h-full flex flex-col items-center text-center">
             <div
               class="w-16 h-16 bg-white rounded-full flex items-center justify-center mb-6 text-brand-primary text-2xl font-black group-hover:scale-110 group-hover:shadow-[0_0_20px_rgba(255,255,255,0.4)] transition-all duration-300">
               03</div>
@@ -776,12 +839,12 @@
             <p class="text-white/80 text-sm group-hover:text-white/100 transition-colors">Nopeat prototyypit ja piensarjat.</p>
           </div>
           <div
-            class="group bg-white/10 backdrop-blur-sm p-8 rounded-custom border border-white/20 hover:bg-white/20 hover:-translate-y-3 hover:border-white/60 hover:shadow-[0_0_40px_rgba(255,255,255,0.2)] transition-all duration-300 text-white h-full flex flex-col items-center text-center">
+            class="group bg-white/10 backdrop-blur-sm p-8 rounded-custom border border-white/20 hover:bg-white/20 hover:border-white/60 hover:shadow-[0_0_40px_rgba(255,255,255,0.2)] transition-all duration-300 text-white h-full flex flex-col items-center text-center">
             <div
               class="w-16 h-16 bg-white rounded-full flex items-center justify-center mb-6 text-brand-primary text-2xl font-black group-hover:scale-110 group-hover:shadow-[0_0_20px_rgba(255,255,255,0.4)] transition-all duration-300">
               04</div>
             <h3 class="font-bold text-xl mb-4 group-hover:text-white transition-colors">Muistipelikortit</h3>
-            <p class="text-white/80 text-sm group-hover:text-white/100 transition-colors">TAIVASTIE &amp; TAIDE -sarjat.</p>
+            <p class="text-white/80 text-sm group-hover:text-white/100 transition-colors">Räätälöidyt pelikorttisarjat.</p>
           </div>
         </div>
       </div>
@@ -828,33 +891,27 @@
             </div>
           </div>
 
-          <!-- Card 2: Innovation Example -->
+          <!-- Card 2: Innovation Spotlight (Professional Standard) -->
           <div class="relative">
-            <div
-              class="glass-effect p-10 rounded-3xl border border-gray-100 shadow-xl relative z-10 h-full flex flex-col justify-between bg-white">
-              <div class="space-y-4">
-                <div class="text-brand-primary/20 text-6xl font-serif leading-none">&ldquo;</div>
+            <div class="glass-effect p-10 rounded-[2.5rem] border border-gray-100 shadow-xl relative z-10 h-full flex flex-col justify-between bg-white">
+              <div class="space-y-6">
+                <div class="text-brand-primary/20 text-6xl font-serif leading-none italic">&ldquo;</div>
                 <p class="text-gray-700 text-lg leading-relaxed italic font-medium">
-                  " Roboline Group on osoittanut poikkeuksellista kykyä innovoida ja ratkaista monimutkaisia
-                  tuotekehityksen haasteita.
+                  Roboline Group on osoittanut poikkeuksellista kykyä innovoida ja ratkaista monimutkaisia tuotekehityksen haasteita. 
                 </p>
                 <p class="text-gray-700 text-lg leading-relaxed italic font-medium">
-                  Heidän 3D-mallinnus ja prototyyppiosaamisensa on säästänyt meiltä merkittävästi aikaa ja resursseja
-                  kriittisessä vaiheessa.
+                  Heidän 3D-mallinnus ja prototyyppiosaamisensa on säästänyt meiltä merkittävästi aikaa ja resursseja kriittisessä vaiheessa.
                 </p>
                 <p class="text-gray-700 text-lg leading-relaxed italic font-medium">
                   Suosittelen heitä varauksetta kaikille, jotka etsivät visionääristä ja teknisesti taitavaa kumppania.
-                  "
                 </p>
               </div>
 
-              <div class="mt-8 flex items-center border-t border-gray-100 pt-6">
-                <div class="w-8 h-1 bg-brand-secondary mr-4 rounded-full"></div>
+              <div class="mt-12 flex items-center border-t border-gray-100 pt-8">
+                <div class="w-10 h-1 bg-brand-primary mr-4 rounded-full"></div>
                 <div>
-                  <p class="text-brand-dark font-black text-lg uppercase font-display tracking-tight">Esimerkki
-                    Yritysjohtaja</p>
-                  <p class="text-brand-primary font-semibold text-xs italic">Teknologiayrityksen perustaja (Malliteksti)
-                  </p>
+                  <p class="text-brand-dark font-black text-lg uppercase font-display tracking-tight">Referenssi: Teknologiayritys</p>
+                  <p class="text-brand-primary font-bold text-xs uppercase tracking-widest">Innovaatiokumppanuus & 3D-suunnittelu</p>
                 </div>
               </div>
             </div>
@@ -870,11 +927,11 @@
           class="glass-effect rounded-[2.5rem] border border-gray-100 shadow-2xl overflow-hidden bg-gray-50 flex flex-col lg:flex-row items-stretch">
 
           <!-- Left: Form -->
-          <div class="flex-1 p-10 md:p-16 lg:p-20 bg-white">
-            <h2 class="text-3xl md:text-4xl font-black mb-8 uppercase text-brand-dark font-display tracking-tighter">
+          <div class="flex-1 p-6 sm:p-10 md:p-16 lg:p-20 bg-white">
+            <h2 class="text-2xl sm:text-3xl md:text-4xl font-black mb-8 uppercase text-brand-dark font-display tracking-tighter leading-tight">
               OTA MEIHIN YHTEYTTÄ
             </h2>
-            <form action="#" class="space-y-6" method="POST">
+            <form id="roboline-contact-form" action="https://formspree.io/f/mkopbvrk" class="space-y-6" method="POST">
               <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div class="space-y-2">
                   <label for="name"
@@ -894,7 +951,7 @@
               <div class="space-y-2">
                 <label for="message"
                   class="block text-sm font-black text-brand-dark uppercase tracking-wider">Viesti</label>
-                <textarea id="message" name="message" rows="5" required
+                <textarea id="message" name="message" rows="8" required
                   class="w-full px-5 py-4 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-brand-primary focus:border-transparent transition-all outline-none font-medium resize-none"
                   placeholder="Miten voimme auttaa?"></textarea>
               </div>
@@ -937,8 +994,6 @@
                 <div>
                   <p class="text-[10px] font-black uppercase tracking-[0.2em] text-white/50 mb-2">MYYNTI</p>
                   <div class="space-y-1">
-                    <p class="text-lg font-bold">pasi@robolinegroup.fi <span class="text-sm font-medium">+358 50 4399
-                        480</span></p>
                     <p class="text-lg font-bold">myynti@robolinegroup.fi <span
                         class="text-sm font-medium opacity-50 text-[10px] uppercase">(FI)</span></p>
                     <p class="text-lg font-bold">sales@robolinegroup.fi <span
@@ -967,16 +1022,11 @@
             <div class="mt-12 pt-8 border-t border-white/10 flex items-center justify-between">
               <span class="text-[10px] font-medium text-white/40">© 2026 ROBOLINE GROUP OY</span>
               <div class="flex gap-4">
-                <a href="#" class="text-white/40 hover:text-white transition-colors"><svg class="w-5 h-5"
-                    fill="currentColor" viewBox="0 0 24 24">
-                    <path
-                      d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
-                  </svg></a>
-                <a href="#" class="text-white/40 hover:text-white transition-colors"><svg class="w-5 h-5"
-                    fill="currentColor" viewBox="0 0 24 24">
-                    <path
-                      d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z" />
-                  </svg></a>
+                <a href="http://instagram.com/ymmarryksentie/" target="_blank" class="text-white/40 hover:text-white transition-colors" title="Instagram">
+                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                  </svg>
+                </a>
               </div>
             </div>
           </div>
@@ -1020,12 +1070,21 @@
         <!-- Contact Mikael -->
         <div>
           <h3 class="text-white font-bold text-sm mb-6 uppercase tracking-widest">Johdon yhteystiedot</h3>
-          <div class="space-y-2 text-sm">
-            <p class="font-bold text-white text-base">Mikael Järvenkylä</p>
-            <p class="text-gray-500">CEO, Perustajaosakas</p>
-            <p class="text-white">+358 50 3000 111</p>
-            <a class="text-brand-primary hover:text-white transition-colors"
-              href="mailto:mikael@robolinegroup.fi">mikael@robolinegroup.fi</a>
+          <div class="space-y-6 text-sm">
+            <div>
+              <p class="font-bold text-white text-base">Kari Rosenberg</p>
+              <p class="text-gray-500">CEO</p>
+              <p class="text-white">+358 400 376 060</p>
+              <a class="text-brand-primary hover:text-white transition-colors"
+                href="mailto:kari@robolinegroup.fi">kari@robolinegroup.fi</a>
+            </div>
+            <div>
+              <p class="font-bold text-white text-base">Mikael Järvenkylä</p>
+              <p class="text-gray-500">Perustajaosakas</p>
+              <p class="text-white">+358 50 3000 111</p>
+              <a class="text-brand-primary hover:text-white transition-colors"
+                href="mailto:mikael@robolinegroup.fi">mikael@robolinegroup.fi</a>
+            </div>
           </div>
         </div>
         <!-- Contact Juhani -->
@@ -1042,7 +1101,10 @@
       </div>
       <div
         class="mt-20 pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center text-xs text-gray-500 gap-4">
-        <p>© 2026 Roboline Group Oy. Kaikki oikeudet pidätetään.</p>
+        <div class="flex flex-col md:flex-row items-center gap-6">
+          <p>© 2026 Roboline Group Oy. Kaikki oikeudet pidätetään.</p>
+          <p class="text-gray-600">Sivuston toteutus: <a href="https://sivumaakarit.fi" target="_blank" class="hover:text-white transition-colors font-medium">Sivumaakarit</a></p>
+        </div>
         <div class="flex space-x-6">
           <a class="hover:text-white" href="#">Tietosuoja</a>
           <a class="hover:text-white" href="#">Käyttöehdot</a>
@@ -1052,9 +1114,69 @@
     </div>
   </footer>
   <!-- END: Footer -->
-  <!-- JS for Mobile Menu Toggle -->
+  <!-- Success Modal -->
+  <div id="success-modal" class="fixed inset-0 z-[100] flex items-center justify-center hidden opacity-0 transition-opacity duration-300">
+    <div class="absolute inset-0 bg-brand-dark/60 backdrop-blur-sm" id="success-modal-backdrop"></div>
+    <div class="bg-white rounded-[2rem] p-10 max-w-md mx-4 relative z-10 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.5)] border border-gray-100 transform scale-95 transition-transform duration-300" id="success-modal-content">
+      <div class="w-20 h-20 bg-brand-primary/10 rounded-full flex items-center justify-center mb-6 mx-auto ring-8 ring-brand-primary/5">
+        <svg class="w-10 h-10 text-brand-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path>
+        </svg>
+      </div>
+      <h3 class="text-2xl font-black text-center text-brand-dark mb-3 uppercase tracking-tight font-display">KIITOS YHTEYDENOTOSTA!</h3>
+      <p class="text-gray-600 text-center text-[1.05rem] mb-8 leading-relaxed font-medium">
+        Olemme vastaanottaneet viestisi ja otamme sinuun yhteyttä mahdollisimman pian.
+      </p>
+      <button id="close-modal-btn" class="w-full bg-brand-primary text-white font-bold py-4 rounded-full hover:bg-brand-dark transition-all uppercase tracking-widest hover:shadow-lg transform hover:-translate-y-0.5">
+        SULJE
+      </button>
+    </div>
+  </div>
+
+  <!-- Archival Image Modal (PROPERLY LARGE) -->
+  <div id="archival-modal" class="fixed inset-0 z-[150] flex items-center justify-center hidden opacity-0 transition-opacity duration-400 p-4 sm:p-10">
+    <div class="absolute inset-0 bg-brand-dark/95 backdrop-blur-lg" id="archival-modal-backdrop"></div>
+    <div class="bg-white rounded-[2rem] sm:rounded-[3rem] overflow-hidden max-w-6xl w-full h-auto max-h-[90vh] relative z-10 shadow-[0_50px_100px_-20px_rgba(0,0,0,0.9)] border border-white/10 transform scale-90 transition-all duration-400" id="archival-modal-content">
+      <button id="close-archival-modal" class="absolute top-4 right-4 sm:top-8 sm:right-8 w-10 h-10 sm:w-14 sm:h-14 bg-gray-100/10 hover:bg-brand-primary text-white rounded-full flex items-center justify-center transition-all z-20 backdrop-blur-md border border-white/20">
+        <svg class="w-6 h-6 sm:w-8 sm:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+      </button>
+      <div class="flex flex-col lg:flex-row h-full">
+        <!-- Image Side -->
+        <div class="lg:w-3/5 bg-black flex items-center justify-center border-b lg:border-b-0 lg:border-r border-gray-100">
+          <img src="historia_rypytys.webp" alt="Alkuperäinen karjalanpiirakan rypytyskone" class="w-full h-full object-contain max-h-[40vh] lg:max-h-full" />
+        </div>
+        <!-- Content Side -->
+        <div class="lg:w-2/5 p-8 sm:p-12 md:p-16 overflow-y-auto bg-white flex flex-col justify-center">
+          <div class="inline-flex items-center px-4 py-1.5 rounded-full bg-brand-primary/10 text-brand-primary text-xs font-black uppercase tracking-widest mb-6 w-fit">Innovaatiohistoria</div>
+          <h3 class="text-3xl sm:text-4xl font-black text-brand-dark mb-8 uppercase tracking-tighter font-display leading-[1.1]">Ideasta todellisuudeksi</h3>
+          <div class="space-y-6 text-gray-600 text-base sm:text-xl leading-relaxed">
+            <p>
+              Tämä harvinainen tallenne on perheyrityksemme perimästä heti 1990-luvun lopulta. 
+              <strong>ROBOLINE</strong>-nimi rekisteröitiin vuonna 1997, kun Mikaelin isä mullisti elintarviketeollisuutta automatisoimalla perinteisen 
+              <span class="text-brand-dark font-bold underline decoration-brand-primary/30">karjalanpiirakan rypytyksen.</span>
+            </p>
+          </div>
+          <div class="mt-8 pt-8 border-t border-gray-100 flex flex-col gap-4">
+            <a href="https://1drv.ms/v/s!Av6Z92Y7kRqHi-JnefJB_vM8LF5jqw?e=MwjHfr" target="_blank" class="group/play flex items-center justify-between bg-brand-primary p-5 sm:p-7 rounded-2xl text-white shadow-xl hover:shadow-brand-primary/30 transition-all hover:-translate-y-1">
+              <div class="flex flex-col">
+                <span class="text-[10px] sm:text-xs font-black uppercase tracking-[0.2em] opacity-70 mb-1">Innovaatiokanava</span>
+                <span class="text-lg sm:text-xl font-black uppercase tracking-tight leading-none">Katso historiavideo</span>
+              </div>
+              <div class="w-12 h-12 sm:w-14 sm:h-14 bg-white/10 rounded-2xl flex items-center justify-center group-hover/play:bg-white group-hover/play:text-brand-primary transition-all shadow-inner">
+                <svg class="w-6 h-6 sm:w-8 sm:h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg>
+              </div>
+            </a>
+            <p class="text-[10px] text-gray-400 font-bold uppercase tracking-widest text-center mt-2">Roboline-Innovations arkisto 1997</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- JS for Mobile Menu Toggle & Formspree AJAX -->
   <script>
     document.addEventListener('DOMContentLoaded', function () {
+      // Mobile menu logic
       const menuButton = document.getElementById('mobile-menu-button');
       const mobileMenu = document.getElementById('mobile-menu');
 
@@ -1071,8 +1193,160 @@
           });
         });
       }
+
+      // Formspree AJAX Submission & Modal Logic
+      const form = document.getElementById('roboline-contact-form');
+      const modal = document.getElementById('success-modal');
+      const modalContent = document.getElementById('success-modal-content');
+      const closeBtn = document.getElementById('close-modal-btn');
+      const modalBackdrop = document.getElementById('success-modal-backdrop');
+
+      if (form) {
+        form.addEventListener('submit', async function(e) {
+          e.preventDefault();
+          
+          const submitBtn = form.querySelector('button[type="submit"]');
+          const originalContent = submitBtn.innerHTML;
+          
+          // Show loading state
+          submitBtn.innerHTML = `
+            LÄHETETÄÄN...
+            <svg class="animate-spin ml-2 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+              <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+              <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+            </svg>
+          `;
+          submitBtn.disabled = true;
+          submitBtn.classList.add('opacity-80', 'cursor-not-allowed');
+
+          try {
+            const formData = new FormData(form);
+            const response = await fetch(form.action, {
+              method: form.method,
+              body: formData,
+              headers: {
+                'Accept': 'application/json'
+              }
+            });
+
+            if (response.ok) {
+              form.reset();
+              // Show Modal
+              modal.classList.remove('hidden');
+              // Trigger reflow
+              void modal.offsetWidth;
+              modal.classList.remove('opacity-0');
+              modalContent.classList.remove('scale-95');
+              modalContent.classList.add('scale-100');
+            } else {
+              alert('Pahoittelut, viestin lähetyksessä tapahtui virhe. Yritäthän myöhemmin uudelleen.');
+            }
+          } catch (error) {
+            alert('Pahoittelut, emme saaneet yheyttä palvelimeen. Tarkista verkkoyhteytesi.');
+          } finally {
+            // Restore button
+            submitBtn.innerHTML = originalContent;
+            submitBtn.disabled = false;
+            submitBtn.classList.remove('opacity-80', 'cursor-not-allowed');
+          }
+        });
+      }
+
+      // Close modal functionality
+      const closeModal = () => {
+        modal.classList.add('opacity-0');
+        modalContent.classList.remove('scale-100');
+        modalContent.classList.add('scale-95');
+        setTimeout(() => {
+          modal.classList.add('hidden');
+        }, 300); // Matches the duration-300 class
+      };
+
+      if (closeBtn) closeBtn.addEventListener('click', closeModal);
+      if (modalBackdrop) modalBackdrop.addEventListener('click', closeModal);
+      // History card modal logic
+      const archCard = document.getElementById('history-archival-card');
+      const archModal = document.getElementById('archival-modal');
+      const archContent = document.getElementById('archival-modal-content');
+      const archClose = document.getElementById('close-archival-modal');
+      const archBackdrop = document.getElementById('archival-modal-backdrop');
+
+      function openArchModal() {
+        archModal.classList.remove('hidden');
+        setTimeout(() => {
+          archModal.classList.remove('opacity-0');
+          archContent.classList.remove('scale-90');
+          archContent.classList.add('scale-100');
+        }, 10);
+      }
+
+      function closeArchModal() {
+        archModal.classList.add('opacity-0');
+        archContent.classList.remove('scale-100');
+        archContent.classList.add('scale-90');
+        setTimeout(() => {
+          archModal.classList.add('hidden');
+        }, 400);
+      }
+
+      if (archCard) archCard.addEventListener('click', openArchModal);
+      if (archClose) archClose.addEventListener('click', closeArchModal);
+      if (archBackdrop) archBackdrop.addEventListener('click', closeArchModal);
     });
   </script>
-</body>
+    <!-- BEGIN: Product Modal (Drop Not Showcase) -->
+    <div id="product-modal" class="fixed inset-0 z-[100] hidden items-center justify-center p-4 sm:p-8">
+      <div class="absolute inset-0 bg-brand-dark/95 backdrop-blur-md" onclick="closeProductModal()"></div>
+      <div class="relative w-full max-w-6xl bg-white rounded-[3rem] overflow-hidden shadow-2xl animate-modal-pop flex flex-col md:flex-row max-h-[90vh]">
+        
+        <!-- Image Area -->
+        <div class="w-full md:w-3/5 bg-gray-50 flex items-center justify-center p-8 overflow-hidden">
+          <img id="product-modal-img" src="" alt="Product Detail" class="max-w-full max-h-full object-contain rounded-2xl shadow-lg border border-gray-100 transition-transform duration-1000" />
+        </div>
 
+        <!-- Content Area -->
+        <div class="w-full md:w-2/5 p-8 sm:p-12 flex flex-col justify-between bg-white">
+          <div class="space-y-8">
+            <div class="flex justify-between items-start">
+              <div>
+                <p id="product-modal-title" class="text-3xl font-black text-brand-dark uppercase tracking-tighter leading-tight mb-2">Drop Not Detail</p>
+                <div class="h-1.5 w-16 bg-brand-primary rounded-full"></div>
+              </div>
+              <button onclick="closeProductModal()" class="text-gray-300 hover:text-brand-primary transition-colors">
+                <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+              </button>
+            </div>
+            
+            <p class="text-gray-500 text-lg leading-relaxed italic">
+              "Keksintö, joka muuttaa arjen liikkumisen helpommaksi. Robolinen taidonnäyte suomalaisesta käytännöllisyydestä."
+            </p>
+
+            <div class="p-6 bg-gray-50 rounded-3xl border border-gray-100">
+              <h5 class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3">Tuotteen hyödyt</h5>
+              <ul class="space-y-2 text-sm text-gray-600 font-medium">
+                <li class="flex items-center gap-2"><svg class="w-4 h-4 text-brand-primary" fill="currentColor" viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"></path></svg> Ergonominen kuormituksen poisto</li>
+                <li class="flex items-center gap-2"><svg class="w-4 h-4 text-brand-primary" fill="currentColor" viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"></path></svg> Kestävät premium-materiaalit</li>
+                <li class="flex items-center gap-2"><svg class="w-4 h-4 text-brand-primary" fill="currentColor" viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"></path></svg> Helppo kiinnitys ja säätö</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- ONLINE SHOP CTA -->
+          <div class="mt-8 pt-8 border-t border-gray-100">
+            <a id="product-modal-shop-link" href="https://www.robolinegroup.fi/verkkokauppa/" target="_blank" class="flex items-center justify-between group/btn bg-brand-primary p-6 rounded-2xl text-white shadow-xl transition-all">
+              <div class="flex flex-col">
+                <span class="text-xs font-bold uppercase tracking-widest opacity-70">Osta verkkokaupasta</span>
+                <span class="text-xl font-black uppercase">Tästä verkkokauppaan</span>
+              </div>
+              <div class="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center group-hover/btn:bg-white group-hover/btn:text-brand-primary transition-all">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path></svg>
+              </div>
+            </a>
+            <p class="text-[10px] text-gray-400 text-center mt-4 uppercase font-bold tracking-widest">Toimitukset koko Suomeen</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- END: Product Modal -->
+  </body>
 </html>

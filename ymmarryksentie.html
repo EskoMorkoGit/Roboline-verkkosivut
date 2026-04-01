@@ -264,12 +264,12 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex justify-between items-center h-20">
         <!-- Logo -->
-        <div class="flex-shrink-0 flex items-center pr-2">
-          <img alt="Roboline Group Logo" class="h-10 sm:h-14 w-auto rounded-custom mr-2 sm:mr-3"
-            src="logo.png" />
-          <span class="font-black text-lg sm:text-2xl tracking-tighter text-brand-primary font-display uppercase whitespace-nowrap">ROBOLINE
+        <a href="index.html" class="flex-shrink-0 flex items-center pr-2 group">
+          <img alt="Roboline Group Logo" class="h-10 sm:h-14 w-auto rounded-custom mr-2 sm:mr-3 transition-transform group-hover:scale-105" src="logo.png" />
+          <span
+            class="font-black text-lg sm:text-2xl tracking-tighter text-brand-primary font-display uppercase whitespace-nowrap group-hover:text-brand-dark transition-colors">ROBOLINE
             GROUP</span>
-        </div>
+        </a>
 
         <!-- Desktop Navigation Menu -->
         <nav class="hidden md:flex space-x-8 items-center">
@@ -357,7 +357,7 @@
 
 
         <p class="text-white text-xl md:text-2xl mb-12 max-w-3xl mx-auto font-medium">
-          Sosiaalinen innovaatio ja digitaalinen kokemus, joka on luotu nuorten ehdoilla. Ennaltaehkäisemme koulukiusaamista ja rakennamme siltoja ymmärrykselle – yksi peliaskel kerrallaan.
+          Sosiaalinen innovaatio ja digitaalinen kokemus, joka on luotu yhdessä nuorten kanssa. Ennaltaehkäisemme koulukiusaamista ja rakennamme siltoja ymmärrykselle – yksi peliaskel kerrallaan.
         </p>
       </div>
       </div>
@@ -404,7 +404,7 @@
         <div class="flex flex-col lg:flex-row gap-16 items-center">
           
           <!-- Image Part -->
-          <div class="w-full lg:w-1/2">
+          <div class="w-full lg:w-1/2 lg:-mt-12">
             <div class="relative rounded-[2.5rem] overflow-hidden shadow-2xl border border-gray-100 group">
               <img src="assets/nuoret_yhdessa.png" alt="Nuoret kehittämässä Ymmärryksen tie -peliä" 
                 class="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105">
@@ -417,17 +417,30 @@
             <div class="inline-flex items-center px-4 py-2 rounded-full bg-[#0f0a29]/10 text-[#0f0a29] text-sm font-bold uppercase tracking-widest mb-4">
               Meidän visionamme parempi kouluarki
             </div>
-            <h2 class="text-4xl md:text-5xl font-black text-brand-dark leading-tight font-display tracking-tight">
-              Miksi Ymmärryksen tie™?
+            <h2 class="font-bold text-2xl mb-4 text-brand-dark">
+              MIKSI YMMÄRRYKSEN TIE™
             </h2>
             
-            <div class="space-y-6 text-gray-600 text-xl leading-relaxed">
+            <div class="space-y-8 text-gray-600 text-xl leading-relaxed">
               <p>
                 Koulukiusaaminen ja yksinäisyys jättävät jälkiä, jotka voivat kestää läpi elämän. Ymmärryksen tie™ on kehitetty vastaamaan tähän haasteeseen tarjoamalla nuorille turvallisen tilan kohdata vaikeita tilanteita pelillistämisen avulla. 
               </p>
-              <p>
-                Se on enemmän kuin viihdettä: se on tapa oppia empatiaa ja sosiaalisia taitoja hauskalla tavalla. Peli auttaa nuoria näkemään tilanteita eri näkökulmista ja ymmärtämään toisen ihmisen maailmaa.
-              </p>
+              
+              <ul class="space-y-8 mt-10">
+                <li class="flex gap-6 items-start group">
+                  <div class="w-14 h-14 flex-shrink-0 bg-slate-50 rounded-2xl flex items-center justify-center text-slate-600 transition-all group-hover:bg-white group-hover:shadow-md border border-slate-100 group-hover:border-slate-200">
+                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                  </div>
+                  <p class="text-[1.1rem]"><strong class="text-brand-dark block text-xl mb-1 mt-1">Enemmän kuin viihdettä</strong> Se on tapa oppia empatiaa ja sosiaalisia taitoja hauskalla tavalla. Peli auttaa nuoria näkemään tilanteita eri näkökulmista ja ymmärtämään toisen ihmisen maailmaa.</p>
+                </li>
+                
+                <li class="flex gap-6 items-start group">
+                  <div class="w-14 h-14 flex-shrink-0 bg-slate-50 rounded-2xl flex items-center justify-center text-slate-600 transition-all group-hover:bg-white group-hover:shadow-md border border-slate-100 group-hover:border-slate-200">
+                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                  </div>
+                  <p class="text-[1.1rem]"><strong class="text-brand-dark block text-xl mb-1 mt-1">Terveet elämäntavat</strong> Sisäänrakennetut rajoitukset ja kellonajat pitävät huolen siitä, ettei käyttö kasvata haitallista ruutuaikaa, vaan pysyy hallittuna ja tarkoituksenmukaisena osana oppimista.</p>
+                </li>
+              </ul>
             </div>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 pt-6">
@@ -437,9 +450,10 @@
               </div>
               <div>
                 <h3 class="font-bold text-gray-900 border-l-4 border-[#0f0a29] pl-4 mb-2">Tutkittu voima</h3>
-                <p class="text-gray-600 text-base">Kehitysympäristönä Laurea-ammattikorkeakoulu.</p>
+                <p class="text-gray-600 text-base">Kehitysympäristönä Metropolia Ammattikorkeakoulu ja Laurea-ammattikorkeakoulu.</p>
               </div>
             </div>
+
 
           </div>
         </div>
@@ -540,15 +554,24 @@
             </div>
           </div>
         </div>
-        <!-- Contact Mikael -->
+        <!-- Contact Management -->
         <div>
           <h3 class="text-white font-bold text-sm mb-6 uppercase tracking-widest">Johdon yhteystiedot</h3>
-          <div class="space-y-2 text-sm">
-            <p class="font-bold text-white text-base">Mikael Järvenkylä</p>
-            <p class="text-gray-500">CEO, Perustajaosakas</p>
-            <p class="text-white">+358 50 3000 111</p>
-            <a class="text-brand-primary hover:text-white transition-colors"
-              href="mailto:mikael@robolinegroup.fi">mikael@robolinegroup.fi</a>
+          <div class="space-y-6 text-sm">
+            <div>
+              <p class="font-bold text-white text-base">Kari Rosenberg</p>
+              <p class="text-gray-500">CEO</p>
+              <p class="text-white">+358 400 376 060</p>
+              <a class="text-brand-primary hover:text-white transition-colors"
+                href="mailto:kari@robolinegroup.fi">kari@robolinegroup.fi</a>
+            </div>
+            <div>
+              <p class="font-bold text-white text-base">Mikael Järvenkylä</p>
+              <p class="text-gray-500">Perustajaosakas</p>
+              <p class="text-white">+358 50 3000 111</p>
+              <a class="text-brand-primary hover:text-white transition-colors"
+                href="mailto:mikael@robolinegroup.fi">mikael@robolinegroup.fi</a>
+            </div>
           </div>
         </div>
         <!-- Contact Juhani -->
@@ -565,10 +588,20 @@
       </div>
       <div
         class="mt-20 pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center text-xs text-gray-500 gap-4">
-        <p>© 2026 Roboline Group Oy. Kaikki oikeudet pidätetään.</p>
+        <div class="flex flex-col md:flex-row items-center gap-6">
+          <p>© 2026 Roboline Group Oy. Kaikki oikeudet pidätetään.</p>
+          <p class="text-gray-600">Sivuston toteutus: <a href="https://sivumaakarit.fi" target="_blank" class="hover:text-white transition-colors font-medium">Sivumaakarit</a></p>
+        </div>
         <div class="flex space-x-6">
           <a class="hover:text-white" href="#">Tietosuoja</a>
           <a class="hover:text-white" href="#">Käyttöehdot</a>
+        </div>
+        <div class="flex gap-4">
+          <a href="http://instagram.com/ymmarryksentie/" target="_blank" class="text-white/40 hover:text-white transition-colors" title="Instagram">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+            </svg>
+          </a>
         </div>
         <p class="italic text-gray-600">Palvelumme laadun varmistamiseksi nauhoitamme puhelut!</p>
       </div>
