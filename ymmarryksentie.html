@@ -78,6 +78,7 @@
       background: #0f0a29; /* Deep Indigo / Midnight Violet - Game World Theme */
       overflow: hidden;
       z-index: 0;
+      pointer-events: none;
     }
 
     /* Floating Animation for Header Cards */
@@ -235,6 +236,14 @@
       [data-glow] {
         --size: 600; /* Slightly larger spotlight for Hero */
         --spotlight-size: calc(var(--size) * 1px);
+        /* Allow normal scrolling on mobile */
+        touch-action: pan-y;
+      }
+
+      @media (min-width: 1024px) {
+        [data-glow] {
+          touch-action: none;
+        }
       }
       
       [data-glow]::before {
@@ -248,6 +257,15 @@
           rgba(34, 211, 238, 0.35), transparent 60%
         );
         background-attachment: fixed;
+      }
+
+      /* Mobile adjustment: Static soft glow instead of tracking */
+      @media (max-width: 1023px) {
+        [data-glow]::before {
+          background-image: radial-gradient(circle at center,
+              rgba(34, 211, 238, 0.15), transparent 80%);
+          background-attachment: scroll;
+        }
       }
 
       /* 360D Logo Spin Effect */
@@ -364,9 +382,9 @@
     </section>
 
     <script>
-      // Glow pointer tracking for Hero Spotlight
+      // Glow pointer tracking for Hero Spotlight (Only on desktop)
       const heroGlow = document.getElementById('glow-hero');
-      if (heroGlow) {
+      if (heroGlow && window.innerWidth >= 1024) {
         document.addEventListener('pointermove', (e) => {
           const { clientX, clientY } = e;
           // Set CSS properties on the Hero container following pointer

@@ -85,6 +85,7 @@
       /* Roboline Blue */
       overflow: hidden;
       z-index: 0;
+      pointer-events: none;
     }
 
     /* Floating Animation for Header Cards */
@@ -381,7 +382,14 @@
         --spotlight-size: calc(var(--size) * 1px);
         --hue: calc(var(--base) + (var(--xp, 0) * var(--spread, 0)));
         position: relative;
-        touch-action: none;
+        /* Allow normal scrolling on mobile */
+        touch-action: pan-y;
+      }
+
+      @media (min-width: 1024px) {
+        [data-glow] {
+          touch-action: none;
+        }
       }
 
       /* The spotlight element renders BEHIND the text/logo but OVER the dark background */
@@ -395,6 +403,15 @@
         background-image: radial-gradient(var(--spotlight-size) var(--spotlight-size) at calc(var(--x, 0) * 1px) calc(var(--y, 0) * 1px),
             hsl(var(--hue, 210) 95% 85% / 0.85), transparent 70%);
         background-attachment: fixed;
+      }
+
+      /* Mobile adjustment: Static soft glow instead of tracking */
+      @media (max-width: 1023px) {
+        [data-glow]::before {
+          background-image: radial-gradient(circle at center,
+              hsl(210 95% 85% / 0.25), transparent 80%);
+          background-attachment: scroll;
+        }
       }
 
       /* 360D Logo Spin Effect */
@@ -493,9 +510,9 @@
         modal.classList.add('hidden');
         modal.classList.remove('flex');
       }
-      // GlowCard pointer tracking for Hero Spotlight
+      // GlowCard pointer tracking for Hero Spotlight (Only on desktop)
       const heroGlow = document.getElementById('glow-hero');
-      if (heroGlow) {
+      if (heroGlow && window.innerWidth >= 1024) {
         document.addEventListener('pointermove', (e) => {
           const { clientX, clientY } = e;
           // Set CSS properties on the Hero container following pointer
