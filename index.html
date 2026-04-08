@@ -491,18 +491,32 @@
 
 
     <script>
-      function openProductModal(src, title) {
+      window.openProductModal = function (imgSrc, title) {
         const modal = document.getElementById('product-modal');
         const modalImg = document.getElementById('product-modal-img');
         const modalTitle = document.getElementById('product-modal-title');
+        const modalDesc = document.getElementById('product-modal-desc');
+        const modalBenefits = document.getElementById('product-modal-benefits');
+        const modalShopLink = document.getElementById('product-modal-shop-link');
 
-        modalImg.src = src;
+        modalImg.src = imgSrc;
         modalTitle.textContent = title;
 
-        document.body.style.overflow = 'hidden';
+        // Custom logic for different types of content
+        if (imgSrc.includes('game_')) {
+          if (modalDesc) modalDesc.textContent = '"Ymmärryksen tie™ on digitaalinen työkalu empatiakasvatukseen ja koulukiusaamisen ehkäisyyn. Se tarjoaa opettajille ja oppilaille yhteisen maailman tutkia tunteita."';
+          if (modalBenefits) modalBenefits.classList.add('hidden');
+          if (modalShopLink) modalShopLink.classList.add('hidden');
+        } else {
+          if (modalDesc) modalDesc.textContent = '"Keksintö, joka muuttaa arjen liikkumisen helpommaksi. Robolinen taidonnäyte suomalaisesta käytännöllisyydestä."';
+          if (modalBenefits) modalBenefits.classList.remove('hidden');
+          if (modalShopLink) modalShopLink.classList.remove('hidden');
+        }
+
         modal.classList.remove('hidden');
         modal.classList.add('flex');
-      }
+        document.body.style.overflow = 'hidden';
+      };
 
       function closeProductModal() {
         const modal = document.getElementById('product-modal');
@@ -770,6 +784,34 @@
               Peli on sosiaalinen innovaatio, joka tullaan tarjoamaan pelaajille ilmaispelinä. Kehitystyötä on tehty
               yhdessä nuorten pelikehitysinsinöörien sekä Lohjan Laurentius koulun oppilaiden kanssa.
             </p>
+
+            <!-- Mini Game Gallery -->
+            <div class="mb-10 group/gallery">
+              <div class="grid grid-cols-2 gap-3">
+                <div
+                  class="relative aspect-video rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all cursor-zoom-in"
+                  onclick="openProductModal('assets/game_2.webp', 'Virtuaalinen maailma')">
+                  <img src="assets/game_2.webp" alt="Peli"
+                    class="w-full h-full object-cover transition-transform group-hover/gallery:scale-105">
+                  <div
+                    class="absolute inset-0 bg-brand-primary/20 opacity-0 group-hover/gallery:opacity-100 transition-opacity">
+                  </div>
+                </div>
+                <div
+                  class="relative aspect-video rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all cursor-zoom-in"
+                  onclick="openProductModal('assets/game_5.webp', 'Kiusaamisen vastainen työ')">
+                  <img src="assets/game_5.webp" alt="Peli"
+                    class="w-full h-full object-cover transition-transform group-hover/gallery:scale-105">
+                  <div
+                    class="absolute inset-0 bg-brand-primary/20 opacity-0 group-hover/gallery:opacity-100 transition-opacity">
+                  </div>
+                </div>
+              </div>
+              <a href="ymmarryksentie.html"
+                class="inline-flex items-center mt-4 text-brand-primary font-bold text-sm tracking-tight hover:underline">
+                Tutustu pelimaailmaan tarkemmin →
+              </a>
+            </div>
             <div class="space-y-6">
               <div class="bg-blue-50 p-6 rounded-custom">
                 <h4 class="font-bold text-xl text-brand-primary mb-4">Miksi tämä on tärkeää?</h4>
@@ -1435,7 +1477,6 @@
               <p id="product-modal-title"
                 class="text-3xl font-black text-brand-dark uppercase tracking-tighter leading-tight mb-2">Drop Not
                 Detail</p>
-              <div class="h-1.5 w-16 bg-brand-primary rounded-full"></div>
             </div>
             <button onclick="closeProductModal()" class="text-gray-300 hover:text-brand-primary transition-colors">
               <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1444,12 +1485,12 @@
             </button>
           </div>
 
-          <p class="text-gray-500 text-lg leading-relaxed italic">
+          <p id="product-modal-desc" class="text-gray-500 text-lg leading-relaxed italic">
             "Keksintö, joka muuttaa arjen liikkumisen helpommaksi. Robolinen taidonnäyte suomalaisesta
             käytännöllisyydestä."
           </p>
 
-          <div class="p-6 bg-gray-50 rounded-3xl border border-gray-100">
+          <div id="product-modal-benefits" class="p-6 bg-gray-50 rounded-3xl border border-gray-100">
             <h5 class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3">Tuotteen hyödyt</h5>
             <ul class="space-y-2 text-sm text-gray-600 font-medium">
               <li class="flex items-center gap-2"><svg class="w-4 h-4 text-brand-primary" fill="currentColor"

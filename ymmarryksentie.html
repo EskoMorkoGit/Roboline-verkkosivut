@@ -422,11 +422,22 @@
         <div class="flex flex-col lg:flex-row gap-16 items-center">
           
           <!-- Image Part -->
-          <div class="w-full lg:w-1/2 lg:-mt-12">
-            <div class="relative rounded-[2.5rem] overflow-hidden shadow-2xl border border-gray-100 group">
+          <div class="w-full lg:w-1/2 lg:-mt-32 flex flex-col justify-between h-full">
+            <div class="relative rounded-[2.5rem] overflow-hidden shadow-2xl border border-gray-100 group mb-6">
               <img src="assets/nuoret_yhdessa.png" alt="Nuoret kehittämässä Ymmärryksen tie -peliä" 
                 class="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105">
               <div class="absolute inset-0 bg-[#0f0a29]/20 mix-blend-multiply opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 pt-4">
+              <div>
+                <h3 class="font-bold text-gray-900 border-l-4 border-cyan-400 pl-4 mb-2">Nuoret keskiössä</h3>
+                <p class="text-gray-600 text-base">Hiottu yhdessä Laurentius-koulun oppilaiden ja nuorten pelikehittäjien kanssa.</p>
+              </div>
+              <div>
+                <h3 class="font-bold text-gray-900 border-l-4 border-[#0f0a29] pl-4 mb-2">Tutkittu voima</h3>
+                <p class="text-gray-600 text-base">Kehitysympäristönä Metropolia Ammattikorkeakoulu ja Laurea-ammattikorkeakoulu.</p>
+              </div>
             </div>
           </div>
 
@@ -461,18 +472,48 @@
               </ul>
             </div>
 
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 pt-6">
-              <div>
-                <h3 class="font-bold text-gray-900 border-l-4 border-cyan-400 pl-4 mb-2">Nuoret keskiössä</h3>
-                <p class="text-gray-600 text-base">Hiottu yhdessä Laurentius-koulun oppilaiden ja nuorten pelikehittäjien kanssa.</p>
-              </div>
-              <div>
-                <h3 class="font-bold text-gray-900 border-l-4 border-[#0f0a29] pl-4 mb-2">Tutkittu voima</h3>
-                <p class="text-gray-600 text-base">Kehitysympäristönä Metropolia Ammattikorkeakoulu ja Laurea-ammattikorkeakoulu.</p>
-              </div>
+            <!-- BEGIN: Game Gallery Bento -->
+            <div class="mt-8">
+               <div class="flex items-center gap-3 mb-8">
+                  <div class="w-8 h-8 rounded-lg bg-cyan-500/10 flex items-center justify-center text-cyan-600">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
+                  </div>
+                  <h3 class="font-display font-black text-brand-dark uppercase tracking-tight text-xl">Vilkaus pelimaailmaan</h3>
+               </div>
+               
+               <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                  <!-- Image 2 -->
+                  <div class="group relative aspect-video rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 cursor-zoom-in" onclick="openProductModal('assets/game_2.webp', 'Kioski ja taloussaavutustaitoja')">
+                     <img src="assets/game_2.webp" alt="Pelinäkymä 2" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                     <div class="absolute inset-0 bg-gradient-to-t from-brand-dark/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-4">
+                        <span class="text-white text-[10px] font-bold uppercase tracking-widest">Kioski & Talous</span>
+                     </div>
+                  </div>
+                  <!-- Image 3 -->
+                  <div class="group relative aspect-video rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 cursor-zoom-in" onclick="openProductModal('assets/game_5.webp', 'Kiusaamisen vastainen työ')">
+                     <img src="assets/game_5.webp" alt="Pelinäkymä 5" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                     <div class="absolute inset-0 bg-gradient-to-t from-brand-dark/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-4">
+                        <span class="text-white text-[10px] font-bold uppercase tracking-widest">Kiusaamisen vastainen työ</span>
+                     </div>
+                  </div>
+                  <!-- Image 4 -->
+                  <div class="group relative aspect-video rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 cursor-zoom-in" onclick="openProductModal('assets/game_4.webp', 'Empatiakasvatus ja kiusaamisen ehkäisy')">
+                     <img src="assets/game_4.webp" alt="Pelinäkymä 4" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                     <div class="absolute inset-0 bg-gradient-to-t from-brand-dark/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-4">
+                        <span class="text-white text-[10px] font-bold uppercase tracking-widest">Empatiakasvatus</span>
+                     </div>
+                  </div>
+                  <!-- Image 5 -->
+                  <div class="group relative aspect-video rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 cursor-zoom-in" onclick="openProductModal('assets/game_3.webp', 'Lohjan kaupunkiympäristö')">
+                     <img src="assets/game_3.webp" alt="Pelinäkymä 3" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                     <div class="absolute inset-0 bg-gradient-to-t from-brand-dark/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-4">
+                        <span class="text-white text-[10px] font-bold uppercase tracking-widest">Kaupunkiympäristö</span>
+                     </div>
+                  </div>
+               </div>
+               <p class="mt-4 text-sm text-gray-400 italic">Klikkaa kuvaa nähdäksesi sen suurempana.</p>
             </div>
-
-
+            <!-- END: Game Gallery Bento -->
           </div>
         </div>
       </div>
@@ -646,7 +687,84 @@
       }
     });
   </script>
+
+  <!-- BEGIN: Product Modal (Game Showcase) -->
+  <div id="product-modal" class="fixed inset-0 z-[100] hidden items-center justify-center p-4 sm:p-8">
+    <div class="absolute inset-0 bg-brand-dark/95 backdrop-blur-md" onclick="closeProductModal()"></div>
+    <div
+      class="relative w-full max-w-6xl bg-white rounded-[3rem] overflow-hidden shadow-2xl animate-modal-pop flex flex-col md:flex-row max-h-[90vh]">
+      <!-- Image side -->
+      <div class="w-full md:w-2/3 bg-gray-100 flex items-center justify-center relative group overflow-hidden">
+        <img id="modal-product-img" src="assets/game_1.webp" alt="Tuotekuva"
+          class="max-w-full max-h-[60vh] md:max-h-full object-contain transition-transform duration-700" />
+        <!-- Image Nav -->
+        <div class="absolute bottom-6 left-6 right-6 flex justify-between items-center opacity-0 group-hover:opacity-100 transition-opacity">
+           <p id="modal-product-caption" class="text-brand-dark font-display font-black uppercase text-xl bg-white/90 px-6 py-3 rounded-2xl shadow-lg"></p>
+        </div>
+      </div>
+      <!-- Actions side -->
+      <div class="w-full md:w-1/3 p-10 flex flex-col justify-center bg-gray-50 border-l border-gray-100">
+        <button onclick="closeProductModal()"
+          class="absolute top-6 right-6 w-12 h-12 flex items-center justify-center rounded-full bg-white text-brand-dark shadow-md hover:bg-gray-100 transition-colors z-10">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+            <path d="M6 18L18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+          </svg>
+        </button>
+
+        <div class="mb-10 text-center md:text-left">
+          <h3 class="text-sm font-bold text-cyan-600 uppercase tracking-[0.2em] mb-3">Pelinäkymä</h3>
+          <p class="text-gray-600 text-lg leading-relaxed">
+            Tutustu Roboline-pelimaailman yksityiskohtiin ja mekaniikoihin, jotka on luotu tukemaan empatiakasvatusta ja arjen taitoja.
+          </p>
+        </div>
+
+        <div class="space-y-4">
+          <a href="#contact" onclick="closeProductModal()"
+            class="block w-full text-center bg-brand-primary text-white font-black py-5 rounded-3xl shadow-xl hover:shadow-2xl hover:bg-brand-dark transition-all uppercase tracking-widest">
+            Kysy lisää
+          </a>
+          <button onclick="closeProductModal()"
+            class="block w-full text-center bg-white text-gray-400 font-bold py-4 rounded-3xl hover:text-gray-600 transition-colors uppercase text-sm">
+            Sulje näkymä
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- END: Product Modal -->
+
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 800,
+      once: true,
+      offset: 100
+    });
+
+    // Product Modal Logic
+    const productModal = document.getElementById('product-modal');
+    const modalImg = document.getElementById('modal-product-img');
+    const modalCaption = document.getElementById('modal-product-caption');
+
+    function openProductModal(imgSrc, caption) {
+      modalImg.src = imgSrc;
+      modalCaption.textContent = caption;
+      productModal.classList.remove('hidden');
+      productModal.classList.add('flex');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeProductModal() {
+      productModal.classList.add('hidden');
+      productModal.classList.remove('flex');
+      document.body.style.overflow = '';
+    }
+
+    // Escape listener
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeProductModal();
+    });
+  </script>
 </body>
 
 </html>
-
