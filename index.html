@@ -499,6 +499,8 @@
         const modalBenefits = document.getElementById('product-modal-benefits');
         const modalShopLink = document.getElementById('product-modal-shop-link');
 
+        const modalDeliveryInfo = document.getElementById('product-modal-delivery-info');
+        
         modalImg.src = imgSrc;
         modalTitle.textContent = title;
 
@@ -507,10 +509,12 @@
           if (modalDesc) modalDesc.textContent = '"Ymmärryksen tie™ on digitaalinen työkalu empatiakasvatukseen ja koulukiusaamisen ehkäisyyn. Se tarjoaa opettajille ja oppilaille yhteisen maailman tutkia tunteita."';
           if (modalBenefits) modalBenefits.classList.add('hidden');
           if (modalShopLink) modalShopLink.classList.add('hidden');
+          if (modalDeliveryInfo) modalDeliveryInfo.classList.add('hidden');
         } else {
           if (modalDesc) modalDesc.textContent = '"Keksintö, joka muuttaa arjen liikkumisen helpommaksi. Robolinen taidonnäyte suomalaisesta käytännöllisyydestä."';
           if (modalBenefits) modalBenefits.classList.remove('hidden');
           if (modalShopLink) modalShopLink.classList.remove('hidden');
+          if (modalDeliveryInfo) modalDeliveryInfo.classList.remove('hidden');
         }
 
         modal.classList.remove('hidden');
@@ -1515,10 +1519,16 @@
           </div>
         </div>
 
-        <!-- ONLINE SHOP CTA -->
-        <div class="mt-8 pt-8 border-t border-gray-100">
+        <!-- CONTACT CTA -->
+        <div class="mt-8 pt-8 border-t border-gray-100 flex flex-col gap-4">
+          <a href="#ota-yhteytta" onclick="closeProductModal()"
+            class="block w-full text-center bg-brand-primary text-white font-black py-5 rounded-3xl shadow-xl hover:shadow-2xl hover:bg-brand-dark transition-all uppercase tracking-widest">
+            Kysy lisää
+          </a>
+
+          <!-- ONLINE SHOP CTA -->
           <a id="product-modal-shop-link" href="https://www.robolinegroup.fi/verkkokauppa/" target="_blank"
-            class="flex items-center justify-between group/btn bg-brand-primary p-6 rounded-2xl text-white shadow-xl transition-all">
+            class="flex items-center justify-between group/btn bg-[#0077b8] p-6 rounded-2xl text-white shadow-xl transition-all">
             <div class="flex flex-col">
               <span class="text-xs font-bold uppercase tracking-widest opacity-70">Osta verkkokaupasta</span>
               <span class="text-xl font-black uppercase">Tästä verkkokauppaan</span>
@@ -1531,8 +1541,7 @@
               </svg>
             </div>
           </a>
-          <p class="text-[10px] text-gray-400 text-center mt-4 uppercase font-bold tracking-widest">Toimitukset koko
-            Suomeen</p>
+          <p id="product-modal-delivery-info" class="text-[10px] text-gray-400 text-center uppercase font-bold tracking-widest">Toimitukset koko Suomeen</p>
         </div>
       </div>
     </div>
