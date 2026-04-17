@@ -500,13 +500,18 @@
         const modalShopLink = document.getElementById('product-modal-shop-link');
 
         const modalDeliveryInfo = document.getElementById('product-modal-delivery-info');
-        
+
         modalImg.src = imgSrc;
         modalTitle.textContent = title;
 
         // Custom logic for different types of content
         if (imgSrc.includes('game_')) {
           if (modalDesc) modalDesc.textContent = '"Ymmärryksen tie™ on digitaalinen työkalu empatiakasvatukseen ja koulukiusaamisen ehkäisyyn. Se tarjoaa opettajille ja oppilaille yhteisen maailman tutkia tunteita."';
+          if (modalBenefits) modalBenefits.classList.add('hidden');
+          if (modalShopLink) modalShopLink.classList.add('hidden');
+          if (modalDeliveryInfo) modalDeliveryInfo.classList.add('hidden');
+        } else if (imgSrc.includes('RL_kortti')) {
+          if (modalDesc) modalDesc.textContent = '"ROBO-FRAME mahdollistaa yksilöllisten taide- ja valokuvakorttien tyylikkään esittämisen ja säilyttämisen. Ideasta tulostetuksi tuotteeksi saman katon alla."';
           if (modalBenefits) modalBenefits.classList.add('hidden');
           if (modalShopLink) modalShopLink.classList.add('hidden');
           if (modalDeliveryInfo) modalDeliveryInfo.classList.add('hidden');
@@ -928,6 +933,131 @@
                     </div>
                   </div>
                 </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- ROBO-FRAME -->
+          <article
+            class="bg-white rounded-custom shadow-xl p-8 md:p-12 border border-brand-primary/10 flex flex-col transition-all hover:shadow-2xl duration-300 lg:col-span-2 relative overflow-hidden group/robo">
+            <div
+              class="absolute top-0 right-0 p-8 opacity-5 pointer-events-none transform translate-x-12 -translate-y-12 rotate-12 transition-transform duration-1000 group-hover/robo:rotate-6">
+              <svg class="w-64 h-64 text-brand-dark" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+              </svg>
+            </div>
+
+            <div class="relative z-10 flex flex-col lg:flex-row gap-12 lg:gap-16">
+              <div class="lg:w-[55%] flex flex-col justify-between">
+                <div>
+                  <div class="flex flex-wrap items-center gap-3 mb-6">
+                    <h2 class="text-3xl lg:text-4xl font-black text-brand-dark uppercase tracking-wide font-display">
+                      ROBO-FRAME</h2>
+                    <span
+                      class="bg-slate-800 text-white text-[10px] font-black px-3 py-1.5 rounded uppercase tracking-widest flex items-center shadow-md">
+                      <svg class="w-3.5 h-3.5 mr-1.5 text-brand-primary" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd"
+                          d="M10 1.944A11.954 11.954 0 012.166 5C2.056 5.649 2 6.319 2 7c0 5.225 3.34 9.67 8 11.317C14.66 16.67 18 12.225 18 7c0-.682-.057-1.35-.166-2.001A11.954 11.954 0 0110 1.944zM11 14a1 1 0 11-2 0 1 1 0 012 0zm0-7a1 1 0 10-2 0v3a1 1 0 102 0V7z"
+                          clip-rule="evenodd" />
+                      </svg>
+                      IPR Suojattu (Copyright)
+                    </span>
+                  </div>
+
+                  <p class="text-brand-primary font-bold text-xl mb-6 leading-snug">Yksilölliset 3D-tulostetut
+                    erikoiskehykset työhön ja vapaa-aikaan.</p>
+
+                  <div class="space-y-4 text-gray-600 text-lg leading-relaxed mb-8 font-medium">
+                    <p>
+                      ROBO-FRAME on itsenäisenä myytävä tuote, joka soveltuu muun muassa pelikorttien (kuten
+                      TAIDE-muistipelikorttiemme) ja valokuvien kehykseksi. Se on tilattavissa täysin asiakkaan
+                      tarpeiden mukaisilla mitoilla ja yksilöidyllä yrityslogolla – täydellinen esimerkiksi
+                      liikelahjaksi.
+                    </p>
+                    <p>
+                      Jokainen tilaus on täysin kustomoitavissa. Omaan <strong>Solidworks 3D</strong>
+                      -mallinnustaitoomme nojaten pystymme piirtämään asiakkaan villeimmätkin toiveet valmiiksi
+                      kehykseksi.
+                    </p>
+                  </div>
+
+                  <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
+                    <div
+                      class="bg-gray-50 border border-gray-100 p-5 rounded-xl transition-colors hover:bg-white hover:border-brand-primary/30 hover:shadow-sm">
+                      <span
+                        class="block text-brand-primary font-black text-xs uppercase tracking-widest mb-1.5">Materiaali</span>
+                      <span class="block text-gray-800 text-sm font-bold">Ekologiset elintarvikekäyttöön sopivat
+                        filamentit, hiilikuitu, ABS.</span>
+                    </div>
+                    <div
+                      class="bg-gray-50 border border-gray-100 p-5 rounded-xl transition-colors hover:bg-white hover:border-brand-primary/30 hover:shadow-sm">
+                      <span
+                        class="block text-brand-primary font-black text-xs uppercase tracking-widest mb-1.5">Valmistus</span>
+                      <span class="block text-gray-800 text-sm font-bold">Omavalmistus: Flashforge 3D-tulostimella (max.
+                        200&times;200&times;200 mm).</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="mt-auto">
+                  <div class="flex flex-wrap items-center gap-4 pt-6 mt-4">
+                    <a href="mailto:myynti@robolinegroup.fi?subject=ROBO-FRAME%20tilaustiedustelu"
+                      class="bg-brand-primary hover:bg-brand-dark transition-all duration-300 text-white font-black py-4 px-8 rounded-full shadow-lg hover:shadow-xl hover:-translate-y-0.5 inline-flex items-center uppercase tracking-wider text-sm">
+                      Pyydä tarjous!
+                      <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                          d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                      </svg>
+                    </a>
+                    <span
+                      class="text-xs font-bold uppercase tracking-widest text-slate-400 border border-slate-200 px-4 py-2 rounded-full">Tulossa
+                      verkkokauppaan</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Gallery Area (Bento style) -->
+              <div class="lg:w-[45%]">
+                <div class="grid grid-cols-2 gap-4 h-full">
+                  <div class="col-span-1 shadow-sm rounded-2xl overflow-hidden group relative bg-gray-50 aspect-square">
+                    <img src="assets/RL_kortti1.webp?v=2" alt="ROBO-FRAME"
+                      class="w-full h-full object-cover transition duration-1000 group-hover:scale-105 cursor-zoom-in"
+                      onclick="openProductModal('assets/RL_kortti1.webp?v=2', 'Yksilölliset ROBO-FRAME kehykset')" />
+                  </div>
+                  <div class="col-span-1 shadow-sm rounded-2xl overflow-hidden group relative bg-gray-50 aspect-square">
+                    <img src="assets/RL_kortti2.webp?v=3" alt="TAIDE Kortit kehyksissä"
+                      class="w-full h-full object-cover transition duration-1000 group-hover:scale-105 cursor-zoom-in"
+                      onclick="openProductModal('assets/RL_kortti2.webp?v=3', 'Sopii täydellisesti TAIDE-kortteihin')" />
+                  </div>
+                  <div class="col-span-1 shadow-sm rounded-2xl overflow-hidden group relative bg-gray-50 aspect-square">
+                    <img src="assets/RL_kortti3.webp" alt="ROBO FRAME laatikko"
+                      class="w-full h-full object-cover transition duration-1000 group-hover:scale-105 cursor-zoom-in"
+                      onclick="openProductModal('assets/RL_kortti3.webp', 'Pakkausratkaisut ja laatikot')" />
+                  </div>
+                  <div class="col-span-1 shadow-sm rounded-2xl overflow-hidden group relative bg-gray-50 aspect-square">
+                    <img src="assets/RL_kortti4.webp" alt="ROBO-FRAME Lähikuva"
+                      class="w-full h-full object-cover transition duration-1000 group-hover:scale-105 cursor-zoom-in"
+                      onclick="openProductModal('assets/RL_kortti4.webp', 'Ekologiset materiaalit')" />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Global IPR Notice injected here nicely -->
+            <div class="mt-14 bg-slate-50 border border-slate-100 rounded-2xl p-6 md:p-8 flex items-start gap-5">
+              <div class="bg-white p-3 rounded-xl shadow-sm flex-shrink-0">
+                <svg class="w-7 h-7 text-brand-dark" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                </svg>
+              </div>
+              <div class="text-xs md:text-sm text-slate-600 leading-relaxed font-medium">
+                <strong class="text-brand-dark">Immateriaalioikeudellinen suojaus (IPR oikeus) ja
+                  tekijänoikeus:</strong> Kaikkia keksintöjäni ja innovaatioitani, sekä jo yhtiöllemme sopimuksella
+                siirrettyjä innovaatioita, suojaa lainsäädäntö. Tekijänoikeus muodostuu välittömästi teoksen (kuten
+                3D-mallinnot, piirrokset ja tekstit) syntyhetkellä. Tekijänoikeuden kaupallinen rikkominen muuttuu
+                tekijänoikeusrikokseksi, joka on yleisen syyttäjän alainen rikos. Roboline Group arvostaa kaupallisia
+                kumppanuuksia, mutta valvoo tarkasti immateriaalioikeuksiaan.
               </div>
             </div>
           </article>
@@ -1541,7 +1671,9 @@
               </svg>
             </div>
           </a>
-          <p id="product-modal-delivery-info" class="text-[10px] text-gray-400 text-center uppercase font-bold tracking-widest">Toimitukset koko Suomeen</p>
+          <p id="product-modal-delivery-info"
+            class="text-[10px] text-gray-400 text-center uppercase font-bold tracking-widest">Toimitukset koko Suomeen
+          </p>
         </div>
       </div>
     </div>
