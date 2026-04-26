@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sivumaakarit Showcase Studio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Premium fonts */
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&family=Playfair+Display:ital,wght@0,600;1,600&display=swap');
+    
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #f1f5f9;
+      margin: 0;
+      height: 100vh;
+      display: flex;
+    }
+    
+    h1, h2, h3, .font-serif-display {
+      font-family: 'Playfair Display', serif;
+    }
+
+    /* Studio Layout */
+    .sidebar { width: 320px; background: white; padding: 2rem; border-right: 1px solid #e2e8f0; overflow-y: auto; z-index: 10; box-shadow: 4px 0 20px rgba(0,0,0,0.05); }
+    .canvas-container { flex: 1; display: flex; align-items: center; justify-content: center; overflow: hidden; padding: 2rem; }
+    
+    /* The Output Canvas (export this area) */
+    .mockup-canvas {
+      width: 1200px;
+      height: 675px; /* 16:9 aspect ratio */
+      position: relative;
+      overflow: hidden;
+      border-radius: 4px;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+      transition: background 0.5s ease;
+    }
+
+    /* Background Themes */
+    .theme-midnight { background: linear-gradient(135deg, #0a1128 0%, #1c2b59 100%); color: white; }
+    .theme-sand { background: linear-gradient(135deg, #e6ddd8 0%, #d8cfc9 50%, #b8b0a9 50%, #aba39d 100%); color: #1a1a1a; }
+    .theme-mesh { background: radial-gradient(at 0% 0%, hsla(253,16%,7%,1) 0, transparent 50%), radial-gradient(at 50% 0%, hsla(225,39%,30%,1) 0, transparent 50%), radial-gradient(at 100% 0%, hsla(339,49%,30%,1) 0, transparent 50%); background-color: #0f111a; color: white;}
+
+    /* 3D Scene */
+    .scene {
+      perspective: 1500px;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end; /* Devices on the right */
+      padding-right: 10%;
+    }
+
+    /* Device Base Styles */
+    .device {
+      transform-style: preserve-3d;
+      transition: all 0.5s ease;
+    }
+    
+    .screen {
+      overflow: hidden;
+      background: #000;
+      position: relative;
+    }
+    
+    .screen img {
+      width: 100%;
+      height: auto;
+      min-height: 100%;
+      object-fit: cover;
+      object-position: top center;
+    }
+
+    /* MacBook Model (CSS Clay/Glass style) */
+    .macbook-wrapper {
+      position: absolute;
+      width: 600px;
+      /* Dynamic editorial angle */
+      transform: rotateX(15deg) rotateY(-20deg) rotateZ(5deg);
+      box-shadow: -30px 40px 60px rgba(0,0,0,0.4);
+      border-radius: 12px;
+      z-index: 1;
+    }
+    .macbook-screen-lid {
+      width: 100%;
+      aspect-ratio: 16/10;
+      border: 14px solid #1a1a1a;
+      border-bottom: 24px solid #111;
+      border-radius: 12px 12px 0 0;
+      background: #000;
+      position: relative;
+    }
+    .macbook-base {
+      width: 120%;
+      height: 15px;
+      background: linear-gradient(to right, #ccc, #fff, #ccc);
+      margin-left: -10%;
+      border-radius: 0 0 16px 16px;
+      box-shadow: inset 0 2px 4px rgba(255,255,255,0.8), 0 10px 20px rgba(0,0,0,0.5);
+      position: relative;
+    }
+    .macbook-notch {
+      position: absolute; left: 50%; top: -14px; width: 15%; height: 12px; background: #1a1a1a; transform: translateX(-50%); border-radius: 0 0 6px 6px;
+    }
+
+    /* iPhone Model */
+    .iphone-wrapper {
+      position: absolute;
+      width: 180px;
+      height: 390px;
+      border-radius: 30px;
+      background: #111;
+      border: 8px solid #f8f9fa; /* Sleek silver edge */
+      box-shadow: -20px 30px 50px rgba(0,0,0,0.5), inset 0 0 2px rgba(255,255,255,0.5);
+      /* Floats in front of macbook */
+      transform: translate3d(-300px, 80px, 150px) rotateX(18deg) rotateY(-25deg) rotateZ(8deg);
+      z-index: 2;
+    }
+    .iphone-screen { border-radius: 22px; width: 100%; height: 100%; }
+    .iphone-island { position: absolute; top: 10px; left: 50%; transform: translateX(-50%); width: 35%; height: 20px; background: #000; border-radius: 15px; z-index: 10; }
+
+    /* Info Panel inside Canvas */
+    .info-panel {
+      position: absolute;
+      left: 8%;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 35%;
+      z-index: 5;
+    }
+
+    .form-group { margin-bottom: 1.5rem; }
+    .form-label { display: block; font-size: 0.875rem; font-weight: 600; color: #475569; margin-bottom: 0.5rem; }
+    .form-input { width: 100%; padding: 0.5rem; border: 1px solid #cbd5e1; border-radius: 0.375rem; font-family: inherit; }
+    
+    .file-drop {
+      border: 2px dashed #cbd5e1; border-radius: 0.5rem; padding: 1rem; text-align: center; cursor: pointer; transition: all 0.2s;
+    }
+    .file-drop:hover { border-color: #3b82f6; background: #eff6ff; }
+    .file-input { display: none; }
+  </style>
+</head>
+<body>
+
+  <!-- Controls Sidebar -->
+  <aside class="sidebar flex flex-col gap-6">
+    <div>
+      <h2 class="text-xl font-bold text-gray-900 mb-1">Mockup Studio</h2>
+      <p class="text-xs text-gray-500">Sivumaakarit Showcase Engine</p>
+    </div>
+
+    <!-- Screen Uploads -->
+    <div class="bg-gray-50 p-4 rounded-xl border border-gray-100">
+      <h3 class="font-bold text-sm text-gray-800 mb-3">1. Lataa Kuvat (Local)</h3>
+      
+      <div class="form-group">
+        <label class="form-label">Desktop Kuva (MacBook)</label>
+        <div class="file-drop" onclick="document.getElementById('desktopInput').click()">
+          <span class="text-sm text-blue-600 font-medium">Lataa kuva koneelta</span>
+          <input type="file" id="desktopInput" class="file-input" accept="image/*">
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <label class="form-label">Mobiili Kuva (iPhone)</label>
+        <div class="file-drop" onclick="document.getElementById('mobileInput').click()">
+          <span class="text-sm text-blue-600 font-medium">Lataa kuva koneelta</span>
+          <input type="file" id="mobileInput" class="file-input" accept="image/*">
+        </div>
+      </div>
+    </div>
+
+    <!-- Text Content -->
+    <div class="bg-gray-50 p-4 rounded-xl border border-gray-100">
+      <h3 class="font-bold text-sm text-gray-800 mb-3">2. Projektin Tiedot</h3>
+      <div class="form-group">
+        <label class="form-label">Brändi / Yritys</label>
+        <input type="text" id="brandText" class="form-input" value="Roboline Innovations" oninput="updateText()">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Pääotsikko</label>
+        <input type="text" id="titleText" class="form-input" value="B2B Brändäys ja Luksus-UI" oninput="updateText()">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Kuvaus</label>
+        <textarea id="descText" class="form-input" rows="3" oninput="updateText()">Sivumaakarit suunnitteli Roboline Innovationsille uuden verkkokokemuksen, jossa laadukkaat IPR-suojatut ideat heräävät henkiin tummanpuhuvan ja luottamusta herättävän käyttöliittymän kautta.</textarea>
+      </div>
+    </div>
+
+    <!-- Theme Selection -->
+    <div class="bg-gray-50 p-4 rounded-xl border border-gray-100">
+      <h3 class="font-bold text-sm text-gray-800 mb-3">3. Taustan Teema</h3>
+      <div class="flex gap-2">
+        <button onclick="setTheme('theme-midnight')" class="w-8 h-8 rounded-full border-2 border-white shadow-md" style="background: #0a1128;"></button>
+        <button onclick="setTheme('theme-mesh')" class="w-8 h-8 rounded-full border-2 border-white shadow-md" style="background: linear-gradient(45deg, #0f111a, #4a1c40);"></button>
+        <button onclick="setTheme('theme-sand')" class="w-8 h-8 rounded-full border-2 border-white shadow-md" style="background: #e6ddd8;"></button>
+      </div>
+    </div>
+    
+  </aside>
+
+  <!-- Output Canvas (The area to screenshot) -->
+  <main class="canvas-container">
+    <div id="captureArea" class="mockup-canvas theme-midnight">
+      
+      <!-- Text Integration -->
+      <div class="info-panel z-10 drop-shadow-lg">
+        <span class="text-sm font-bold tracking-widest uppercase opacity-70 mb-2 block" id="outBrand">Roboline</span>
+        <h1 class="text-5xl font-serif-display leading-tight mb-6" id="outTitle">B2B Brändäys ja Luksus-UI</h1>
+        <p class="text-lg opacity-80 font-light leading-relaxed" id="outDesc">
+          Sivumaakarit suunnitteli Roboline Innovationsille uuden verkkokokemuksen...
+        </p>
+      </div>
+
+      <!-- 3D Scene with Devices -->
+      <div class="scene">
+        
+        <!-- MacBook Pro -->
+        <div class="device macbook-wrapper">
+          <div class="macbook-screen-lid">
+            <div class="macbook-notch"></div>
+            <div class="screen h-full w-full">
+              <img id="render-desktop" src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1600&auto=format&fit=crop" alt="Desktop Preview">
+            </div>
+          </div>
+          <div class="macbook-base"></div>
+        </div>
+
+        <!-- iPhone Pro -->
+        <div class="device iphone-wrapper">
+          <div class="iphone-island"></div>
+          <div class="screen iphone-screen">
+            <img id="render-mobile" src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=600&auto=format&fit=crop" alt="Mobile Preview">
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <script>
+    // Handle Text live update
+    function updateText() {
+      document.getElementById('outBrand').innerText = document.getElementById('brandText').value;
+      document.getElementById('outTitle').innerText = document.getElementById('titleText').value;
+      document.getElementById('outDesc').innerText = document.getElementById('descText').value;
+    }
+    updateText();
+
+    // Handle Theme changes
+    function setTheme(themeClass) {
+      const canvas = document.getElementById('captureArea');
+      canvas.className = `mockup-canvas ${themeClass}`;
+    }
+
+    // Handle Local Image Uploads (Injects into preview without uploading to server)
+    const handleImageUpload = (inputId, renderId) => {
+      document.getElementById(inputId).addEventListener('change', function(e) {
+        if(e.target.files && e.target.files[0]) {
+          const reader = new FileReader();
+          reader.onload = function(event) {
+            document.getElementById(renderId).src = event.target.result;
+          }
+          reader.readAsDataURL(e.target.files[0]);
+        }
+      });
+    }
+
+    handleImageUpload('desktopInput', 'render-desktop');
+    handleImageUpload('mobileInput', 'render-mobile');
+  </script>
+</body>
+</html>

@@ -334,7 +334,7 @@
             </button>
           </div>
           <a class="bg-brand-primary text-white px-5 py-2.5 rounded-custom text-sm font-bold hover:bg-brand-dark transition-all"
-            href="mailto:mikael@robolinegroup.fi">OTA YHTEYTTÄ</a>
+            href="#ota-yhteytta">OTA YHTEYTTÄ</a>
         </nav>
         <!-- Mobile Menu Button (Visible on small screens) -->
         <div class="md:hidden flex items-center">
@@ -363,7 +363,7 @@
           href="#palvelut">Palvelut</a>
         <div class="pt-4 px-3">
           <a class="block w-full text-center bg-brand-primary text-white px-6 py-4 rounded-full text-lg font-bold hover:bg-brand-dark transition-all shadow-lg"
-            href="mailto:mikael@robolinegroup.fi">OTA YHTEYTTÄ</a>
+            href="#ota-yhteytta">OTA YHTEYTTÄ</a>
         </div>
       </div>
     </div>
@@ -512,6 +512,11 @@
           if (modalDeliveryInfo) modalDeliveryInfo.classList.add('hidden');
         } else if (imgSrc.includes('RL_kortti')) {
           if (modalDesc) modalDesc.textContent = '"ROBO-FRAME mahdollistaa yksilöllisten taide- ja valokuvakorttien tyylikkään esittämisen ja säilyttämisen. Ideasta tulostetuksi tuotteeksi saman katon alla."';
+          if (modalBenefits) modalBenefits.classList.add('hidden');
+          if (modalShopLink) modalShopLink.classList.add('hidden');
+          if (modalDeliveryInfo) modalDeliveryInfo.classList.add('hidden');
+        } else if (imgSrc.includes('Avaimenp')) {
+          if (modalDesc) modalDesc.textContent = '"Lohjan Bodaukselle räätälöidyt 3D-avaimenperät ovat osoitus Robolinen kyvystä muuttaa idea laadukkaaksi ja kestäväksi lopputuotteeksi."';
           if (modalBenefits) modalBenefits.classList.add('hidden');
           if (modalShopLink) modalShopLink.classList.add('hidden');
           if (modalDeliveryInfo) modalDeliveryInfo.classList.add('hidden');
@@ -786,7 +791,7 @@
         </div>
         <div class="grid lg:grid-cols-2 gap-12">
           <!-- YMMÄRRYKSEN TIE -->
-          <article
+          <article id="muistipelit"
             class="bg-white rounded-custom shadow-xl border-t-8 border-brand-primary p-8 md:p-12 transition-transform hover:-translate-y-2">
             <h2 class="text-3xl font-black text-gray-900 mb-6 uppercase tracking-wide">YMMÄRRYKSEN TIE™</h2>
             <p class="text-gray-700 text-lg leading-relaxed mb-8">
@@ -938,7 +943,7 @@
           </article>
 
           <!-- ROBO-FRAME -->
-          <article
+          <article id="robo-frame"
             class="bg-white rounded-custom shadow-xl p-8 md:p-12 border border-brand-primary/10 flex flex-col transition-all hover:shadow-2xl duration-300 lg:col-span-2 relative overflow-hidden group/robo">
             <div
               class="absolute top-0 right-0 p-8 opacity-5 pointer-events-none transform translate-x-12 -translate-y-12 rotate-12 transition-transform duration-1000 group-hover/robo:rotate-6">
@@ -1061,6 +1066,100 @@
               </div>
             </div>
           </article>
+
+          <!-- LOHJAN BODAUS REFERENSSI -->
+          <article id="lohjan-bodaus"
+            class="bg-white rounded-custom shadow-xl p-8 md:p-12 border border-gray-100 flex flex-col justify-between transition-all hover:shadow-2xl duration-300 lg:col-span-2 overflow-hidden group/bodaus">
+            <div class="relative z-10 flex flex-col lg:flex-row gap-12 lg:gap-16">
+              <!-- Text content -->
+              <div class="lg:w-1/2 flex flex-col justify-between">
+                <div>
+                  <div class="flex flex-wrap items-center gap-3 mb-6">
+                    <h2 class="text-3xl lg:text-4xl font-black text-brand-dark uppercase tracking-wide font-display">
+                      LOHJAN BODAUS RY</h2>
+                    <span
+                      class="bg-brand-primary/10 text-brand-primary text-[10px] font-black px-3 py-1.5 rounded uppercase tracking-widest flex items-center shadow-sm">
+                      <svg class="w-3.5 h-3.5 mr-1.5" fill="currentColor" viewBox="0 0 20 20">
+                        <path
+                          d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                      </svg>
+                      Asiakasreferenssi
+                    </span>
+                  </div>
+
+                  <p class="text-brand-primary font-bold text-xl mb-6">Räätälöidyt 3D-avaimenperät</p>
+
+                  <div class="space-y-6">
+                    <p class="text-gray-700 text-lg leading-relaxed font-medium">
+                      Räätälöidyt avaimenperät Lohjan Bodaukselle toteutettiin 3D-tulostustekniikalla yhteistyössä Mikael
+                      Järvenkylän ja Roboline Groupin kanssa. Mikael vastasi projektista kokonaisvaltaisesti aina
+                      suunnittelusta kuntosalilla tapahtuneeseen yhteiseen käyttöönottoon saakka.
+                    </p>
+
+                    <!-- Testimonial Quote -->
+                    <div
+                      class="bg-brand-light/50 border-l-4 border-brand-primary p-8 rounded-r-2xl italic relative shadow-sm">
+                      <div
+                        class="absolute -top-4 -left-2 text-brand-primary/10 text-7xl font-serif leading-none select-none">
+                        “</div>
+                      <p class="text-brand-dark text-lg md:text-xl font-bold leading-relaxed relative z-10">
+                        "Hänen kykynsä muuttaa idea toimivaksi lopputuotteeksi vastasi täysin yhdistyksemme tarpeita ja
+                        toi projektiin suurta lisäarvoa. Mikaelin laaja kokemus ja asiantunteva ote varmistavat
+                        projektin onnistumisen ja sujuvan lopputuloksen."
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="mt-10 flex flex-wrap gap-4">
+                  <div
+                    class="flex items-center gap-2 px-4 py-2 bg-gray-50 rounded-full border border-gray-100 text-xs font-bold text-gray-500 uppercase tracking-widest">
+                    <div class="w-2 h-2 rounded-full bg-brand-primary"></div>
+                    3D-tulostus
+                  </div>
+                  <div
+                    class="flex items-center gap-2 px-4 py-2 bg-gray-50 rounded-full border border-gray-100 text-xs font-bold text-gray-500 uppercase tracking-widest">
+                    <div class="w-2 h-2 rounded-full bg-brand-primary"></div>
+                    Solidworks 3D
+                  </div>
+                  <div
+                    class="flex items-center gap-2 px-4 py-2 bg-gray-50 rounded-full border border-gray-100 text-xs font-bold text-gray-500 uppercase tracking-widest">
+                    <div class="w-2 h-2 rounded-full bg-brand-primary"></div>
+                    Lohja
+                  </div>
+                </div>
+              </div>
+
+              <!-- Gallery / Visuals -->
+              <div class="lg:w-1/2">
+                <div class="grid grid-cols-2 gap-4 h-full">
+                  <div
+                    class="col-span-2 aspect-[16/9] rounded-3xl overflow-hidden shadow-lg group/img relative cursor-zoom-in"
+                    onclick="openProductModal('assets/Avaimenp1.jpg', 'Lohjan Bodaus - Räätälöidyt 3D-tuotteet')">
+                    <img src="assets/Avaimenp1.jpg" alt="Lohjan Bodaus avaimenperät"
+                      class="w-full h-full object-cover transition-transform duration-1000 group-hover/img:scale-105">
+                    <div
+                      class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover/img:opacity-100 transition-opacity flex items-end p-6">
+                      <span class="text-white text-xs font-bold uppercase tracking-widest">Suunnittelusta
+                        toteutukseen</span>
+                    </div>
+                  </div>
+                  <div
+                    class="col-span-1 aspect-square rounded-3xl overflow-hidden shadow-md group/img relative cursor-zoom-in"
+                    onclick="openProductModal('assets/Avaimenp2.jpg', '3D-tulostusjäljen yksityiskohdat')">
+                    <img src="assets/Avaimenp2.jpg" alt="3D-tulostettu avaimenperä"
+                      class="w-full h-full object-cover transition-transform duration-1000 group-hover/img:scale-110">
+                  </div>
+                  <div
+                    class="col-span-1 aspect-square rounded-3xl overflow-hidden shadow-md group/img relative cursor-zoom-in"
+                    onclick="openProductModal('assets/Avaimenp3.jpg', 'Lopullinen lopputuote käytössä')">
+                    <img src="assets/Avaimenp3.jpg" alt="Avaimenperä kuntosalilla"
+                      class="w-full h-full object-cover transition-transform duration-1000 group-hover/img:scale-110">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
         </div>
       </div>
     </section>
@@ -1080,7 +1179,7 @@
             <p class="text-white/80 text-sm group-hover:text-white/100 transition-colors">Ideasta valmiiksi tuotteeksi
               asti.</p>
           </a>
-          <a href="#innovaatiot"
+          <a href="#lohjan-bodaus"
             class="group bg-white/10 backdrop-blur-sm p-8 rounded-custom border border-white/20 hover:bg-white/20 hover:border-white/60 hover:shadow-[0_0_40px_rgba(255,255,255,0.2)] transition-all duration-300 text-white h-full flex flex-col items-center text-center cursor-pointer">
             <div
               class="w-16 h-16 bg-white rounded-full flex items-center justify-center mb-6 text-brand-primary text-2xl font-black group-hover:scale-110 group-hover:shadow-[0_0_20px_rgba(255,255,255,0.4)] transition-all duration-300">
@@ -1089,7 +1188,7 @@
             <p class="text-white/80 text-sm group-hover:text-white/100 transition-colors">Ammattimainen Solid Works
               osaaminen.</p>
           </a>
-          <a href="#innovaatiot"
+          <a href="#robo-frame"
             class="group bg-white/10 backdrop-blur-sm p-8 rounded-custom border border-white/20 hover:bg-white/20 hover:border-white/60 hover:shadow-[0_0_40px_rgba(255,255,255,0.2)] transition-all duration-300 text-white h-full flex flex-col items-center text-center cursor-pointer">
             <div
               class="w-16 h-16 bg-white rounded-full flex items-center justify-center mb-6 text-brand-primary text-2xl font-black group-hover:scale-110 group-hover:shadow-[0_0_20px_rgba(255,255,255,0.4)] transition-all duration-300">
@@ -1098,7 +1197,7 @@
             <p class="text-white/80 text-sm group-hover:text-white/100 transition-colors">Nopeat prototyypit ja
               piensarjat.</p>
           </a>
-          <a href="#innovaatiot"
+          <a href="#muistipelit"
             class="group bg-white/10 backdrop-blur-sm p-8 rounded-custom border border-white/20 hover:bg-white/20 hover:border-white/60 hover:shadow-[0_0_40px_rgba(255,255,255,0.2)] transition-all duration-300 text-white h-full flex flex-col items-center text-center cursor-pointer">
             <div
               class="w-16 h-16 bg-white rounded-full flex items-center justify-center mb-6 text-brand-primary text-2xl font-black group-hover:scale-110 group-hover:shadow-[0_0_20px_rgba(255,255,255,0.4)] transition-all duration-300">
