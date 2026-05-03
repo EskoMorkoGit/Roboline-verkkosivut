@@ -1,0 +1,27 @@
+--- innovaatiot.html
++++ innovaatiot.html
+@@ -372,217 +372,26 @@
+   <!-- END: MainHeader -->
+   <main>
+-    <style>
+-      /* GlowCard Spotlight Logic - Flashlight style */
+-      ... (Remove Hero, Story, News) ...
+-    </style>
+-
+-    <!-- BEGIN: HeroSection with Glow Spotlight -->
+-    <section id="glow-hero" data-glow
+-      ...
+-    </section>
+-
+-    <script>
+-      ... (Keep the window.openProductModal script) ...
+-    </script>
+-    <!-- END: HeroSection -->
+-    <!-- BEGIN: StorySection -->
+-    ...
+-    <!-- END: StorySection -->
+-
+-
+-    <!-- BEGIN: NewsSection -->
+-    ...
+-    <!-- END: NewsSection -->

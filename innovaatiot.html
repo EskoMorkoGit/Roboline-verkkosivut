@@ -321,20 +321,12 @@
           <a class="text-sm font-semibold text-gray-700 hover:text-brand-primary transition-colors uppercase tracking-wider"
             href="ymmarryksentie.html">Ymmärryksen tie™</a>
           <a class="text-sm font-semibold text-gray-700 hover:text-brand-primary transition-colors uppercase tracking-wider"
-            href="#innovaatiot">Innovaatiot</a>
+            href="innovaatiot.html">Innovaatiot</a>
           <a class="text-sm font-semibold text-gray-700 hover:text-brand-primary transition-colors uppercase tracking-wider"
-            href="#palvelut">Palvelut</a>
-          <div class="relative group">
-            <button
-              class="text-sm font-semibold text-gray-700 hover:text-brand-primary transition-colors uppercase tracking-wider flex items-center">
-              Lisää
-              <svg class="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24">
-                <path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
-              </svg>
-            </button>
-          </div>
+            href="index.html#palvelut">Palvelut</a>
+
           <a class="bg-brand-primary text-white px-5 py-2.5 rounded-custom text-sm font-bold hover:bg-brand-dark transition-all"
-            href="#ota-yhteytta">OTA YHTEYTTÄ</a>
+            href="index.html#ota-yhteytta">OTA YHTEYTTÄ</a>
         </nav>
         <!-- Mobile Menu Button (Visible on small screens) -->
         <div class="md:hidden flex items-center">
@@ -358,12 +350,12 @@
         <a class="block px-3 py-4 text-base font-bold text-gray-700 hover:text-brand-primary hover:bg-gray-50 rounded-xl transition-all"
           href="ymmarryksentie.html">Ymmärryksen tie™</a>
         <a class="block px-3 py-4 text-base font-bold text-gray-700 hover:text-brand-primary hover:bg-gray-50 rounded-xl transition-all"
-          href="#innovaatiot">Innovaatiot</a>
+          href="innovaatiot.html">Innovaatiot</a>
         <a class="block px-3 py-4 text-base font-bold text-gray-700 hover:text-brand-primary hover:bg-gray-50 rounded-xl transition-all"
-          href="#palvelut">Palvelut</a>
+          href="index.html#palvelut">Palvelut</a>
         <div class="pt-4 px-3">
           <a class="block w-full text-center bg-brand-primary text-white px-6 py-4 rounded-full text-lg font-bold hover:bg-brand-dark transition-all shadow-lg"
-            href="#ota-yhteytta">OTA YHTEYTTÄ</a>
+            href="index.html#ota-yhteytta">OTA YHTEYTTÄ</a>
         </div>
       </div>
     </div>
@@ -375,14 +367,11 @@
       /* GlowCard Spotlight Logic - Flashlight style */
       [data-glow] {
         --base: 190;
-        /* Cyan / Water vibe */
         --spread: 60;
         --size: 400;
-        /* Flashlight size */
         --spotlight-size: calc(var(--size) * 1px);
         --hue: calc(var(--base) + (var(--xp, 0) * var(--spread, 0)));
         position: relative;
-        /* Allow normal scrolling on mobile */
         touch-action: pan-y;
       }
 
@@ -392,20 +381,17 @@
         }
       }
 
-      /* The spotlight element renders BEHIND the text/logo but OVER the dark background */
       [data-glow]::before {
         pointer-events: none;
         content: "";
         position: absolute;
         inset: 0;
         z-index: 1;
-        /* Below the z-10 content */
         background-image: radial-gradient(var(--spotlight-size) var(--spotlight-size) at calc(var(--x, 0) * 1px) calc(var(--y, 0) * 1px),
             hsl(var(--hue, 210) 95% 85% / 0.85), transparent 70%);
         background-attachment: fixed;
       }
 
-      /* Mobile adjustment: Static soft glow instead of tracking */
       @media (max-width: 1023px) {
         [data-glow]::before {
           background-image: radial-gradient(circle at center,
@@ -413,19 +399,10 @@
           background-attachment: scroll;
         }
       }
-
-      /* 360D Logo Spin Effect */
-      .logo-flip {
-        transition: transform 1.2s cubic-bezier(0.34, 1.56, 0.64, 1);
-        transform-style: preserve-3d;
-      }
     </style>
 
     <!-- BEGIN: HeroSection with Glow Spotlight -->
-    <section id="glow-hero" data-glow
-      class="relative min-h-[52vh] flex items-center justify-center py-12 lg:py-16 px-4 text-center overflow-hidden border-b border-brand-primary/20"
-      data-purpose="hero-banner">
-
+    <section id="glow-hero" data-glow class="relative min-h-[40vh] flex items-center justify-center py-20 lg:py-32 px-4 text-center overflow-hidden bg-brand-dark" data-purpose="innovaatiot-hero">
       <!-- Animated Glass Background -->
       <div class="hero-glass-container">
         <div class="hero-wave-blobs"></div>
@@ -435,361 +412,119 @@
         <div class="hero-shimmer"></div>
         <div class="hero-shimmer shimmer-2"></div>
       </div>
-
-
-
-
-      <div class="relative z-10 max-w-6xl mx-auto px-4">
-        <!-- Logo in Hero (Restored white badge with float effect and sharp edges) -->
-        <div id="hero-logo-wrapper" style="perspective: 1000px;"
-          class="mb-6 md:mb-8 z-20 inline-block animate-float-pro">
-          <div id="hero-logo-card"
-            class="inline-flex items-center justify-center bg-white p-2.5 md:p-3 rounded-xl md:rounded-2xl shadow-2xl sharp-card-edge overflow-hidden group relative logo-flip cursor-pointer">
-            <img src="logo.png" alt="Roboline Logo"
-              class="h-14 md:h-24 w-auto object-contain pl-1 transition-transform duration-500">
-            <div
-              class="absolute inset-0 bg-gradient-to-tr from-transparent via-white/50 to-transparent transform -translate-x-full logo-glint-auto transition-transform duration-1000 group-hover:translate-x-full">
-            </div>
-          </div>
-        </div>
-
-
-
-
-
-
-
-        <h1
-          class="text-4xl md:text-6xl lg:text-7xl font-black text-white leading-[1.05] mb-8 uppercase font-display tracking-tight text-glow-premium">
-          Innovatiivisia ratkaisuja<br class="hidden md:block" /> <span
-            class="text-[#020617] opacity-80 decoration-brand-primary">arjen haasteisiin</span>
+      <!-- Solid dark overlay to dim the stripes nicely without creating an oval -->
+      <div class="absolute inset-0 bg-brand-dark/50 z-0 pointer-events-none"></div>
+      <div class="relative z-10 max-w-4xl mx-auto">
+        <h1 class="text-4xl md:text-6xl lg:text-7xl font-black text-white leading-tight mb-6 uppercase font-display tracking-tight">
+          Innovaatiot & <span class="text-brand-primary">Projektit</span>
         </h1>
-
-
-        <p class="text-white text-xl md:text-2xl mb-12 max-w-2xl mx-auto font-medium">
-          Tarjoamme palveluja ja tuotteita aitoon ja tunnistettuun tarpeeseen.
+        <p class="text-white/80 text-xl md:text-2xl font-medium max-w-2xl mx-auto">
+          Tutustu tarkemmin keksintöihin ja projekteihin, jotka olemme vieneet ideasta todellisuuteen.
         </p>
-        <div class="flex flex-col sm:flex-row justify-center gap-4 sm:gap-6">
-          <a class="inline-flex items-center justify-center px-4 py-4 md:px-10 md:py-5 border border-transparent text-sm sm:text-lg md:text-xl font-bold rounded-full text-[#0077b8] bg-white shadow-2xl hover:bg-gray-50 transition-all duration-300 transform hover:scale-105 whitespace-nowrap"
-            href="tel:+358503000111">
-            <svg class="w-5 h-5 md:w-6 md:h-6 mr-2 md:mr-3" fill="currentColor" viewbox="0 0 20 20">
-              <path
-                d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z">
-              </path>
-            </svg>
-            SOITA +358 50 3000 111
-          </a>
-
-          <a class="inline-flex items-center justify-center px-10 py-5 border-2 border-white text-xl font-bold rounded-full text-white hover:bg-white hover:text-[#0077b8] transition-all duration-300 shadow-lg"
-            href="#innovaatiot">
-            LUE LISÄÄ
-          </a>
-        </div>
       </div>
-
     </section>
+    <!-- END: Simple Hero -->
 
-
-    <script>
-      window.openProductModal = function (imgSrc, title) {
-        const modal = document.getElementById('product-modal');
-        const modalImg = document.getElementById('product-modal-img');
-        const modalTitle = document.getElementById('product-modal-title');
-        const modalDesc = document.getElementById('product-modal-desc');
-        const modalBenefits = document.getElementById('product-modal-benefits');
-        const modalShopLink = document.getElementById('product-modal-shop-link');
-
-        const modalDeliveryInfo = document.getElementById('product-modal-delivery-info');
-
-        modalImg.src = imgSrc;
-        modalTitle.textContent = title;
-
-        // Custom logic for different types of content
-        if (imgSrc.includes('game_')) {
-          if (modalDesc) modalDesc.textContent = '"Ymmärryksen tie™ on digitaalinen työkalu empatiakasvatukseen ja koulukiusaamisen ehkäisyyn. Se tarjoaa opettajille ja oppilaille yhteisen maailman tutkia tunteita."';
-          if (modalBenefits) modalBenefits.classList.add('hidden');
-          if (modalShopLink) modalShopLink.classList.add('hidden');
-          if (modalDeliveryInfo) modalDeliveryInfo.classList.add('hidden');
-        } else if (imgSrc.includes('RL_kortti')) {
-          if (modalDesc) modalDesc.textContent = '"ROBO-FRAME mahdollistaa yksilöllisten taide- ja valokuvakorttien tyylikkään esittämisen ja säilyttämisen. Ideasta tulostetuksi tuotteeksi saman katon alla."';
-          if (modalBenefits) modalBenefits.classList.add('hidden');
-          if (modalShopLink) modalShopLink.classList.add('hidden');
-          if (modalDeliveryInfo) modalDeliveryInfo.classList.add('hidden');
-        } else if (imgSrc.includes('Avaimenp')) {
-          if (modalDesc) modalDesc.textContent = '"Lohjan Bodaukselle räätälöidyt 3D-avaimenperät ovat osoitus Robolinen kyvystä muuttaa idea laadukkaaksi ja kestäväksi lopputuotteeksi."';
-          if (modalBenefits) modalBenefits.classList.add('hidden');
-          if (modalShopLink) modalShopLink.classList.add('hidden');
-          if (modalDeliveryInfo) modalDeliveryInfo.classList.add('hidden');
-        } else {
-          if (modalDesc) modalDesc.textContent = '"Keksintö, joka muuttaa arjen liikkumisen helpommaksi. Robolinen taidonnäyte suomalaisesta käytännöllisyydestä."';
-          if (modalBenefits) modalBenefits.classList.remove('hidden');
-          if (modalShopLink) modalShopLink.classList.remove('hidden');
-          if (modalDeliveryInfo) modalDeliveryInfo.classList.remove('hidden');
-        }
-
-        modal.classList.remove('hidden');
-        modal.classList.add('flex');
-        document.body.style.overflow = 'hidden';
-      };
-
-      function closeProductModal() {
-        const modal = document.getElementById('product-modal');
-        document.body.style.overflow = '';
-        modal.classList.add('hidden');
-        modal.classList.remove('flex');
-      }
-      // GlowCard pointer tracking for Hero Spotlight (Only on desktop)
-      const heroGlow = document.getElementById('glow-hero');
-      if (heroGlow && window.innerWidth >= 1024) {
-        document.addEventListener('pointermove', (e) => {
-          const { clientX, clientY } = e;
-          // Set CSS properties on the Hero container following pointer
-          heroGlow.style.setProperty('--x', clientX.toFixed(2));
-          heroGlow.style.setProperty('--xp', (clientX / window.innerWidth).toFixed(2));
-          heroGlow.style.setProperty('--y', clientY.toFixed(2));
-          heroGlow.style.setProperty('--yp', (clientY / window.innerHeight).toFixed(2));
-        });
-      }
-
-      // Fun Logo Spin Interaction (Reacts to every single swipe/click instantly)
-      const logoCard = document.getElementById('hero-logo-card');
-      const logoWrapper = document.getElementById('hero-logo-wrapper');
-      if (logoCard && logoWrapper) {
-        let currentRotation = 0;
-        let scaleTimeout;
-
-        const triggerSpin = () => {
-          // No isSpinning lock! Every interaction adds a spin.
-          currentRotation += 360;
-          logoCard.style.transform = `rotateY(${currentRotation}deg) scale(1.05)`;
-
-          // Clear previous timeout so scale only returns when user completely stops playing
-          if (scaleTimeout) clearTimeout(scaleTimeout);
-          scaleTimeout = setTimeout(() => {
-            logoCard.style.transform = `rotateY(${currentRotation}deg) scale(1)`;
-          }, 1200); // Wait for the 1.2s CSS transition to finish its momentum
-        };
-
-        // Trigger on every mouse enter or click
-        logoWrapper.addEventListener('mouseenter', triggerSpin);
-        logoWrapper.addEventListener('click', triggerSpin);
-      }
-    </script>
-    <!-- END: HeroSection -->
-    <!-- BEGIN: StorySection -->
-    <section class="py-24 px-4 bg-white" data-purpose="story-section">
+    <section class="py-16 px-4 bg-gray-50" id="projektit" data-purpose="innovation-showcase">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex flex-col lg:flex-row gap-12 lg:gap-24 items-start mb-12">
-          <!-- Left side: Image Card (Mikael) -->
-          <div class="w-full lg:w-[45%] max-w-md mx-auto lg:mx-0">
-            <div
-              class="relative rounded-[2.5rem] overflow-hidden shadow-2xl border border-gray-100 flex flex-col group transition-all duration-500">
-              <div class="aspect-[4/5] overflow-hidden bg-gray-50">
-                <img alt="Mikael Järvenkylä"
-                  class="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
-                  src="mikael_story.webp" />
-              </div>
-              <div class="bg-brand-primary p-4 sm:p-5 text-white relative">
-                <div class="absolute top-0 right-0 w-24 h-24 bg-white/5 rounded-full -mr-12 -mt-12"></div>
-                <h4 class="text-xl font-bold mb-0.5 relative z-10">Mikael Järvenkylä</h4>
-                <p class="text-brand-light/70 font-black text-[10px] tracking-widest uppercase relative z-10">PERUSTAJA
-                  & KEKSIJÄ</p>
-              </div>
-            </div>
-          </div>
-
-          <!-- Right side: Content -->
-          <div class="w-full lg:w-[55%] pt-0">
-            <h2
-              class="text-4xl lg:text-5xl font-black text-brand-dark mb-10 leading-[1.05] font-display tracking-[-0.04em]">
-              Meidän tarinamme</h2>
-
-            <div class="space-y-8 text-slate-600 text-lg sm:text-xl leading-[1.85]">
-              <p>
-                Roboline Group syntyi halusta ratkaista aitoja arjen haasteita. Uskomme, että teknologia ja innovaatiot
-                ovat välineitä paremman ja sujuvamman elämän luomiseen.
-              </p>
-              <p>
-                Toimintamme ytimessä on uteliaisuus ja kyky nähdä mahdollisuuksia siellä, missä muut näkevät esteitä.
-                Olipa kyseessä apuvälineiden ergonomia tai sosiaalisten innovaatioiden kehittäminen nuorten kanssa,
-                ohjenuoramme on aina sama: <strong class="text-brand-primary">Ihmislähtöisyys ja vaikuttavuus.</strong>
-              </p>
-              <p>
-                Tavoitteemme on luoda osallistavia ratkaisuja, jotka tuottavat arvoa paitsi yksilölle, myös koko
-                yhteiskunnalle. Kutsumme sinut mukaan matkallemme kehittämään tulevaisuuden keksintöjä.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Centered History Accordion Section -->
-        <div class="flex justify-center w-full">
-
-
-          <!-- History Accordion -->
-          <details
-            class="group w-full max-w-4xl bg-gray-50 rounded-[2rem] border border-gray-100 shadow-sm open:bg-white open:shadow-md transition-all duration-300">
-            <summary
-              class="flex justify-between items-center cursor-pointer p-4 sm:p-6 font-bold text-gray-700 hover:text-brand-primary transition-colors hover:bg-white select-none list-none [&::-webkit-details-marker]:hidden">
-              <div class="flex items-center gap-4 text-brand-primary flex-1 min-w-0">
-                <div
-                  class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-brand-primary/10 flex items-center justify-center flex-shrink-0">
-                  <svg class="w-6 h-6 sm:w-7 sm:h-7 opacity-80" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                    stroke-width="2">
-                    <!-- Basic Lightbulb -->
-                    <path
-                      d="M12 2a5 5 0 0 1 5 5c0 1.25-.45 2.15-1 3l-1 2c-.35.7-.5 1.5-.5 2v1h-5v-1c0-.5-.15-1.3-.5-2l-1-2c-.55-.85-1-1.75-1-3a5 5 0 0 1 5-5z">
-                    </path>
-                    <path d="M9 18h6"></path>
-                  </svg>
-                </div>
-                <span
-                  class="text-xl sm:text-2xl font-black uppercase tracking-tight font-display text-brand-primary">Mistä
-                  kaikki alkoi</span>
-              </div>
-              <span
-                class="text-gray-400 transform transition-transform duration-500 group-open:-rotate-180 flex-shrink-0 ml-4">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                </svg>
-              </span>
-            </summary>
-            <div class="p-8 sm:p-12 pt-0 text-gray-600 text-lg sm:text-xl leading-relaxed space-y-12">
-              <div class="h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent w-full mb-10"></div>
-
-              <div class="max-w-3xl mx-auto text-center italic text-gray-500 font-medium">
-                "Robolinen tarina on kunnianosoitus isäni elämäntyölle ja suomalaiselle insinööriosaamiselle. Kaikki
-                alkoi isäni uraauurtavasta keksinnöstä: <strong>karjalanpiirakan rypytyksen automatisoinnista</strong>."
-              </div>
-
-              <div id="history-archival-card" class="group relative max-w-5xl mx-auto cursor-pointer">
-                <div class="flex flex-col md:flex-row gap-8 lg:gap-16 items-center">
-                  <div
-                    class="w-full md:w-3/5 lg:w-2/3 aspect-video rounded-2xl overflow-hidden bg-gray-100 border border-gray-200 shadow-sm relative">
-                    <img src="historia_rypytys.webp" alt="Alkuperäinen karjalanpiirakan rypytyskone"
-                      class="w-full h-full object-contain bg-white transition-transform duration-1000 group-hover:scale-105" />
-                    <div class="absolute inset-0 ring-1 ring-inset ring-black/5 rounded-2xl"></div>
+        <div class="grid lg:grid-cols-2 gap-12">
+          <!-- ROBO-SAW -->
+          <article id="robosaw"
+            class="bg-white rounded-custom shadow-xl p-8 md:p-12 border border-gray-100 flex flex-col justify-between transition-all hover:shadow-2xl duration-300 lg:col-span-2 overflow-hidden">
+            <div class="flex flex-col lg:flex-row gap-12 lg:gap-16">
+              <!-- Text Content -->
+              <div class="lg:w-1/2 flex flex-col justify-between">
+                <div>
+                  <div class="flex flex-wrap items-center gap-3 mb-6">
+                    <h2 class="text-3xl lg:text-4xl font-black text-brand-dark uppercase tracking-wide">
+                      ROBO-SAW</h2>
+                    <span
+                      class="bg-brand-primary/10 text-brand-primary text-[10px] font-black px-3 py-1.5 rounded uppercase tracking-widest">
+                      IPR Suojattu Keksintö
+                    </span>
                   </div>
-                  <div class="w-full md:w-2/5 lg:w-1/3 space-y-6">
-                    <h3 class="text-2xl sm:text-3xl font-black text-brand-dark uppercase tracking-tight font-display">
-                      Ideasta todellisuudeksi</h3>
-                    <p class="text-base sm:text-lg text-gray-600 leading-relaxed">
-                      Vuonna 1997 rekisteröity ROBOLINE-tavaramerkki käynnisti matkan kohti nykyistä monialaista
-                      innovaatiotaloa. Meillä on vuosikymmenten kokemus ideoiden muuttamisesta todellisuudeksi.
+                  <p class="text-brand-primary font-bold text-xl mb-6">Turvallinen teroitusapu rautasahalle</p>
+
+                  <div class="space-y-6 text-gray-700 text-lg leading-relaxed font-medium">
+                    <p>
+                      Idea ROBO-SAW -keksintöön syntyi todellisesta tarpeesta, jotta viilaajan sormet eivät vaarannu
+                      moottorisahan terän teroituksen yhteydessä. Kävelylenkillä ystäväni Olavi kertoi vahingosta, jossa
+                      hänen etusormensa oli haljennut osuttuaan terään. Tässä "lamppu" syttyi lähes heti, kun kuulin
+                      ongelman ja pääsin näkemään haasteen.
+                    <p>
+                      Nyt tämä IPR-suojattu kuluttajatuote on testattu ja todettu toimivaksi. Se voidaan kiinnittää
+                      universaalisti rautasahoihin, tehden terän teroituksesta täysin turvallista.
                     </p>
-                    <div
-                      class="inline-flex items-center gap-3 text-brand-primary text-xs font-black uppercase tracking-widest group-hover:gap-5 transition-all">
-                      Klikkaa ja lue lisää
-                      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                          d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Media / Gallery -->
+              <div class="lg:w-1/2">
+                <div class="grid grid-cols-3 gap-3">
+                  <!-- Main Video placeholder -->
+                  <div
+                    class="col-span-3 aspect-video rounded-3xl overflow-hidden shadow-lg group/img relative cursor-zoom-in"
+                    onclick="openProductModal('assets/robosaw_testaus_video.mp4', 'ROBO-SAW Käytettävyystesti')">
+                    <img src="assets/robosaw_testaus_1.webp" alt="ROBO-SAW Video"
+                      class="w-full h-full object-cover transition-transform duration-1000 group-hover/img:scale-105 bg-gray-200">
+                    <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
+                      <svg
+                        class="w-16 h-16 text-white opacity-80 group-hover/img:opacity-100 group-hover/img:scale-110 transition-all drop-shadow-xl"
+                        fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M8 5v14l11-7z" />
                       </svg>
                     </div>
                   </div>
+                  <!-- Gallery thumbnails -->
+                  <!-- 1 -->
+                  <div
+                    class="col-span-1 aspect-square rounded-2xl overflow-hidden shadow-sm group/img relative cursor-zoom-in"
+                    onclick="openProductModal('assets/robosaw_kehitys_1.webp', 'Kehitystyön alku 1')">
+                    <img src="assets/robosaw_kehitys_1.webp" alt="Kehitystyön alku"
+                      class="w-full h-full object-cover transition-transform duration-1000 group-hover/img:scale-110 bg-gray-200">
+                  </div>
+                  <!-- 2 -->
+                  <div
+                    class="col-span-1 aspect-square rounded-2xl overflow-hidden shadow-sm group/img relative cursor-zoom-in"
+                    onclick="openProductModal('assets/robosaw_kehitys_2.webp', 'Kehitystyön alku 2')">
+                    <img src="assets/robosaw_kehitys_2.webp" alt="Kehitystyön alku"
+                      class="w-full h-full object-cover transition-transform duration-1000 group-hover/img:scale-110 bg-gray-200">
+                  </div>
+                  <!-- 3 -->
+                  <div
+                    class="col-span-1 aspect-square rounded-2xl overflow-hidden shadow-sm group/img relative cursor-zoom-in"
+                    onclick="openProductModal('assets/robosaw_kehitys_3.webp', 'Kehitystyön alku 3')">
+                    <img src="assets/robosaw_kehitys_3.webp" alt="Kehitystyön alku"
+                      class="w-full h-full object-cover transition-transform duration-1000 group-hover/img:scale-110 bg-gray-200">
+                  </div>
+                  <!-- 4 -->
+                  <div
+                    class="col-span-1 aspect-square rounded-2xl overflow-hidden shadow-sm group/img relative cursor-zoom-in"
+                    onclick="openProductModal('assets/robosaw_piirustus.webp', '3D-piirustus')">
+                    <img src="assets/robosaw_piirustus.webp" alt="3D Piirustus"
+                      class="w-full h-full object-cover transition-transform duration-1000 group-hover/img:scale-110 bg-gray-200">
+                  </div>
+                  <!-- 5 -->
+                  <div
+                    class="col-span-1 aspect-square rounded-2xl overflow-hidden shadow-sm group/img relative cursor-zoom-in"
+                    onclick="openProductModal('assets/robosaw_tulostus.webp', '3D-tulostettu prototyyppi')">
+                    <img src="assets/robosaw_tulostus.webp" alt="3D Tulostettu"
+                      class="w-full h-full object-cover transition-transform duration-1000 group-hover/img:scale-110 bg-gray-200">
+                  </div>
+                  <!-- 6 -->
+                  <div
+                    class="col-span-1 aspect-square rounded-2xl overflow-hidden shadow-sm group/img relative cursor-zoom-in"
+                    onclick="openProductModal('assets/robosaw_testaus_2.webp', 'ROBO-SAW testauksessa')">
+                    <img src="assets/robosaw_testaus_2.webp" alt="Testauksessa"
+                      class="w-full h-full object-cover transition-transform duration-1000 group-hover/img:scale-110 bg-gray-200">
+                  </div>
                 </div>
-              </div>
-
-              <div class="pt-0 border-t border-gray-100 mt-8 pt-8">
-                <a class="inline-flex items-center text-brand-primary font-bold hover:text-brand-dark transition-colors text-lg"
-                  href="https://onedrive.live.com/?qt=allmyphotos&photosData=%2Fshare%2F871A913B66F799FE%21192871%3Fithint%3Dvideo%26e%3DMwjHfr%26migratedtospo%3Dtrue&cid=871A913B66F799FE&id=871A913B66F799FE%21192871&redeem=aHR0cHM6Ly8xZHJ2Lm1zL3YvcyFBdjZaOTJZN2tScUhpLUpuZWZKQl92TThMRjVqcXc%5FZT1Nd2pIZnI&v=photos"
-                  target="_blank">
-                  <svg class="w-6 h-6 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                      d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z">
-                    </path>
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                      d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                  </svg>
-                  Robolinen koneet ja tuotantojärjestelmät - katso historiavideo
-                </a>
-              </div>
-            </div>
-          </details>
-        </div>
-      </div>
-      </div>
-    </section>
-    <!-- END: StorySection -->
-
-
-    <!-- BEGIN: NewsSection -->
-    <section class="py-16 px-4 bg-white" data-purpose="bulletin-section">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex items-center mb-10">
-          <span
-            class="bg-brand-primary text-white text-[10px] sm:text-sm font-bold px-2 sm:px-3 py-1 rounded-custom uppercase mr-3 sm:mr-4">UUTTA</span>
-          <h2 class="text-2xl sm:text-3xl font-black text-gray-900 font-display uppercase tracking-tight">Ajankohtaista
-          </h2>
-        </div>
-
-        <div class="space-y-6">
-          <!-- Osakeanti-nosto -->
-          <div
-            class="bg-gradient-to-r from-brand-primary to-[#005a8f] p-6 sm:p-10 rounded-custom shadow-lg flex flex-col md:flex-row gap-8 items-center text-white transition-transform hover:-translate-y-1">
-            <div class="flex-1">
-              <div
-                class="inline-flex items-center px-4 py-1.5 rounded-full bg-white/20 text-white text-[10px] sm:text-xs font-bold uppercase tracking-widest mb-4">
-                Sijoittajille</div>
-              <h3 class="font-bold text-2xl sm:text-3xl mb-4 font-display">Osakeanti käynnissä 1.4.–30.4.2026</h3>
-              <p class="text-white/90 text-base sm:text-lg mb-6 leading-relaxed">
-                Kiihdytämme kasvua ja kansainvälistymistä. Avaamme rajoitetun ajan mahdollisuuden hypätä mukaan
-                tarinaamme ja tukea Ymmärryksen tie™ -hanketta.
-              </p>
-              <a href="ymmarryksentie.html#sijoittajille"
-                class="inline-flex items-center bg-white text-brand-primary font-bold px-6 sm:px-8 py-3 sm:py-3.5 rounded-full hover:bg-gray-50 transition-all uppercase tracking-wide transform hover:scale-105 text-sm sm:text-base">
-                Lue lisää annista →
-              </a>
-            </div>
-          </div>
-
-          <!-- Ymmärryksen tie tiedote -->
-          <div
-            class="bg-gray-50 p-8 md:p-10 rounded-custom border border-gray-100 shadow-sm flex flex-col md:flex-row gap-8 items-center">
-            <div class="flex-1">
-              <h3 class="font-bold text-2xl mb-4 text-brand-dark">Tiedote: YMMÄRRYKSEN TIE™</h3>
-              <p class="text-gray-600 text-lg mb-6 leading-relaxed">
-                Löydät uutuusinnovaatiomme digipelin <a href="ymmarryksentie.html"
-                  class="text-brand-primary font-bold hover:underline">omalta sivulta täältä</a>. Seuraa kehitystä ja
-                tuoreimpia päivityksiä Instagram-kanavaltamme.
-              </p>
-              <div class="flex flex-wrap gap-6">
-                <a class="text-brand-primary font-bold text-lg hover:underline flex items-center"
-                  href="http://instagram.com/ymmarryksentie/" target="_blank">
-                  Instagram-kanava →
-                </a>
+                <p class="text-sm text-gray-500 mt-4 italic text-center">Kuvagalleria ja esittelyvideo</p>
               </div>
             </div>
-            <div class="w-full md:w-1/3 bg-brand-primary/5 p-6 rounded-custom border border-brand-primary/10">
-              <p class="text-sm italic text-gray-500 mb-2">Pelin kehitystyötä tehty yhdessä mm.:</p>
-              <div class="space-y-4">
-                <div>
-                  <p class="font-semibold text-brand-dark">Metropolia Ammattikorkeakoulu</p>
-                  <p class="text-brand-primary font-medium text-sm">Helsinki, Finland</p>
-                </div>
-                <div>
-                  <p class="font-semibold text-brand-dark">Laurea-ammattikorkeakoulu</p>
-                  <p class="text-brand-primary font-medium text-sm">Uusimaa, Finland</p>
-                </div>
-                <div>
-                  <p class="font-semibold text-brand-dark">Laurentius-koulun oppilaat</p>
-                  <p class="text-brand-primary font-medium text-sm">Lohja, Finland</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- END: NewsSection -->
-    <!-- BEGIN: InnovationHighlight -->
-    <section class="py-20 px-4 bg-gray-50" id="innovaatiot" data-purpose="innovation-showcase">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-16">
-          <h2 class="text-4xl font-black text-gray-900 uppercase tracking-tighter mb-4 font-display">Innovaatiot &amp;
-            Projektit</h2>
-          <div class="w-24 h-1.5 bg-brand-primary mx-auto"></div>
-        </div>
-        <div class="grid lg:grid-cols-2 gap-12">
+          </article>
+
           <!-- YMMÄRRYKSEN TIE -->
           <article id="muistipelit"
             class="bg-white rounded-custom shadow-xl border-t-8 border-brand-primary p-8 md:p-12 transition-transform hover:-translate-y-2">
@@ -856,7 +591,7 @@
                 </p>
               </div>
               <div class="pt-6 mt-4 border-t border-gray-100">
-                <a href="#ota-yhteytta"
+                <a href="index.html#ota-yhteytta"
                   class="inline-flex items-center justify-center w-full sm:w-auto px-8 py-4 bg-brand-primary text-white font-bold rounded-full shadow-lg hover:bg-brand-dark hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 uppercase tracking-wide">
                   Ota yhteyttä
                   <svg class="ml-2 w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -868,7 +603,7 @@
             </div>
           </article>
           <!-- DROP NOT -->
-          <article
+          <article id="dropnot"
             class="bg-white rounded-custom shadow-xl p-8 md:p-12 border border-gray-100 flex flex-col justify-between transition-all hover:shadow-2xl duration-300">
             <div>
               <div class="flex justify-between items-start mb-6">
@@ -956,7 +691,7 @@
               <div class="lg:w-[55%] flex flex-col justify-between">
                 <div>
                   <div class="flex flex-wrap items-center gap-3 mb-6">
-                    <h2 class="text-3xl lg:text-4xl font-black text-brand-dark uppercase tracking-wide font-display">
+                    <h2 class="text-3xl lg:text-4xl font-black text-brand-dark uppercase tracking-wide">
                       ROBO-FRAME</h2>
                     <span
                       class="bg-slate-800 text-white text-[10px] font-black px-3 py-1.5 rounded uppercase tracking-widest flex items-center shadow-md">
@@ -1006,7 +741,7 @@
 
                 <div class="mt-auto">
                   <div class="flex flex-wrap items-center gap-4 pt-6 mt-4">
-                    <a href="#ota-yhteytta"
+                    <a href="index.html#ota-yhteytta"
                       class="bg-brand-primary hover:bg-brand-dark transition-all duration-300 text-white font-black py-4 px-8 rounded-full shadow-lg hover:shadow-xl hover:-translate-y-0.5 inline-flex items-center uppercase tracking-wider text-sm">
                       Pyydä tarjous!
                       <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1075,7 +810,7 @@
               <div class="lg:w-1/2 flex flex-col justify-between">
                 <div>
                   <div class="flex flex-wrap items-center gap-3 mb-6">
-                    <h2 class="text-3xl lg:text-4xl font-black text-brand-dark uppercase tracking-wide font-display">
+                    <h2 class="text-3xl lg:text-4xl font-black text-brand-dark uppercase tracking-wide">
                       LOHJAN BODAUS RY</h2>
                     <span
                       class="bg-brand-primary/10 text-brand-primary text-[10px] font-black px-3 py-1.5 rounded uppercase tracking-widest flex items-center shadow-sm">
@@ -1091,7 +826,8 @@
 
                   <div class="space-y-6">
                     <p class="text-gray-700 text-lg leading-relaxed font-medium">
-                      Räätälöidyt avaimenperät Lohjan Bodaukselle toteutettiin 3D-tulostustekniikalla yhteistyössä Mikael
+                      Räätälöidyt avaimenperät Lohjan Bodaukselle toteutettiin 3D-tulostustekniikalla yhteistyössä
+                      Mikael
                       Järvenkylän ja Roboline Groupin kanssa. Mikael vastasi projektista kokonaisvaltaisesti aina
                       suunnittelusta kuntosalilla tapahtuneeseen yhteiseen käyttöönottoon saakka.
                     </p>
@@ -1170,14 +906,20 @@
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="relative overflow-hidden rounded-[2.5rem] bg-brand-primary p-8 md:p-16 text-white shadow-2xl group">
           <!-- Background decorative elements -->
-          <div class="absolute top-0 right-0 -mr-16 -mt-16 w-64 h-64 bg-white/10 rounded-full blur-3xl transition-transform duration-1000 group-hover:scale-110"></div>
-          <div class="absolute bottom-0 left-0 -ml-16 -mb-16 w-64 h-64 bg-white/10 rounded-full blur-3xl transition-transform duration-1000 group-hover:scale-110"></div>
-          
+          <div
+            class="absolute top-0 right-0 -mr-16 -mt-16 w-64 h-64 bg-white/10 rounded-full blur-3xl transition-transform duration-1000 group-hover:scale-110">
+          </div>
+          <div
+            class="absolute bottom-0 left-0 -ml-16 -mb-16 w-64 h-64 bg-white/10 rounded-full blur-3xl transition-transform duration-1000 group-hover:scale-110">
+          </div>
+
           <div class="relative z-10 flex flex-col lg:flex-row items-center gap-12">
             <div class="flex-shrink-0">
-              <div class="w-24 h-24 md:w-32 md:h-32 bg-white/10 backdrop-blur-md rounded-3xl flex items-center justify-center border border-white/20 shadow-inner transform transition-transform duration-500 group-hover:rotate-12">
+              <div
+                class="w-24 h-24 md:w-32 md:h-32 bg-white/10 backdrop-blur-md rounded-3xl flex items-center justify-center border border-white/20 shadow-inner transform transition-transform duration-500 group-hover:rotate-12">
                 <svg class="w-12 h-12 md:w-16 md:h-16 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                    d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
                 </svg>
               </div>
             </div>
@@ -1186,15 +928,18 @@
                 ROBOLINE TUOTEINNOVAATIOT
               </h2>
               <p class="text-xl md:text-2xl font-medium leading-relaxed mb-8 opacity-95">
-                Tuotteemme soveltuvat <span class="font-bold underline decoration-white/30">valtakunnalliseen ja kansainväliseen</span> myyntiin ja jakeluun. 
-                Ota rohkeasti yhteyttä, niin neuvotellaan <span class="font-bold">WIN-WIN-hengessä</span>. 
+                Tuotteemme soveltuvat <span class="font-bold underline decoration-white/30">valtakunnalliseen ja
+                  kansainväliseen</span> myyntiin ja jakeluun.
+                Ota rohkeasti yhteyttä, niin neuvotellaan <span class="font-bold">WIN-WIN-hengessä</span>.
                 Yksittäiskappaleitakin toimitetaan tarpeen ja tilausten mukaan.
               </p>
               <div class="flex flex-wrap justify-center lg:justify-start gap-4">
-                <a href="#ota-yhteytta" class="bg-white text-brand-primary font-black px-10 py-4 rounded-full hover:bg-brand-dark hover:text-white transition-all transform hover:scale-105 shadow-xl uppercase tracking-widest text-sm inline-flex items-center gap-2">
+                <a href="index.html#ota-yhteytta"
+                  class="bg-white text-brand-primary font-black px-10 py-4 rounded-full hover:bg-brand-dark hover:text-white transition-all transform hover:scale-105 shadow-xl uppercase tracking-widest text-sm inline-flex items-center gap-2">
                   <span>OTA YHTEYTTÄ</span>
                   <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M14 5l7 7m0 0l-7 7m7-7H3" />
                   </svg>
                 </a>
               </div>
@@ -1204,127 +949,7 @@
       </div>
     </section>
     <!-- END: DistributionBanner -->
-    <!-- BEGIN: ServicesSection -->
-    <section class="py-24 px-4 bg-brand-primary" id="palvelut" data-purpose="services-grid">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 class="text-4xl font-black text-center mb-16 text-white font-display uppercase tracking-tight">Palvelumme ja
-          osaamisemme</h2>
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          <a href="#innovaatiot"
-            class="group bg-white/10 backdrop-blur-sm p-8 rounded-custom border border-white/20 hover:bg-white/20 hover:border-white/60 hover:shadow-[0_0_40px_rgba(255,255,255,0.2)] transition-all duration-300 text-white h-full flex flex-col items-center text-center cursor-pointer">
-            <div
-              class="w-16 h-16 bg-white rounded-full flex items-center justify-center mb-6 text-brand-primary text-2xl font-black group-hover:scale-110 group-hover:shadow-[0_0_20px_rgba(255,255,255,0.4)] transition-all duration-300">
-              01</div>
-            <h3 class="font-bold text-xl mb-4 group-hover:text-white transition-colors">Tuotekehitysprojektit</h3>
-            <p class="text-white/80 text-sm group-hover:text-white/100 transition-colors">Ideasta valmiiksi tuotteeksi
-              asti.</p>
-          </a>
-          <a href="#lohjan-bodaus"
-            class="group bg-white/10 backdrop-blur-sm p-8 rounded-custom border border-white/20 hover:bg-white/20 hover:border-white/60 hover:shadow-[0_0_40px_rgba(255,255,255,0.2)] transition-all duration-300 text-white h-full flex flex-col items-center text-center cursor-pointer">
-            <div
-              class="w-16 h-16 bg-white rounded-full flex items-center justify-center mb-6 text-brand-primary text-2xl font-black group-hover:scale-110 group-hover:shadow-[0_0_20px_rgba(255,255,255,0.4)] transition-all duration-300">
-              02</div>
-            <h3 class="font-bold text-xl mb-4 group-hover:text-white transition-colors">3D mallinnus</h3>
-            <p class="text-white/80 text-sm group-hover:text-white/100 transition-colors">Ammattimainen Solid Works
-              osaaminen.</p>
-          </a>
-          <a href="#robo-frame"
-            class="group bg-white/10 backdrop-blur-sm p-8 rounded-custom border border-white/20 hover:bg-white/20 hover:border-white/60 hover:shadow-[0_0_40px_rgba(255,255,255,0.2)] transition-all duration-300 text-white h-full flex flex-col items-center text-center cursor-pointer">
-            <div
-              class="w-16 h-16 bg-white rounded-full flex items-center justify-center mb-6 text-brand-primary text-2xl font-black group-hover:scale-110 group-hover:shadow-[0_0_20px_rgba(255,255,255,0.4)] transition-all duration-300">
-              03</div>
-            <h3 class="font-bold text-xl mb-4 group-hover:text-white transition-colors">3D tulostus</h3>
-            <p class="text-white/80 text-sm group-hover:text-white/100 transition-colors">Nopeat prototyypit ja
-              piensarjat.</p>
-          </a>
-          <a href="#muistipelit"
-            class="group bg-white/10 backdrop-blur-sm p-8 rounded-custom border border-white/20 hover:bg-white/20 hover:border-white/60 hover:shadow-[0_0_40px_rgba(255,255,255,0.2)] transition-all duration-300 text-white h-full flex flex-col items-center text-center cursor-pointer">
-            <div
-              class="w-16 h-16 bg-white rounded-full flex items-center justify-center mb-6 text-brand-primary text-2xl font-black group-hover:scale-110 group-hover:shadow-[0_0_20px_rgba(255,255,255,0.4)] transition-all duration-300">
-              04</div>
-            <h3 class="font-bold text-xl mb-4 group-hover:text-white transition-colors">Muistipelikortit</h3>
-            <p class="text-white/80 text-sm group-hover:text-white/100 transition-colors">Räätälöidyt pelikorttisarjat.
-            </p>
-          </a>
-        </div>
-      </div>
-    </section>
-    <!-- END: ServicesSection -->
-
-    <!-- BEGIN: TestimonialSection -->
-    <section class="py-24 px-4 bg-gray-50 overflow-hidden" data-purpose="customer-testimonials">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-16">
-          <h2 class="text-3xl font-black text-brand-primary uppercase tracking-tighter mb-4 font-display">LUE MITÄ
-            ASIAKKAAMME SANOVAT</h2>
-          <div class="w-20 h-1.5 bg-brand-primary mx-auto rounded-full"></div>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-6xl mx-auto">
-          <!-- Card 1: Mikko Hurskainen -->
-          <div class="relative">
-            <div
-              class="glass-effect p-10 rounded-3xl border border-gray-100 shadow-xl relative z-10 h-full flex flex-col justify-between">
-              <div class="space-y-4">
-                <div class="text-brand-primary/20 text-6xl font-serif leading-none">&ldquo;</div>
-                <p class="text-gray-700 text-lg leading-relaxed italic font-medium">
-                  " Mikael Järvenkylä Roboline Groupista toteutti terassikatteen haastavimpaan kohtaan eli vinoon
-                  päätyrakennelmaan erinomaiset kuvat.
-                </p>
-                <p class="text-gray-700 text-lg leading-relaxed italic font-medium">
-                  Mikael toi suunnitteluvaiheessa näkemystään ratkaisuun, joka herätti ajattelemaan toista vaihtoehtoa.
-                </p>
-                <p class="text-gray-700 text-lg leading-relaxed italic font-medium">
-                  Mikael ei ole vain teknisten kuvien piirtäjä, vaan käytännön kokemus rakentamisesta, suunnittelusta ja
-                  tuotekehityksestä tuo lisäarvoa koko projektiiin. "
-                </p>
-              </div>
-
-              <div class="mt-8 flex items-center">
-                <div class="w-8 h-1 bg-brand-primary mr-4 rounded-full"></div>
-                <div>
-                  <p class="text-brand-dark font-black text-lg uppercase font-display tracking-tight">Mikko Hurskainen
-                  </p>
-                  <p class="text-brand-primary font-semibold text-xs">Asunto-osakeyhtiön hallituksen puheenjohtaja</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Card 2: Innovation Spotlight (Professional Standard) -->
-          <div class="relative">
-            <div
-              class="glass-effect p-10 rounded-[2.5rem] border border-gray-100 shadow-xl relative z-10 h-full flex flex-col justify-between bg-white">
-              <div class="space-y-6">
-                <div class="text-brand-primary/20 text-6xl font-serif leading-none italic">&ldquo;</div>
-                <p class="text-gray-700 text-lg leading-relaxed italic font-medium">
-                  Roboline Group on osoittanut poikkeuksellista kykyä innovoida ja ratkaista monimutkaisia
-                  tuotekehityksen haasteita.
-                </p>
-                <p class="text-gray-700 text-lg leading-relaxed italic font-medium">
-                  Heidän 3D-mallinnus ja prototyyppiosaamisensa on säästänyt meiltä merkittävästi aikaa ja resursseja
-                  kriittisessä vaiheessa.
-                </p>
-                <p class="text-gray-700 text-lg leading-relaxed italic font-medium">
-                  Suosittelen heitä varauksetta kaikille, jotka etsivät visionääristä ja teknisesti taitavaa kumppania.
-                </p>
-              </div>
-
-              <div class="mt-12 flex items-center border-t border-gray-100 pt-8">
-                <div class="w-10 h-1 bg-brand-primary mr-4 rounded-full"></div>
-                <div>
-                  <p class="text-brand-dark font-black text-lg uppercase font-display tracking-tight">Referenssi:
-                    Teknologiayritys</p>
-                  <p class="text-brand-primary font-bold text-xs uppercase tracking-widest">Innovaatiokumppanuus &
-                    3D-suunnittelu</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- END: TestimonialSection -->
+    <!-- END: DistributionBanner -->
     <!-- BEGIN: ContactSection -->
     <section class="py-24 px-4 bg-white" data-purpose="contact-section" id="ota-yhteytta">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -1737,7 +1362,8 @@
       class="relative w-full max-w-6xl bg-white rounded-[3rem] overflow-hidden shadow-2xl animate-modal-pop flex flex-col md:flex-row max-h-[90vh]">
 
       <!-- Image Area -->
-      <div class="w-full md:w-3/5 bg-gray-50 flex items-center justify-center p-8 overflow-hidden">
+      <div id="product-modal-media-container"
+        class="w-full md:w-3/5 bg-gray-50 flex items-center justify-center p-8 overflow-hidden">
         <img id="product-modal-img" src="" alt="Product Detail"
           class="max-w-full max-h-full object-contain rounded-2xl shadow-lg border border-gray-100 transition-transform duration-1000" />
       </div>
@@ -1790,7 +1416,7 @@
 
         <!-- CONTACT CTA -->
         <div class="mt-8 pt-8 border-t border-gray-100 flex flex-col gap-4">
-          <a href="#ota-yhteytta" onclick="closeProductModal()"
+          <a href="index.html#ota-yhteytta" onclick="closeProductModal()"
             class="block w-full text-center bg-brand-primary text-white font-black py-5 rounded-3xl shadow-xl hover:shadow-2xl hover:bg-brand-dark transition-all uppercase tracking-widest">
             Kysy lisää
           </a>
@@ -1818,6 +1444,107 @@
     </div>
   </div>
   <!-- END: Product Modal -->
+
+  <script>
+    function openProductModal(mediaSrc, title) {
+      const modal = document.getElementById('product-modal');
+      const titleEl = document.getElementById('product-modal-title');
+      const mediaContainer = document.getElementById('product-modal-media-container');
+      const descEl = document.getElementById('product-modal-desc');
+      const benefitsEl = document.getElementById('product-modal-benefits');
+      const shopLink = document.getElementById('product-modal-shop-link');
+      const deliveryInfo = document.getElementById('product-modal-delivery-info');
+
+      titleEl.textContent = title;
+
+      // Auto-detect type
+      let type = 'default';
+      if (mediaSrc.toLowerCase().includes('robosaw')) type = 'robosaw';
+      else if (mediaSrc.toLowerCase().includes('dropnot')) type = 'dropnot';
+
+      // Set title based on type
+      titleEl.textContent = (type === 'robosaw') ? 'ROBO-SAW' : title;
+
+      // Reset visibility
+      descEl.style.display = 'block';
+      benefitsEl.style.display = 'block';
+      if (shopLink) shopLink.style.display = 'flex';
+      if (deliveryInfo) deliveryInfo.style.display = 'block';
+
+      if (type === 'robosaw') {
+        descEl.innerHTML = `
+          <span class="block mb-4">ROBO-SAW kehitettiin todelliseen tarpeeseen moottorisahan terän teroituksen turvaamiseksi. Idea syntyi, kun ystäväni Olavi kertoi sormensa haljenneen terään osumisen seurauksena. "Lamppu" syttyi lähes heti nähdessäni haasteen.</span>
+          <span class="block mb-4">Nyt tämä IPR-suojattu kuluttajatuote on testattu ja todettu toimivaksi. Se voidaan kiinnittää universaalisti rautasahoihin, jolloin terän teroitus on täysin turvallista.</span>
+        `;
+        benefitsEl.style.display = 'none';
+        if (shopLink) shopLink.style.display = 'none';
+        if (deliveryInfo) deliveryInfo.style.display = 'none';
+      } else if (type === 'dropnot') {
+        descEl.innerHTML = `"Keksintö, joka muuttaa arjen liikkumisen helpommaksi. Robolinen taidonnäyte suomalaisesta käytännöllisyydestä."`;
+        benefitsEl.innerHTML = `
+          <h5 class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3">Tuotteen hyödyt</h5>
+          <ul class="space-y-2 text-sm text-gray-600 font-medium">
+            <li class="flex items-center gap-2"><svg class="w-4 h-4 text-brand-primary" fill="currentColor" viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"></path></svg> Ergonominen kuormituksen poisto</li>
+            <li class="flex items-center gap-2"><svg class="w-4 h-4 text-brand-primary" fill="currentColor" viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"></path></svg> Kestävät premium-materiaalit</li>
+            <li class="flex items-center gap-2"><svg class="w-4 h-4 text-brand-primary" fill="currentColor" viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"></path></svg> Helppo kiinnitys ja säätö</li>
+          </ul>
+        `;
+        benefitsEl.style.display = 'block';
+        if (shopLink) shopLink.style.display = 'flex';
+        if (deliveryInfo) deliveryInfo.style.display = 'block';
+      } else {
+        // Hide default texts for unconfigured modals (like game, robo-frame)
+        descEl.style.display = 'none';
+        benefitsEl.style.display = 'none';
+        if (shopLink) shopLink.style.display = 'none';
+        if (deliveryInfo) deliveryInfo.style.display = 'none';
+      }
+
+      let mediaTitleHtml = type === 'robosaw' ? `<h4 class="w-full text-center text-xl font-bold text-gray-800 tracking-wide mb-4 italic">${title}</h4>` : '';
+
+      if (mediaSrc.endsWith('.mp4')) {
+        mediaContainer.innerHTML = `
+          <div class="flex flex-col items-center justify-center w-full">
+            ${mediaTitleHtml}
+            <video controls autoplay class="max-w-full max-h-[60vh] rounded-2xl shadow-lg border border-gray-100">
+              <source src="${mediaSrc}" type="video/mp4">
+              Selaimesi ei tue videota.
+            </video>
+          </div>
+        `;
+      } else {
+        mediaContainer.innerHTML = `
+          <div class="flex flex-col items-center justify-center w-full">
+            ${mediaTitleHtml}
+            <img src="${mediaSrc}" alt="${title}" class="max-w-full max-h-[60vh] object-contain rounded-2xl shadow-lg border border-gray-100 transition-transform duration-1000" />
+          </div>
+        `;
+      }
+
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+
+    function closeProductModal() {
+      const modal = document.getElementById('product-modal');
+      const mediaContainer = document.getElementById('product-modal-media-container');
+
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+      mediaContainer.innerHTML = ''; // Tyhjentää sisällön ja pysäyttää videon toiston
+    }
+    // Glow pointer tracking for Hero Spotlight (Only on desktop)
+    const heroGlow = document.getElementById('glow-hero');
+    if (heroGlow && window.innerWidth >= 1024) {
+      document.addEventListener('pointermove', (e) => {
+        const { clientX, clientY } = e;
+        heroGlow.style.setProperty('--x', clientX.toFixed(2));
+        heroGlow.style.setProperty('--xp', (clientX / window.innerWidth).toFixed(2));
+        heroGlow.style.setProperty('--y', clientY.toFixed(2));
+        heroGlow.style.setProperty('--yp', (clientY / window.innerHeight).toFixed(2));
+      });
+    }
+  </script>
 </body>
 
 </html>
