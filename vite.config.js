@@ -7,6 +7,7 @@ export default defineConfig({
       input: {
         main: 'index.html',
         ymmarryksentie: 'ymmarryksentie.html',
+        innovaatiot: 'innovaatiot.html',
         mockup: 'mockup-studio.html',
       },
     },
