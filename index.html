@@ -715,21 +715,20 @@
         </div>
 
         <div class="space-y-6">
-          <!-- Osakeanti-nosto -->
+          <!-- Sijoittajauutisia-nosto -->
           <div
             class="bg-gradient-to-r from-brand-primary to-[#005a8f] p-6 sm:p-10 rounded-custom shadow-lg flex flex-col md:flex-row gap-8 items-center text-white transition-transform hover:-translate-y-1">
             <div class="flex-1">
               <div
                 class="inline-flex items-center px-4 py-1.5 rounded-full bg-white/20 text-white text-[10px] sm:text-xs font-bold uppercase tracking-widest mb-4">
                 Sijoittajille</div>
-              <h3 class="font-bold text-2xl sm:text-3xl mb-4 font-display">Osakeanti käynnissä 1.4.–30.4.2026</h3>
+              <h3 class="font-bold text-2xl sm:text-3xl mb-4 font-display">Sijoittajauutisia: Huhtikuun osakeanti ja jatkosuunnitelmat</h3>
               <p class="text-white/90 text-base sm:text-lg mb-6 leading-relaxed">
-                Kiihdytämme kasvua ja kansainvälistymistä. Avaamme rajoitetun ajan mahdollisuuden hypätä mukaan
-                tarinaamme ja tukea Ymmärryksen tie™ -hanketta.
+                Huhtikuun lopussa päättynyt osakeanti on edennyt hallituksen käsittelyyn. Olemme iloisia voidessamme kertoa, että annin myötä yhtiön osakaspohja on laajentunut onnistuneesti. Valmistelemme parhaillaan uutta osakeantia, joka on tarkoitus käynnistää joko kesäkuun tai elokuun alussa.
               </p>
               <a href="ymmarryksentie.html#sijoittajille"
                 class="inline-flex items-center bg-white text-brand-primary font-bold px-6 sm:px-8 py-3 sm:py-3.5 rounded-full hover:bg-gray-50 transition-all uppercase tracking-wide transform hover:scale-105 text-sm sm:text-base">
-                Lue lisää annista →
+                Lue koko katsaus →
               </a>
             </div>
           </div>
@@ -1007,7 +1006,7 @@
           <div class="w-20 h-1.5 bg-brand-primary mx-auto rounded-full"></div>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-6xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
           <!-- Card 1: Mikko Hurskainen -->
           <div class="relative">
             <div
@@ -1064,6 +1063,32 @@
                     Teknologiayritys</p>
                   <p class="text-brand-primary font-bold text-xs uppercase tracking-widest">Innovaatiokumppanuus &
                     3D-suunnittelu</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3: IKEA BIO Håkan -->
+          <div class="relative">
+            <div
+              class="glass-effect p-10 rounded-[2.5rem] border border-gray-100 shadow-xl relative z-10 h-full flex flex-col justify-between bg-white">
+              <div class="space-y-6">
+                <div class="text-brand-primary/20 text-6xl font-serif leading-none italic">&ldquo;</div>
+                <p class="text-gray-700 text-lg leading-relaxed italic font-medium">
+                  Siinä nyt ovat molemmat kannet. Pysyy hyvin vielä vaikka jouduit vähän pienentämään, ihan toimiva ratkaisu.
+                </p>
+                <div class="bg-gray-50 border border-gray-100 p-5 rounded-2xl">
+                  <p class="text-gray-600 text-sm font-medium leading-relaxed">
+                    <strong class="text-brand-dark block mb-1">Tausta:</strong> IKEA ei myy varaosia BIO-roskiksiin. 3D-tulostimme rikkoutuneen tilalle uuden kannen, jonka 5 mm pienennys sai sen istumaan jopa alkuperäistä paremmin.
+                  </p>
+                </div>
+              </div>
+
+              <div class="mt-12 flex items-center border-t border-gray-100 pt-8">
+                <div class="w-10 h-1 bg-brand-primary mr-4 rounded-full"></div>
+                <div>
+                  <p class="text-brand-dark font-black text-lg uppercase font-display tracking-tight">Håkan, Rovaniemi</p>
+                  <p class="text-brand-primary font-bold text-xs uppercase tracking-widest">3D-tulostettu varaosa</p>
                 </div>
               </div>
             </div>
@@ -1565,6 +1590,367 @@
     </div>
   </div>
   <!-- END: Product Modal -->
-</body>
 
+  <!-- BEGIN: Feedback Modal & Button -->
+  <!-- Floating Button -->
+  <button id="feedback-trigger" class="fixed bottom-6 right-6 z-[90] bg-white/90 backdrop-blur-md border border-gray-100 shadow-2xl rounded-full px-5 py-3 flex items-center gap-2 text-brand-primary font-bold hover:-translate-y-1 hover:bg-white hover:shadow-brand-primary/20 transition-all duration-300 group">
+    <svg class="w-5 h-5 group-hover:rotate-12 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
+    </svg>
+    Anna palautetta
+  </button>
+
+  <!-- Feedback Modal -->
+  <div id="feedback-modal" class="fixed inset-0 z-[100] hidden items-center justify-center p-4">
+    <div class="absolute inset-0 bg-brand-dark/80 backdrop-blur-sm transition-opacity opacity-0" id="feedback-backdrop"></div>
+    <div id="feedback-content" class="relative w-full max-w-lg bg-white rounded-3xl shadow-2xl overflow-hidden transform scale-95 opacity-0 transition-all duration-300">
+      
+      <!-- Success State (Hidden by default) -->
+      <div id="feedback-success" class="hidden flex-col items-center justify-center text-center p-8 w-full bg-white">
+        <div class="w-16 h-16 bg-green-100 text-green-500 rounded-full flex items-center justify-center mb-4 shadow-inner">
+          <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+        </div>
+        <h3 class="text-2xl font-black text-brand-dark mb-2 font-display uppercase tracking-tight">Kiitos palautteesta!</h3>
+        
+        <div class="w-full bg-gray-50 p-5 rounded-2xl border border-gray-100 text-left mt-6 mb-8">
+          <h4 class="text-xs font-bold text-gray-500 mb-4 uppercase tracking-widest text-center">Tilanne: palveleeko sivusto sijoittajien tiedontarvetta:</h4>
+          <div id="success-poll-results" class="flex flex-col gap-2">
+             <!-- JS will inject cloned bars here -->
+          </div>
+        </div>
+        
+        <button id="success-close-btn" type="button" class="w-full bg-brand-primary text-white font-bold py-4 rounded-xl shadow-lg hover:shadow-xl hover:bg-brand-dark transition-all uppercase tracking-widest text-sm">
+          SULJE IKKUNA
+        </button>
+      </div>
+
+      <div id="feedback-main-wrap" class="p-8">
+        <div class="flex justify-between items-center mb-6">
+          <div>
+            <h3 class="text-2xl font-black text-brand-dark font-display tracking-tight uppercase">Anna palautetta</h3>
+            <p class="text-sm text-gray-500 mt-1">Mielipiteesi on meille tärkeä.</p>
+          </div>
+          <button id="feedback-close" class="text-gray-400 hover:text-brand-primary transition-colors bg-gray-50 hover:bg-gray-100 p-2 rounded-full">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+          </button>
+        </div>
+
+        <form id="feedback-form" action="https://formspree.io/f/mkopbvrk" method="POST" class="space-y-6">
+          <input type="hidden" name="subject" value="UUSI SIVUSTOPALAUTE - Roboline">
+          <input type="hidden" name="_replyto" value="ei-vastausta@robolinegroup.fi">
+          
+          <!-- Q1 -->
+          <div>
+            <label class="block text-sm font-bold text-gray-700 mb-3">1. Millaisen kuvan sivustomme antaa Robolinen ammattimaisuudesta?</label>
+            <div class="flex justify-between gap-2" id="star-rating">
+              <!-- Star Radios (Rendered RTL for CSS sibling selector trick) -->
+              <div class="flex flex-row-reverse justify-end gap-1 w-full group/stars">
+                <input type="radio" id="star5" name="Ammattimaisuus" value="5 (Erittäin hyvä)" class="peer hidden" required />
+                <label for="star5" class="cursor-pointer text-gray-200 peer-checked:text-yellow-400 hover:text-yellow-400">
+                  <svg class="w-10 h-10 sm:w-12 sm:h-12" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                </label>
+                <input type="radio" id="star4" name="Ammattimaisuus" value="4 (Hyvä)" class="peer hidden" />
+                <label for="star4" class="cursor-pointer text-gray-200 peer-checked:text-yellow-400 hover:text-yellow-400">
+                  <svg class="w-10 h-10 sm:w-12 sm:h-12" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                </label>
+                <input type="radio" id="star3" name="Ammattimaisuus" value="3 (Kohtalainen)" class="peer hidden" />
+                <label for="star3" class="cursor-pointer text-gray-200 peer-checked:text-yellow-400 hover:text-yellow-400">
+                  <svg class="w-10 h-10 sm:w-12 sm:h-12" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                </label>
+                <input type="radio" id="star2" name="Ammattimaisuus" value="2 (Välttävä)" class="peer hidden" />
+                <label for="star2" class="cursor-pointer text-gray-200 peer-checked:text-yellow-400 hover:text-yellow-400">
+                  <svg class="w-10 h-10 sm:w-12 sm:h-12" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                </label>
+                <input type="radio" id="star1" name="Ammattimaisuus" value="1 (Heikko)" class="peer hidden" />
+                <label for="star1" class="cursor-pointer text-gray-200 peer-checked:text-yellow-400 hover:text-yellow-400">
+                  <svg class="w-10 h-10 sm:w-12 sm:h-12" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                </label>
+              </div>
+            </div>
+                     <!-- Q2 (Live Poll Simulated) -->
+          <div id="q2-poll-container">
+            <style>
+              .poll-radio:checked ~ .poll-content { color: #0b1a29; }
+              .poll-radio:checked ~ .poll-content .poll-circle { border-color: #0077b8; }
+              .poll-radio:checked ~ .poll-content .poll-dot { transform: scale(1); }
+            </style>
+            <label class="block text-sm font-bold text-gray-700 mb-3">2. Palveleeko sivusto mielestäsi sijoittajien tiedontarvetta?</label>
+            <div class="flex flex-col gap-2">
+              
+              <label class="cursor-pointer relative overflow-hidden rounded-xl border border-gray-200 hover:border-brand-primary/50 transition-colors bg-white group/poll">
+                <input type="radio" name="Sijoittajainformaatio" value="Kyllä" class="sr-only poll-radio" required>
+                <!-- Simulated Progress Bar -->
+                <div class="absolute left-0 top-0 bottom-0 bg-brand-primary/20 w-0 transition-all duration-1000 ease-out origin-left pointer-events-none" data-poll-bar></div>
+                <div class="poll-content relative z-10 p-3 flex justify-between items-center text-sm font-semibold text-gray-600 transition-colors pointer-events-none">
+                  <div class="flex items-center gap-3">
+                    <div class="poll-circle w-5 h-5 rounded-full border-2 border-gray-300 flex items-center justify-center transition-colors bg-white">
+                      <div class="poll-dot w-2.5 h-2.5 rounded-full bg-brand-primary scale-0 transition-transform"></div>
+                    </div>
+                    <span>Kyllä</span>
+                  </div>
+                  <span class="opacity-0 font-black text-brand-primary transition-all duration-500 delay-300 translate-x-4" data-poll-percent data-percent-value="68">68%</span>
+                </div>
+              </label>
+
+              <label class="cursor-pointer relative overflow-hidden rounded-xl border border-gray-200 hover:border-brand-primary/50 transition-colors bg-white group/poll">
+                <input type="radio" name="Sijoittajainformaatio" value="Ei" class="sr-only poll-radio">
+                <div class="absolute left-0 top-0 bottom-0 bg-brand-primary/20 w-0 transition-all duration-1000 ease-out origin-left pointer-events-none" data-poll-bar></div>
+                <div class="poll-content relative z-10 p-3 flex justify-between items-center text-sm font-semibold text-gray-600 transition-colors pointer-events-none">
+                  <div class="flex items-center gap-3">
+                    <div class="poll-circle w-5 h-5 rounded-full border-2 border-gray-300 flex items-center justify-center transition-colors bg-white">
+                      <div class="poll-dot w-2.5 h-2.5 rounded-full bg-brand-primary scale-0 transition-transform"></div>
+                    </div>
+                    <span>Ei</span>
+                  </div>
+                  <span class="opacity-0 font-black text-brand-primary transition-all duration-500 delay-300 translate-x-4" data-poll-percent data-percent-value="12">12%</span>
+                </div>
+              </label>
+
+              <label class="cursor-pointer relative overflow-hidden rounded-xl border border-gray-200 hover:border-brand-primary/50 transition-colors bg-white group/poll">
+                <input type="radio" name="Sijoittajainformaatio" value="En osaa sanoa" class="sr-only poll-radio">
+                <div class="absolute left-0 top-0 bottom-0 bg-brand-primary/20 w-0 transition-all duration-1000 ease-out origin-left pointer-events-none" data-poll-bar></div>
+                <div class="poll-content relative z-10 p-3 flex justify-between items-center text-sm font-semibold text-gray-600 transition-colors pointer-events-none">
+                  <div class="flex items-center gap-3">
+                    <div class="poll-circle w-5 h-5 rounded-full border-2 border-gray-300 flex items-center justify-center transition-colors bg-white">
+                      <div class="poll-dot w-2.5 h-2.5 rounded-full bg-brand-primary scale-0 transition-transform"></div>
+                    </div>
+                    <span>En osaa sanoa</span>
+                  </div>
+                  <span class="opacity-0 font-black text-brand-primary transition-all duration-500 delay-300 translate-x-4" data-poll-percent data-percent-value="20">20%</span>
+                </div>
+              </label>
+            </div>
+          </div>
+
+          <!-- Progressive Disclosure for Q3 & Submit -->
+          <div id="q3-section" class="hidden opacity-0 transition-all duration-700 translate-y-4 flex-col gap-6">
+            <!-- Q3 -->
+            <div>
+              <label for="palaute-teksti" class="block text-sm font-bold text-gray-700 mb-2">3. Mitä muuttaisit tai jäitkö kaipaamaan jotain? <span class="font-normal text-gray-400">(Vapaaehtoinen)</span></label>
+              <textarea id="palaute-teksti" name="Vapaa_sana" rows="3" class="w-full rounded-xl border-gray-200 shadow-sm focus:border-brand-primary focus:ring-brand-primary bg-gray-50 p-3 text-sm" placeholder="Kirjoita vapaa palautteesi tähän..."></textarea>
+            </div>
+
+            <button type="submit" id="feedback-submit" class="w-full bg-brand-primary text-white font-bold py-4 rounded-xl shadow-lg hover:shadow-xl hover:bg-brand-dark transition-all flex items-center justify-center uppercase tracking-widest text-sm">
+              Lähetä palaute
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const trigger = document.getElementById('feedback-trigger');
+      const modal = document.getElementById('feedback-modal');
+      const backdrop = document.getElementById('feedback-backdrop');
+      const content = document.getElementById('feedback-content');
+      const closeBtn = document.getElementById('feedback-close');
+      const form = document.getElementById('feedback-form');
+      const submitBtn = document.getElementById('feedback-submit');
+      const successView = document.getElementById('feedback-success');
+
+      const openModal = () => {
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+        // Trigger reflow
+        void modal.offsetWidth;
+        backdrop.classList.remove('opacity-0');
+        backdrop.classList.add('opacity-100');
+        content.classList.remove('scale-95', 'opacity-0');
+        content.classList.add('scale-100', 'opacity-100');
+        document.body.style.overflow = 'hidden';
+      };
+
+      const closeModal = () => {
+        backdrop.classList.remove('opacity-100');
+        backdrop.classList.add('opacity-0');
+        content.classList.remove('scale-100', 'opacity-100');
+        content.classList.add('scale-95', 'opacity-0');
+        
+        setTimeout(() => {
+          modal.classList.add('hidden');
+          modal.classList.remove('flex');
+          document.body.style.overflow = '';
+          
+          // Reset after close
+          setTimeout(() => {
+            successView.classList.add('hidden');
+            successView.classList.remove('flex');
+            const mainWrap = document.getElementById('feedback-main-wrap');
+            if (mainWrap) mainWrap.classList.remove('hidden');
+            form.reset();
+            
+            // Reset poll visually
+            const pollContainer = document.getElementById('q2-poll-container');
+            if (pollContainer) {
+              pollContainer.querySelectorAll('[data-poll-bar]').forEach(bar => bar.style.width = '0%');
+              pollContainer.querySelectorAll('[data-poll-percent]').forEach(p => {
+                p.classList.add('opacity-0', 'translate-x-4');
+                p.classList.remove('opacity-100', 'translate-x-0');
+              });
+            }
+            
+            // Reset Q3 visibility
+            const q3Section = document.getElementById('q3-section');
+            if (q3Section) {
+              q3Section.classList.add('hidden', 'opacity-0', 'translate-y-4');
+              q3Section.classList.remove('flex', 'opacity-100', 'translate-y-0');
+            }
+          }, 300);
+        }, 300);
+      };
+
+      if (trigger) trigger.addEventListener('click', openModal);
+      if (closeBtn) closeBtn.addEventListener('click', closeModal);
+      if (backdrop) backdrop.addEventListener('click', closeModal);
+
+      const successCloseBtn = document.getElementById('success-close-btn');
+      if (successCloseBtn) successCloseBtn.addEventListener('click', closeModal);
+
+      const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycby0wipKYM4OMf3CGhguavs9SjJbGNKLetHZYwICZqcRS-ZlDJCwxVqLg2F2boDwx2MgbA/exec';
+
+      if (form) {
+        form.addEventListener('submit', async (e) => {
+          e.preventDefault();
+          
+          // Optimistic UI - show sending state
+          const originalText = submitBtn.innerHTML;
+          submitBtn.innerHTML = '<svg class="animate-spin h-5 w-5 mr-3 border-b-2 border-white rounded-full inline" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg> Lähetetään...';
+          submitBtn.disabled = true;
+
+          try {
+            const formData = new FormData(form);
+            const tahdet = formData.get('Ammattimaisuus') || '';
+            const vastaus = formData.get('Sijoittajainformaatio') || '';
+            const teksti = formData.get('Vapaa_sana') || '';
+
+            // 1. Lähetä AINA Google Sheetiin kaikki sarakkeet
+            await fetch(GOOGLE_SCRIPT_URL, {
+                method: 'POST',
+                mode: 'no-cors',
+                body: JSON.stringify({ vastaus: vastaus, tahdet: tahdet, teksti: teksti }),
+                headers: { 'Content-Type': 'text/plain;charset=utf-8' }
+            });
+
+            // 2. Lähetä Formspreehen VAIN jos vapaa sana ei ole tyhjä
+            if (teksti.trim() !== '') {
+               await fetch(form.action, {
+                 method: form.method,
+                 body: formData,
+                 headers: { 'Accept': 'application/json' }
+               });
+            }
+
+            // Näytä Success View ja piilota varsinainen lomake
+            document.getElementById('feedback-main-wrap').classList.add('hidden');
+            successView.classList.remove('hidden');
+            successView.classList.add('flex');
+            
+            // Kopioi kyselyn tulokset onnistumisruutuun
+            const resultsContainer = document.getElementById('success-poll-results');
+            const localPollContainer = document.getElementById('q2-poll-container');
+            if (resultsContainer && localPollContainer) {
+              resultsContainer.innerHTML = '';
+              const options = localPollContainer.querySelectorAll('label.group\\/poll');
+              options.forEach(opt => {
+                const clone = opt.cloneNode(true);
+                clone.className = 'relative overflow-hidden rounded-xl bg-white border border-gray-100 mb-2 shadow-sm block w-full';
+                const radio = clone.querySelector('input');
+                if (radio) radio.remove();
+                
+                const percentText = clone.querySelector('[data-poll-percent]');
+                if (percentText) {
+                   percentText.classList.remove('opacity-0', 'translate-x-4');
+                   percentText.classList.add('opacity-100', 'translate-x-0');
+                }
+                resultsContainer.appendChild(clone);
+              });
+            }
+            
+            // Emme sulje enää automaattisesti, vaan käyttäjä painaa "Sulje ikkuna"
+            
+          } catch (error) {
+            alert('Pahoittelut, emme saaneet yhteyttä palvelimeen.');
+          } finally {
+            submitBtn.innerHTML = originalText;
+            submitBtn.disabled = false;
+          }
+        });
+      }
+
+      // Real Live Poll Logic for Q2
+      const pollRadios = document.querySelectorAll('.poll-radio');
+      const pollContainer = document.getElementById('q2-poll-container');
+      const q3Section = document.getElementById('q3-section');
+      
+      
+      let currentVotes = {
+        'Kyllä': 34,
+        'Ei': 6,
+        'En osaa sanoa': 10
+      };
+      
+      let hasVotedLocally = false;
+
+      // Hae äänet livenä, kun sivusto ladataan (tai modaali aukeaa)
+      fetch(GOOGLE_SCRIPT_URL)
+        .then(res => res.json())
+        .then(data => {
+          if (data && typeof data['Kyllä'] !== 'undefined') {
+            currentVotes = data; // Korvataan live-datalla
+          }
+        })
+        .catch(err => console.error('Virhe haettaessa ääniä:', err));
+
+      const updateVisuals = (votesObj) => {
+        let totalVotes = 0;
+        Object.keys(votesObj).forEach(key => totalVotes += votesObj[key]);
+        if(totalVotes === 0) totalVotes = 1; // Estetään nollalla jakaminen
+
+        const allOptions = pollContainer.querySelectorAll('label.group\\/poll');
+        allOptions.forEach(label => {
+          const input = label.querySelector('input');
+          const bar = label.querySelector('[data-poll-bar]');
+          const percentText = label.querySelector('[data-poll-percent]');
+          
+          if (bar && percentText && input) {
+            const inputValue = input.value;
+            const votes = votesObj[inputValue] || 0;
+            const percentage = Math.round((votes / totalVotes) * 100);
+            
+            bar.style.width = percentage + '%';
+            percentText.textContent = percentage + '%';
+            percentText.classList.remove('opacity-0', 'translate-x-4');
+            percentText.classList.add('opacity-100', 'translate-x-0');
+          }
+        });
+      };
+      
+      if (pollRadios.length > 0 && pollContainer) {
+        pollRadios.forEach(radio => {
+          radio.addEventListener('change', (e) => {
+            const selectedValue = e.target.value;
+            
+            // Päivitä UI heti jotta kokemus on salamannopea
+            const visualVotes = { ...currentVotes };
+            visualVotes[selectedValue]++;
+            updateVisuals(visualVotes);
+            
+            hasVotedLocally = true;
+            
+            // Progressive Disclosure: Näytä kysymys 3 ja Lähetä-nappi
+            if (q3Section && q3Section.classList.contains('hidden')) {
+              q3Section.classList.remove('hidden');
+              q3Section.classList.add('flex');
+              void q3Section.offsetWidth; // Trigger animation
+              q3Section.classList.remove('opacity-0', 'translate-y-4');
+              q3Section.classList.add('opacity-100', 'translate-y-0');
+            }
+          });
+        });
+      }
+    });
+  </script>
+</body>
 </html>
