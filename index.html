@@ -1977,9 +1977,14 @@
   <!-- BEGIN: Auction Modal -->
   <div id="auction-modal" class="fixed inset-0 z-[105] hidden items-center justify-center p-4 sm:p-8">
     <div id="auction-backdrop" class="absolute inset-0 bg-brand-dark/95 backdrop-blur-md transition-opacity opacity-0"></div>
-    <div id="auction-content" class="relative w-full max-w-5xl bg-white rounded-[2rem] overflow-hidden shadow-2xl flex flex-col lg:flex-row max-h-[95vh] lg:max-h-[85vh] transform scale-95 opacity-0 transition-all duration-300">
+    <div id="auction-content" class="relative w-full max-w-5xl bg-white rounded-[2rem] overflow-y-auto lg:overflow-hidden shadow-2xl flex flex-col lg:flex-row max-h-[95vh] lg:max-h-[85vh] transform scale-95 opacity-0 transition-all duration-300">
       
-      <div class="w-full lg:w-1/2 bg-gray-50 flex flex-col overflow-y-auto" style="scrollbar-width: thin;">
+      <!-- Close button -->
+      <button id="auction-close" class="fixed top-6 right-6 lg:absolute lg:top-6 lg:right-6 w-10 h-10 flex items-center justify-center rounded-full bg-white/80 backdrop-blur-md text-gray-500 hover:bg-gray-100 transition-colors z-[110] shadow-md">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+      </button>
+
+      <div class="w-full lg:w-1/2 bg-gray-50 flex flex-col lg:overflow-y-auto" style="scrollbar-width: thin;">
         <div class="relative w-full h-64 sm:h-80 bg-gray-200 flex-shrink-0 overflow-hidden group cursor-zoom-in" id="auction-img-trigger">
           <img src="assets/Marski1.webp" alt="Mannerheim taulu" class="w-full h-full object-cover object-[center_30%] transition-transform duration-700 group-hover:scale-105">
           <div class="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent"></div>
@@ -2029,10 +2034,7 @@
       </div>
 
       <!-- Form side -->
-      <div class="w-full lg:w-1/2 p-6 sm:p-10 flex flex-col justify-center bg-white relative border-t lg:border-t-0 lg:border-l border-gray-100 overflow-y-auto">
-        <button id="auction-close" class="absolute top-4 right-4 sm:top-6 sm:right-6 w-10 h-10 flex items-center justify-center rounded-full bg-gray-50 text-gray-500 hover:bg-gray-100 transition-colors z-10">
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
-        </button>
+      <div class="w-full lg:w-1/2 p-6 sm:p-10 flex flex-col justify-center bg-white relative border-t lg:border-t-0 lg:border-l border-gray-100 lg:overflow-y-auto">
 
         <div id="auction-form-container">
           <div class="mb-8 pr-12">
