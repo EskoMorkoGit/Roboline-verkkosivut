@@ -40,3 +40,43 @@ window.addEventListener('scroll', () => {
         nav.style.boxShadow = 'none';
     }
 });
+
+// Legal Modals Logic
+function openLegalModal(modalId, event) {
+    if (event) event.preventDefault();
+    const modal = document.getElementById(modalId);
+    if (!modal) return;
+    
+    // Prevent background scrolling
+    document.body.style.overflow = 'hidden';
+    
+    modal.classList.remove('hidden');
+    // Trigger reflow
+    void modal.offsetWidth;
+    
+    modal.classList.remove('opacity-0');
+    const content = modal.querySelector('div[id$="-content"]');
+    if (content) {
+        content.classList.remove('scale-95');
+        content.classList.add('scale-100');
+    }
+}
+
+function closeLegalModal(modalId) {
+    const modal = document.getElementById(modalId);
+    if (!modal) return;
+    
+    // Restore background scrolling
+    document.body.style.overflow = '';
+    
+    modal.classList.add('opacity-0');
+    const content = modal.querySelector('div[id$="-content"]');
+    if (content) {
+        content.classList.remove('scale-100');
+        content.classList.add('scale-95');
+    }
+    
+    setTimeout(() => {
+        modal.classList.add('hidden');
+    }, 300); // Matches transition duration
+}
